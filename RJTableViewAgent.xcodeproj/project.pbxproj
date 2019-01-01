@@ -1,0 +1,993 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9DD0EDA3844CC43E63E346B2 /* libPods-RJTableViewAgent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 155400EB1EE9128C81451002 /* libPods-RJTableViewAgent.a */; };
+		9F4D563F21D912C7004DB1C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D563D21D912C7004DB1C8 /* Main.storyboard */; };
+		9F4D564121D912C8004DB1C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D564021D912C8004DB1C8 /* Assets.xcassets */; };
+		9F4D564421D912C8004DB1C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D564221D912C8004DB1C8 /* LaunchScreen.storyboard */; };
+		9F4D564721D912C8004DB1C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D564621D912C8004DB1C8 /* main.m */; };
+		9F4D565121D912C8004DB1C8 /* RJTableViewAgentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D565021D912C8004DB1C8 /* RJTableViewAgentTests.m */; };
+		9F4D565C21D912C9004DB1C8 /* RJTableViewAgentUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D565B21D912C9004DB1C8 /* RJTableViewAgentUITests.m */; };
+		9F4D56C021D91394004DB1C8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D56BC21D91394004DB1C8 /* ViewController.m */; };
+		9F4D56C121D91394004DB1C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D56BD21D91394004DB1C8 /* AppDelegate.m */; };
+		9F4D579221D913F6004DB1C8 /* RJTableViewAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D575821D913F6004DB1C8 /* RJTableViewAgent.m */; };
+		9F4D57C621D91411004DB1C8 /* RJHTwoLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57AB21D9140F004DB1C8 /* RJHTwoLabelCell.m */; };
+		9F4D57C721D91411004DB1C8 /* RJButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57AD21D9140F004DB1C8 /* RJButtonCell.m */; };
+		9F4D57C821D91411004DB1C8 /* RJLabelButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57AF21D9140F004DB1C8 /* RJLabelButtonCell.m */; };
+		9F4D57C921D91411004DB1C8 /* RJCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57B021D9140F004DB1C8 /* RJCollectionCell.m */; };
+		9F4D57CA21D91411004DB1C8 /* RJCycleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57B121D9140F004DB1C8 /* RJCycleCell.m */; };
+		9F4D57CB21D91411004DB1C8 /* RJImageLabelButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57B421D9140F004DB1C8 /* RJImageLabelButtonCell.m */; };
+		9F4D57CC21D91411004DB1C8 /* RJLabelSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57B621D9140F004DB1C8 /* RJLabelSwitchCell.m */; };
+		9F4D57CD21D91411004DB1C8 /* RJLabelTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57B721D9140F004DB1C8 /* RJLabelTextFieldCell.m */; };
+		9F4D57CE21D91411004DB1C8 /* RJImageVTwoLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57B821D9140F004DB1C8 /* RJImageVTwoLabelCell.m */; };
+		9F4D57CF21D91411004DB1C8 /* RJChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57B921D91410004DB1C8 /* RJChooseCell.m */; };
+		9F4D57D021D91411004DB1C8 /* RJImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57BB21D91410004DB1C8 /* RJImageCell.m */; };
+		9F4D57D121D91411004DB1C8 /* RJImageLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57BE21D91410004DB1C8 /* RJImageLabelCell.m */; };
+		9F4D57D221D91411004DB1C8 /* RJTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57BF21D91410004DB1C8 /* RJTextViewCell.m */; };
+		9F4D57D321D91411004DB1C8 /* RJBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57C021D91410004DB1C8 /* RJBaseCell.m */; };
+		9F4D57D421D91411004DB1C8 /* RJImageVTwoLabelButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57C421D91411004DB1C8 /* RJImageVTwoLabelButtonCell.m */; };
+		9F4D57D521D91411004DB1C8 /* RJLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57C521D91411004DB1C8 /* RJLabelCell.m */; };
+		9F4D57FC21D9142D004DB1C8 /* RJBaseCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57D621D91429004DB1C8 /* RJBaseCellInfo.m */; };
+		9F4D57FD21D9142D004DB1C8 /* RJCustomCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57D721D9142A004DB1C8 /* RJCustomCellInfo.m */; };
+		9F4D57FE21D9142D004DB1C8 /* RJButtonCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57D821D9142A004DB1C8 /* RJButtonCellInfo.m */; };
+		9F4D57FF21D9142D004DB1C8 /* RJImageVTwoLabelCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57DA21D9142A004DB1C8 /* RJImageVTwoLabelCellInfo.m */; };
+		9F4D580021D9142D004DB1C8 /* RJImageLabelButtonCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57DB21D9142A004DB1C8 /* RJImageLabelButtonCellInfo.m */; };
+		9F4D580121D9142D004DB1C8 /* RJLabelButtonCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57DD21D9142A004DB1C8 /* RJLabelButtonCellInfo.m */; };
+		9F4D580221D9142D004DB1C8 /* RJLabelSectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57E721D9142B004DB1C8 /* RJLabelSectionInfo.m */; };
+		9F4D580321D9142D004DB1C8 /* RJLabelTextFieldCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57E821D9142B004DB1C8 /* RJLabelTextFieldCellInfo.m */; };
+		9F4D580421D9142D004DB1C8 /* RJChooseCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57EB21D9142B004DB1C8 /* RJChooseCellInfo.m */; };
+		9F4D580521D9142D004DB1C8 /* RJLabelCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57ED21D9142B004DB1C8 /* RJLabelCellInfo.m */; };
+		9F4D580621D9142D004DB1C8 /* RJCycleCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57EF21D9142C004DB1C8 /* RJCycleCellInfo.m */; };
+		9F4D580721D9142D004DB1C8 /* RJImageVTwoLabelButtonCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57F221D9142C004DB1C8 /* RJImageVTwoLabelButtonCellInfo.m */; };
+		9F4D580821D9142D004DB1C8 /* RJTextViewCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57F321D9142C004DB1C8 /* RJTextViewCellInfo.m */; };
+		9F4D580921D9142D004DB1C8 /* RJBaseSectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57F421D9142C004DB1C8 /* RJBaseSectionInfo.m */; };
+		9F4D580A21D9142D004DB1C8 /* RJImageCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57F521D9142C004DB1C8 /* RJImageCellInfo.m */; };
+		9F4D580B21D9142D004DB1C8 /* RJLabelSwitchCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57F621D9142C004DB1C8 /* RJLabelSwitchCellInfo.m */; };
+		9F4D580C21D9142D004DB1C8 /* RJImageLabelCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57F921D9142D004DB1C8 /* RJImageLabelCellInfo.m */; };
+		9F4D580D21D9142D004DB1C8 /* RJCollectionCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57FA21D9142D004DB1C8 /* RJCollectionCellInfo.m */; };
+		9F4D580E21D9142D004DB1C8 /* RJHTwoLabelCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57FB21D9142D004DB1C8 /* RJHTwoLabelCellInfo.m */; };
+		9F4D581121D9C7E0004DB1C8 /* RJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D581021D9C7DF004DB1C8 /* RJImage.m */; };
+		9F4D581421D9C9F7004DB1C8 /* UITableView+RJCellInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D581321D9C9F7004DB1C8 /* UITableView+RJCellInit.m */; };
+		9F4D581A21D9DE29004DB1C8 /* NSObject+RJObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D581921D9DE29004DB1C8 /* NSObject+RJObject.m */; };
+		9F4D582021D9E4D1004DB1C8 /* RJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D581F21D9E4D1004DB1C8 /* RJCGUtilities.m */; };
+		9F4D582421DA084F004DB1C8 /* RJImageCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D582321DA084E004DB1C8 /* RJImageCCell.m */; };
+		9F4D582721DA16C6004DB1C8 /* RJTableViewAgentConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D582621DA16C6004DB1C8 /* RJTableViewAgentConfig.m */; };
+		9F4D582A21DA3387004DB1C8 /* RJTextLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D582821DA3386004DB1C8 /* RJTextLimit.m */; };
+		9F4D582D21DA3EF1004DB1C8 /* UITextField+RJInputLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D582B21DA3EF0004DB1C8 /* UITextField+RJInputLimit.m */; };
+		9F4D583121DA7DD0004DB1C8 /* UIView+RJMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D583021DA7DCF004DB1C8 /* UIView+RJMBProgressHUD.m */; };
+		9F4D585921DBCA0A004DB1C8 /* rj_placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D585221DBCA09004DB1C8 /* rj_placeholderImage.png */; };
+		9F4D585A21DBCA0A004DB1C8 /* rj_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D585321DBCA09004DB1C8 /* rj_warning.png */; };
+		9F4D585B21DBCA0A004DB1C8 /* rj_github.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D585421DBCA09004DB1C8 /* rj_github.png */; };
+		9F4D585C21DBCA0A004DB1C8 /* rj_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D585521DBCA09004DB1C8 /* rj_check.png */; };
+		9F4D585D21DBCA0A004DB1C8 /* rj_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D585621DBCA0A004DB1C8 /* rj_close.png */; };
+		9F4D585E21DBCA0A004DB1C8 /* rj_github2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D585721DBCA0A004DB1C8 /* rj_github2.png */; };
+		9F4D585F21DBCA0A004DB1C8 /* rj_rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D585821DBCA0A004DB1C8 /* rj_rightArrow.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9F4D564D21D912C8004DB1C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F4D562C21D912C7004DB1C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F4D563321D912C7004DB1C8;
+			remoteInfo = RJTableViewAgent;
+		};
+		9F4D565821D912C9004DB1C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F4D562C21D912C7004DB1C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F4D563321D912C7004DB1C8;
+			remoteInfo = RJTableViewAgent;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		155400EB1EE9128C81451002 /* libPods-RJTableViewAgent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RJTableViewAgent.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6643AF9DBE5EDB616450007C /* Pods-RJTableViewAgent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RJTableViewAgent.release.xcconfig"; path = "Target Support Files/Pods-RJTableViewAgent/Pods-RJTableViewAgent.release.xcconfig"; sourceTree = "<group>"; };
+		7C267009E859E7AE4610B13D /* Pods-RJTableViewAgent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RJTableViewAgent.debug.xcconfig"; path = "Target Support Files/Pods-RJTableViewAgent/Pods-RJTableViewAgent.debug.xcconfig"; sourceTree = "<group>"; };
+		9F4D563421D912C7004DB1C8 /* RJTableViewAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RJTableViewAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F4D563E21D912C7004DB1C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9F4D564021D912C8004DB1C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9F4D564321D912C8004DB1C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9F4D564521D912C8004DB1C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F4D564621D912C8004DB1C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9F4D564C21D912C8004DB1C8 /* RJTableViewAgentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RJTableViewAgentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F4D565021D912C8004DB1C8 /* RJTableViewAgentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJTableViewAgentTests.m; sourceTree = "<group>"; };
+		9F4D565221D912C9004DB1C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F4D565721D912C9004DB1C8 /* RJTableViewAgentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RJTableViewAgentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F4D565B21D912C9004DB1C8 /* RJTableViewAgentUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJTableViewAgentUITests.m; sourceTree = "<group>"; };
+		9F4D565D21D912C9004DB1C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F4D56BC21D91394004DB1C8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9F4D56BD21D91394004DB1C8 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9F4D56BE21D91394004DB1C8 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9F4D56BF21D91394004DB1C8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9F4D573521D913F6004DB1C8 /* RJTableViewAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJTableViewAgent.h; sourceTree = "<group>"; };
+		9F4D575821D913F6004DB1C8 /* RJTableViewAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJTableViewAgent.m; sourceTree = "<group>"; };
+		9F4D57A621D9140E004DB1C8 /* RJImageVTwoLabelButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImageVTwoLabelButtonCell.h; sourceTree = "<group>"; };
+		9F4D57A721D9140E004DB1C8 /* RJImageVTwoLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImageVTwoLabelCell.h; sourceTree = "<group>"; };
+		9F4D57A821D9140F004DB1C8 /* RJBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJBaseCell.h; sourceTree = "<group>"; };
+		9F4D57A921D9140F004DB1C8 /* RJLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJLabelCell.h; sourceTree = "<group>"; };
+		9F4D57AA21D9140F004DB1C8 /* RJLabelTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJLabelTextFieldCell.h; sourceTree = "<group>"; };
+		9F4D57AB21D9140F004DB1C8 /* RJHTwoLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJHTwoLabelCell.m; sourceTree = "<group>"; };
+		9F4D57AC21D9140F004DB1C8 /* RJLabelSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJLabelSwitchCell.h; sourceTree = "<group>"; };
+		9F4D57AD21D9140F004DB1C8 /* RJButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJButtonCell.m; sourceTree = "<group>"; };
+		9F4D57AE21D9140F004DB1C8 /* RJButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJButtonCell.h; sourceTree = "<group>"; };
+		9F4D57AF21D9140F004DB1C8 /* RJLabelButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJLabelButtonCell.m; sourceTree = "<group>"; };
+		9F4D57B021D9140F004DB1C8 /* RJCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJCollectionCell.m; sourceTree = "<group>"; };
+		9F4D57B121D9140F004DB1C8 /* RJCycleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJCycleCell.m; sourceTree = "<group>"; };
+		9F4D57B221D9140F004DB1C8 /* RJTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJTextViewCell.h; sourceTree = "<group>"; };
+		9F4D57B321D9140F004DB1C8 /* RJImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImageCell.h; sourceTree = "<group>"; };
+		9F4D57B421D9140F004DB1C8 /* RJImageLabelButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageLabelButtonCell.m; sourceTree = "<group>"; };
+		9F4D57B521D9140F004DB1C8 /* RJImageLabelButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImageLabelButtonCell.h; sourceTree = "<group>"; };
+		9F4D57B621D9140F004DB1C8 /* RJLabelSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJLabelSwitchCell.m; sourceTree = "<group>"; };
+		9F4D57B721D9140F004DB1C8 /* RJLabelTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJLabelTextFieldCell.m; sourceTree = "<group>"; };
+		9F4D57B821D9140F004DB1C8 /* RJImageVTwoLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageVTwoLabelCell.m; sourceTree = "<group>"; };
+		9F4D57B921D91410004DB1C8 /* RJChooseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJChooseCell.m; sourceTree = "<group>"; };
+		9F4D57BA21D91410004DB1C8 /* RJImageLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImageLabelCell.h; sourceTree = "<group>"; };
+		9F4D57BB21D91410004DB1C8 /* RJImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageCell.m; sourceTree = "<group>"; };
+		9F4D57BC21D91410004DB1C8 /* RJLabelButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJLabelButtonCell.h; sourceTree = "<group>"; };
+		9F4D57BD21D91410004DB1C8 /* RJChooseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJChooseCell.h; sourceTree = "<group>"; };
+		9F4D57BE21D91410004DB1C8 /* RJImageLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageLabelCell.m; sourceTree = "<group>"; };
+		9F4D57BF21D91410004DB1C8 /* RJTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJTextViewCell.m; sourceTree = "<group>"; };
+		9F4D57C021D91410004DB1C8 /* RJBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJBaseCell.m; sourceTree = "<group>"; };
+		9F4D57C121D91410004DB1C8 /* RJHTwoLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJHTwoLabelCell.h; sourceTree = "<group>"; };
+		9F4D57C221D91410004DB1C8 /* RJCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJCollectionCell.h; sourceTree = "<group>"; };
+		9F4D57C321D91411004DB1C8 /* RJCycleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJCycleCell.h; sourceTree = "<group>"; };
+		9F4D57C421D91411004DB1C8 /* RJImageVTwoLabelButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageVTwoLabelButtonCell.m; sourceTree = "<group>"; };
+		9F4D57C521D91411004DB1C8 /* RJLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJLabelCell.m; sourceTree = "<group>"; };
+		9F4D57D621D91429004DB1C8 /* RJBaseCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJBaseCellInfo.m; sourceTree = "<group>"; };
+		9F4D57D721D9142A004DB1C8 /* RJCustomCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJCustomCellInfo.m; sourceTree = "<group>"; };
+		9F4D57D821D9142A004DB1C8 /* RJButtonCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJButtonCellInfo.m; sourceTree = "<group>"; };
+		9F4D57D921D9142A004DB1C8 /* RJImageVTwoLabelCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImageVTwoLabelCellInfo.h; sourceTree = "<group>"; };
+		9F4D57DA21D9142A004DB1C8 /* RJImageVTwoLabelCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageVTwoLabelCellInfo.m; sourceTree = "<group>"; };
+		9F4D57DB21D9142A004DB1C8 /* RJImageLabelButtonCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageLabelButtonCellInfo.m; sourceTree = "<group>"; };
+		9F4D57DC21D9142A004DB1C8 /* RJCollectionCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJCollectionCellInfo.h; sourceTree = "<group>"; };
+		9F4D57DD21D9142A004DB1C8 /* RJLabelButtonCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJLabelButtonCellInfo.m; sourceTree = "<group>"; };
+		9F4D57DE21D9142A004DB1C8 /* RJLabelSectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJLabelSectionInfo.h; sourceTree = "<group>"; };
+		9F4D57DF21D9142A004DB1C8 /* RJCycleCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJCycleCellInfo.h; sourceTree = "<group>"; };
+		9F4D57E021D9142A004DB1C8 /* RJHTwoLabelCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJHTwoLabelCellInfo.h; sourceTree = "<group>"; };
+		9F4D57E121D9142A004DB1C8 /* RJCustomCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJCustomCellInfo.h; sourceTree = "<group>"; };
+		9F4D57E221D9142A004DB1C8 /* RJImageVTwoLabelButtonCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImageVTwoLabelButtonCellInfo.h; sourceTree = "<group>"; };
+		9F4D57E321D9142A004DB1C8 /* RJButtonCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJButtonCellInfo.h; sourceTree = "<group>"; };
+		9F4D57E421D9142A004DB1C8 /* RJBaseSectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJBaseSectionInfo.h; sourceTree = "<group>"; };
+		9F4D57E521D9142A004DB1C8 /* RJBaseCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJBaseCellInfo.h; sourceTree = "<group>"; };
+		9F4D57E621D9142B004DB1C8 /* RJImageLabelCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImageLabelCellInfo.h; sourceTree = "<group>"; };
+		9F4D57E721D9142B004DB1C8 /* RJLabelSectionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJLabelSectionInfo.m; sourceTree = "<group>"; };
+		9F4D57E821D9142B004DB1C8 /* RJLabelTextFieldCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJLabelTextFieldCellInfo.m; sourceTree = "<group>"; };
+		9F4D57E921D9142B004DB1C8 /* RJLabelSwitchCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJLabelSwitchCellInfo.h; sourceTree = "<group>"; };
+		9F4D57EA21D9142B004DB1C8 /* RJLabelButtonCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJLabelButtonCellInfo.h; sourceTree = "<group>"; };
+		9F4D57EB21D9142B004DB1C8 /* RJChooseCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJChooseCellInfo.m; sourceTree = "<group>"; };
+		9F4D57EC21D9142B004DB1C8 /* RJLabelTextFieldCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJLabelTextFieldCellInfo.h; sourceTree = "<group>"; };
+		9F4D57ED21D9142B004DB1C8 /* RJLabelCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJLabelCellInfo.m; sourceTree = "<group>"; };
+		9F4D57EE21D9142B004DB1C8 /* RJImageCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImageCellInfo.h; sourceTree = "<group>"; };
+		9F4D57EF21D9142C004DB1C8 /* RJCycleCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJCycleCellInfo.m; sourceTree = "<group>"; };
+		9F4D57F021D9142C004DB1C8 /* RJImageLabelButtonCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImageLabelButtonCellInfo.h; sourceTree = "<group>"; };
+		9F4D57F121D9142C004DB1C8 /* RJChooseCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJChooseCellInfo.h; sourceTree = "<group>"; };
+		9F4D57F221D9142C004DB1C8 /* RJImageVTwoLabelButtonCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageVTwoLabelButtonCellInfo.m; sourceTree = "<group>"; };
+		9F4D57F321D9142C004DB1C8 /* RJTextViewCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJTextViewCellInfo.m; sourceTree = "<group>"; };
+		9F4D57F421D9142C004DB1C8 /* RJBaseSectionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJBaseSectionInfo.m; sourceTree = "<group>"; };
+		9F4D57F521D9142C004DB1C8 /* RJImageCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageCellInfo.m; sourceTree = "<group>"; };
+		9F4D57F621D9142C004DB1C8 /* RJLabelSwitchCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJLabelSwitchCellInfo.m; sourceTree = "<group>"; };
+		9F4D57F721D9142D004DB1C8 /* RJTextViewCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJTextViewCellInfo.h; sourceTree = "<group>"; };
+		9F4D57F821D9142D004DB1C8 /* RJLabelCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJLabelCellInfo.h; sourceTree = "<group>"; };
+		9F4D57F921D9142D004DB1C8 /* RJImageLabelCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageLabelCellInfo.m; sourceTree = "<group>"; };
+		9F4D57FA21D9142D004DB1C8 /* RJCollectionCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJCollectionCellInfo.m; sourceTree = "<group>"; };
+		9F4D57FB21D9142D004DB1C8 /* RJHTwoLabelCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJHTwoLabelCellInfo.m; sourceTree = "<group>"; };
+		9F4D580F21D9C7DF004DB1C8 /* RJImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJImage.h; sourceTree = "<group>"; };
+		9F4D581021D9C7DF004DB1C8 /* RJImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJImage.m; sourceTree = "<group>"; };
+		9F4D581221D9C9F6004DB1C8 /* UITableView+RJCellInit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+RJCellInit.h"; sourceTree = "<group>"; };
+		9F4D581321D9C9F7004DB1C8 /* UITableView+RJCellInit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RJCellInit.m"; sourceTree = "<group>"; };
+		9F4D581821D9DE29004DB1C8 /* NSObject+RJObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+RJObject.h"; sourceTree = "<group>"; };
+		9F4D581921D9DE29004DB1C8 /* NSObject+RJObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RJObject.m"; sourceTree = "<group>"; };
+		9F4D581E21D9E4D1004DB1C8 /* RJCGUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJCGUtilities.h; sourceTree = "<group>"; };
+		9F4D581F21D9E4D1004DB1C8 /* RJCGUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJCGUtilities.m; sourceTree = "<group>"; };
+		9F4D582121DA0559004DB1C8 /* RJGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJGlobal.h; sourceTree = "<group>"; };
+		9F4D582221DA084E004DB1C8 /* RJImageCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJImageCCell.h; sourceTree = "<group>"; };
+		9F4D582321DA084E004DB1C8 /* RJImageCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJImageCCell.m; sourceTree = "<group>"; };
+		9F4D582521DA16C6004DB1C8 /* RJTableViewAgentConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJTableViewAgentConfig.h; sourceTree = "<group>"; };
+		9F4D582621DA16C6004DB1C8 /* RJTableViewAgentConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJTableViewAgentConfig.m; sourceTree = "<group>"; };
+		9F4D582821DA3386004DB1C8 /* RJTextLimit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJTextLimit.m; sourceTree = "<group>"; };
+		9F4D582921DA3387004DB1C8 /* RJTextLimit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJTextLimit.h; sourceTree = "<group>"; };
+		9F4D582B21DA3EF0004DB1C8 /* UITextField+RJInputLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+RJInputLimit.m"; sourceTree = "<group>"; };
+		9F4D582C21DA3EF1004DB1C8 /* UITextField+RJInputLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+RJInputLimit.h"; sourceTree = "<group>"; };
+		9F4D582F21DA7DCF004DB1C8 /* UIView+RJMBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+RJMBProgressHUD.h"; sourceTree = "<group>"; };
+		9F4D583021DA7DCF004DB1C8 /* UIView+RJMBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RJMBProgressHUD.m"; sourceTree = "<group>"; };
+		9F4D585221DBCA09004DB1C8 /* rj_placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_placeholderImage.png; sourceTree = "<group>"; };
+		9F4D585321DBCA09004DB1C8 /* rj_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_warning.png; sourceTree = "<group>"; };
+		9F4D585421DBCA09004DB1C8 /* rj_github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_github.png; sourceTree = "<group>"; };
+		9F4D585521DBCA09004DB1C8 /* rj_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_check.png; sourceTree = "<group>"; };
+		9F4D585621DBCA0A004DB1C8 /* rj_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_close.png; sourceTree = "<group>"; };
+		9F4D585721DBCA0A004DB1C8 /* rj_github2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_github2.png; sourceTree = "<group>"; };
+		9F4D585821DBCA0A004DB1C8 /* rj_rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_rightArrow.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9F4D563121D912C7004DB1C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DD0EDA3844CC43E63E346B2 /* libPods-RJTableViewAgent.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4D564921D912C8004DB1C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4D565421D912C9004DB1C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		904D00E50313DD9BB5D67265 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				155400EB1EE9128C81451002 /* libPods-RJTableViewAgent.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F4D562B21D912C7004DB1C8 = {
+			isa = PBXGroup;
+			children = (
+				9F4D563621D912C7004DB1C8 /* RJTableViewAgent */,
+				9F4D564F21D912C8004DB1C8 /* RJTableViewAgentTests */,
+				9F4D565A21D912C9004DB1C8 /* RJTableViewAgentUITests */,
+				9F4D563521D912C7004DB1C8 /* Products */,
+				C035B52B66A54CCC290FAA4E /* Pods */,
+				904D00E50313DD9BB5D67265 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9F4D563521D912C7004DB1C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D563421D912C7004DB1C8 /* RJTableViewAgent.app */,
+				9F4D564C21D912C8004DB1C8 /* RJTableViewAgentTests.xctest */,
+				9F4D565721D912C9004DB1C8 /* RJTableViewAgentUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9F4D563621D912C7004DB1C8 /* RJTableViewAgent */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D573421D913F6004DB1C8 /* RJTableViewAgent */,
+				9F4D56BF21D91394004DB1C8 /* AppDelegate.h */,
+				9F4D56BD21D91394004DB1C8 /* AppDelegate.m */,
+				9F4D56BE21D91394004DB1C8 /* ViewController.h */,
+				9F4D56BC21D91394004DB1C8 /* ViewController.m */,
+				9F4D563D21D912C7004DB1C8 /* Main.storyboard */,
+				9F4D564021D912C8004DB1C8 /* Assets.xcassets */,
+				9F4D564221D912C8004DB1C8 /* LaunchScreen.storyboard */,
+				9F4D564521D912C8004DB1C8 /* Info.plist */,
+				9F4D564621D912C8004DB1C8 /* main.m */,
+			);
+			path = RJTableViewAgent;
+			sourceTree = "<group>";
+		};
+		9F4D564F21D912C8004DB1C8 /* RJTableViewAgentTests */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D565021D912C8004DB1C8 /* RJTableViewAgentTests.m */,
+				9F4D565221D912C9004DB1C8 /* Info.plist */,
+			);
+			path = RJTableViewAgentTests;
+			sourceTree = "<group>";
+		};
+		9F4D565A21D912C9004DB1C8 /* RJTableViewAgentUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D565B21D912C9004DB1C8 /* RJTableViewAgentUITests.m */,
+				9F4D565D21D912C9004DB1C8 /* Info.plist */,
+			);
+			path = RJTableViewAgentUITests;
+			sourceTree = "<group>";
+		};
+		9F4D573421D913F6004DB1C8 /* RJTableViewAgent */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D584321DBC9C2004DB1C8 /* Resource */,
+				9F4D573621D913F6004DB1C8 /* Cells */,
+				9F4D575921D913F6004DB1C8 /* Infos */,
+				9F4D573521D913F6004DB1C8 /* RJTableViewAgent.h */,
+				9F4D575821D913F6004DB1C8 /* RJTableViewAgent.m */,
+				9F4D582F21DA7DCF004DB1C8 /* UIView+RJMBProgressHUD.h */,
+				9F4D583021DA7DCF004DB1C8 /* UIView+RJMBProgressHUD.m */,
+				9F4D582C21DA3EF1004DB1C8 /* UITextField+RJInputLimit.h */,
+				9F4D582B21DA3EF0004DB1C8 /* UITextField+RJInputLimit.m */,
+				9F4D582921DA3387004DB1C8 /* RJTextLimit.h */,
+				9F4D582821DA3386004DB1C8 /* RJTextLimit.m */,
+				9F4D582121DA0559004DB1C8 /* RJGlobal.h */,
+				9F4D582521DA16C6004DB1C8 /* RJTableViewAgentConfig.h */,
+				9F4D582621DA16C6004DB1C8 /* RJTableViewAgentConfig.m */,
+				9F4D581E21D9E4D1004DB1C8 /* RJCGUtilities.h */,
+				9F4D581F21D9E4D1004DB1C8 /* RJCGUtilities.m */,
+				9F4D581821D9DE29004DB1C8 /* NSObject+RJObject.h */,
+				9F4D581921D9DE29004DB1C8 /* NSObject+RJObject.m */,
+				9F4D581221D9C9F6004DB1C8 /* UITableView+RJCellInit.h */,
+				9F4D581321D9C9F7004DB1C8 /* UITableView+RJCellInit.m */,
+				9F4D580F21D9C7DF004DB1C8 /* RJImage.h */,
+				9F4D581021D9C7DF004DB1C8 /* RJImage.m */,
+			);
+			path = RJTableViewAgent;
+			sourceTree = "<group>";
+		};
+		9F4D573621D913F6004DB1C8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D57A821D9140F004DB1C8 /* RJBaseCell.h */,
+				9F4D57C021D91410004DB1C8 /* RJBaseCell.m */,
+				9F4D57A921D9140F004DB1C8 /* RJLabelCell.h */,
+				9F4D57C521D91411004DB1C8 /* RJLabelCell.m */,
+				9F4D582221DA084E004DB1C8 /* RJImageCCell.h */,
+				9F4D582321DA084E004DB1C8 /* RJImageCCell.m */,
+				9F4D57AE21D9140F004DB1C8 /* RJButtonCell.h */,
+				9F4D57AD21D9140F004DB1C8 /* RJButtonCell.m */,
+				9F4D57BC21D91410004DB1C8 /* RJLabelButtonCell.h */,
+				9F4D57AF21D9140F004DB1C8 /* RJLabelButtonCell.m */,
+				9F4D57BD21D91410004DB1C8 /* RJChooseCell.h */,
+				9F4D57B921D91410004DB1C8 /* RJChooseCell.m */,
+				9F4D57C221D91410004DB1C8 /* RJCollectionCell.h */,
+				9F4D57B021D9140F004DB1C8 /* RJCollectionCell.m */,
+				9F4D57C321D91411004DB1C8 /* RJCycleCell.h */,
+				9F4D57B121D9140F004DB1C8 /* RJCycleCell.m */,
+				9F4D57C121D91410004DB1C8 /* RJHTwoLabelCell.h */,
+				9F4D57AB21D9140F004DB1C8 /* RJHTwoLabelCell.m */,
+				9F4D57B321D9140F004DB1C8 /* RJImageCell.h */,
+				9F4D57BB21D91410004DB1C8 /* RJImageCell.m */,
+				9F4D57B521D9140F004DB1C8 /* RJImageLabelButtonCell.h */,
+				9F4D57B421D9140F004DB1C8 /* RJImageLabelButtonCell.m */,
+				9F4D57BA21D91410004DB1C8 /* RJImageLabelCell.h */,
+				9F4D57BE21D91410004DB1C8 /* RJImageLabelCell.m */,
+				9F4D57A621D9140E004DB1C8 /* RJImageVTwoLabelButtonCell.h */,
+				9F4D57C421D91411004DB1C8 /* RJImageVTwoLabelButtonCell.m */,
+				9F4D57A721D9140E004DB1C8 /* RJImageVTwoLabelCell.h */,
+				9F4D57B821D9140F004DB1C8 /* RJImageVTwoLabelCell.m */,
+				9F4D57AA21D9140F004DB1C8 /* RJLabelTextFieldCell.h */,
+				9F4D57B721D9140F004DB1C8 /* RJLabelTextFieldCell.m */,
+				9F4D57B221D9140F004DB1C8 /* RJTextViewCell.h */,
+				9F4D57BF21D91410004DB1C8 /* RJTextViewCell.m */,
+				9F4D57AC21D9140F004DB1C8 /* RJLabelSwitchCell.h */,
+				9F4D57B621D9140F004DB1C8 /* RJLabelSwitchCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9F4D575921D913F6004DB1C8 /* Infos */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D57E521D9142A004DB1C8 /* RJBaseCellInfo.h */,
+				9F4D57D621D91429004DB1C8 /* RJBaseCellInfo.m */,
+				9F4D57E421D9142A004DB1C8 /* RJBaseSectionInfo.h */,
+				9F4D57F421D9142C004DB1C8 /* RJBaseSectionInfo.m */,
+				9F4D57E321D9142A004DB1C8 /* RJButtonCellInfo.h */,
+				9F4D57D821D9142A004DB1C8 /* RJButtonCellInfo.m */,
+				9F4D57EA21D9142B004DB1C8 /* RJLabelButtonCellInfo.h */,
+				9F4D57DD21D9142A004DB1C8 /* RJLabelButtonCellInfo.m */,
+				9F4D57F121D9142C004DB1C8 /* RJChooseCellInfo.h */,
+				9F4D57EB21D9142B004DB1C8 /* RJChooseCellInfo.m */,
+				9F4D57DC21D9142A004DB1C8 /* RJCollectionCellInfo.h */,
+				9F4D57FA21D9142D004DB1C8 /* RJCollectionCellInfo.m */,
+				9F4D57E121D9142A004DB1C8 /* RJCustomCellInfo.h */,
+				9F4D57D721D9142A004DB1C8 /* RJCustomCellInfo.m */,
+				9F4D57DF21D9142A004DB1C8 /* RJCycleCellInfo.h */,
+				9F4D57EF21D9142C004DB1C8 /* RJCycleCellInfo.m */,
+				9F4D57E021D9142A004DB1C8 /* RJHTwoLabelCellInfo.h */,
+				9F4D57FB21D9142D004DB1C8 /* RJHTwoLabelCellInfo.m */,
+				9F4D57EE21D9142B004DB1C8 /* RJImageCellInfo.h */,
+				9F4D57F521D9142C004DB1C8 /* RJImageCellInfo.m */,
+				9F4D57F021D9142C004DB1C8 /* RJImageLabelButtonCellInfo.h */,
+				9F4D57DB21D9142A004DB1C8 /* RJImageLabelButtonCellInfo.m */,
+				9F4D57E621D9142B004DB1C8 /* RJImageLabelCellInfo.h */,
+				9F4D57F921D9142D004DB1C8 /* RJImageLabelCellInfo.m */,
+				9F4D57E221D9142A004DB1C8 /* RJImageVTwoLabelButtonCellInfo.h */,
+				9F4D57F221D9142C004DB1C8 /* RJImageVTwoLabelButtonCellInfo.m */,
+				9F4D57D921D9142A004DB1C8 /* RJImageVTwoLabelCellInfo.h */,
+				9F4D57DA21D9142A004DB1C8 /* RJImageVTwoLabelCellInfo.m */,
+				9F4D57F821D9142D004DB1C8 /* RJLabelCellInfo.h */,
+				9F4D57ED21D9142B004DB1C8 /* RJLabelCellInfo.m */,
+				9F4D57DE21D9142A004DB1C8 /* RJLabelSectionInfo.h */,
+				9F4D57E721D9142B004DB1C8 /* RJLabelSectionInfo.m */,
+				9F4D57E921D9142B004DB1C8 /* RJLabelSwitchCellInfo.h */,
+				9F4D57F621D9142C004DB1C8 /* RJLabelSwitchCellInfo.m */,
+				9F4D57EC21D9142B004DB1C8 /* RJLabelTextFieldCellInfo.h */,
+				9F4D57E821D9142B004DB1C8 /* RJLabelTextFieldCellInfo.m */,
+				9F4D57F721D9142D004DB1C8 /* RJTextViewCellInfo.h */,
+				9F4D57F321D9142C004DB1C8 /* RJTextViewCellInfo.m */,
+			);
+			path = Infos;
+			sourceTree = "<group>";
+		};
+		9F4D584321DBC9C2004DB1C8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D585521DBCA09004DB1C8 /* rj_check.png */,
+				9F4D585621DBCA0A004DB1C8 /* rj_close.png */,
+				9F4D585421DBCA09004DB1C8 /* rj_github.png */,
+				9F4D585721DBCA0A004DB1C8 /* rj_github2.png */,
+				9F4D585221DBCA09004DB1C8 /* rj_placeholderImage.png */,
+				9F4D585821DBCA0A004DB1C8 /* rj_rightArrow.png */,
+				9F4D585321DBCA09004DB1C8 /* rj_warning.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		C035B52B66A54CCC290FAA4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C267009E859E7AE4610B13D /* Pods-RJTableViewAgent.debug.xcconfig */,
+				6643AF9DBE5EDB616450007C /* Pods-RJTableViewAgent.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9F4D563321D912C7004DB1C8 /* RJTableViewAgent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F4D566021D912C9004DB1C8 /* Build configuration list for PBXNativeTarget "RJTableViewAgent" */;
+			buildPhases = (
+				3A4B3D6E2810646827B90E33 /* [CP] Check Pods Manifest.lock */,
+				9F4D563021D912C7004DB1C8 /* Sources */,
+				9F4D563121D912C7004DB1C8 /* Frameworks */,
+				9F4D563221D912C7004DB1C8 /* Resources */,
+				1B243D2C52F6F4B565BDAC79 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RJTableViewAgent;
+			productName = RJTableViewAgent;
+			productReference = 9F4D563421D912C7004DB1C8 /* RJTableViewAgent.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9F4D564B21D912C8004DB1C8 /* RJTableViewAgentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F4D566321D912C9004DB1C8 /* Build configuration list for PBXNativeTarget "RJTableViewAgentTests" */;
+			buildPhases = (
+				9F4D564821D912C8004DB1C8 /* Sources */,
+				9F4D564921D912C8004DB1C8 /* Frameworks */,
+				9F4D564A21D912C8004DB1C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F4D564E21D912C8004DB1C8 /* PBXTargetDependency */,
+			);
+			name = RJTableViewAgentTests;
+			productName = RJTableViewAgentTests;
+			productReference = 9F4D564C21D912C8004DB1C8 /* RJTableViewAgentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9F4D565621D912C9004DB1C8 /* RJTableViewAgentUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F4D566621D912C9004DB1C8 /* Build configuration list for PBXNativeTarget "RJTableViewAgentUITests" */;
+			buildPhases = (
+				9F4D565321D912C9004DB1C8 /* Sources */,
+				9F4D565421D912C9004DB1C8 /* Frameworks */,
+				9F4D565521D912C9004DB1C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F4D565921D912C9004DB1C8 /* PBXTargetDependency */,
+			);
+			name = RJTableViewAgentUITests;
+			productName = RJTableViewAgentUITests;
+			productReference = 9F4D565721D912C9004DB1C8 /* RJTableViewAgentUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9F4D562C21D912C7004DB1C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = shenguanjiejie;
+				TargetAttributes = {
+					9F4D563321D912C7004DB1C8 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					9F4D564B21D912C8004DB1C8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 9F4D563321D912C7004DB1C8;
+					};
+					9F4D565621D912C9004DB1C8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 9F4D563321D912C7004DB1C8;
+					};
+				};
+			};
+			buildConfigurationList = 9F4D562F21D912C7004DB1C8 /* Build configuration list for PBXProject "RJTableViewAgent" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9F4D562B21D912C7004DB1C8;
+			productRefGroup = 9F4D563521D912C7004DB1C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F4D563321D912C7004DB1C8 /* RJTableViewAgent */,
+				9F4D564B21D912C8004DB1C8 /* RJTableViewAgentTests */,
+				9F4D565621D912C9004DB1C8 /* RJTableViewAgentUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9F4D563221D912C7004DB1C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4D585E21DBCA0A004DB1C8 /* rj_github2.png in Resources */,
+				9F4D564421D912C8004DB1C8 /* LaunchScreen.storyboard in Resources */,
+				9F4D585C21DBCA0A004DB1C8 /* rj_check.png in Resources */,
+				9F4D564121D912C8004DB1C8 /* Assets.xcassets in Resources */,
+				9F4D585B21DBCA0A004DB1C8 /* rj_github.png in Resources */,
+				9F4D585D21DBCA0A004DB1C8 /* rj_close.png in Resources */,
+				9F4D563F21D912C7004DB1C8 /* Main.storyboard in Resources */,
+				9F4D585921DBCA0A004DB1C8 /* rj_placeholderImage.png in Resources */,
+				9F4D585F21DBCA0A004DB1C8 /* rj_rightArrow.png in Resources */,
+				9F4D585A21DBCA0A004DB1C8 /* rj_warning.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4D564A21D912C8004DB1C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4D565521D912C9004DB1C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B243D2C52F6F4B565BDAC79 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RJTableViewAgent/Pods-RJTableViewAgent-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/YBImageBrowser/YBImageBrowser/YBImageBrowser.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YBImageBrowser.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RJTableViewAgent/Pods-RJTableViewAgent-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A4B3D6E2810646827B90E33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RJTableViewAgent-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9F4D563021D912C7004DB1C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4D580221D9142D004DB1C8 /* RJLabelSectionInfo.m in Sources */,
+				9F4D580921D9142D004DB1C8 /* RJBaseSectionInfo.m in Sources */,
+				9F4D57D321D91411004DB1C8 /* RJBaseCell.m in Sources */,
+				9F4D580D21D9142D004DB1C8 /* RJCollectionCellInfo.m in Sources */,
+				9F4D57FE21D9142D004DB1C8 /* RJButtonCellInfo.m in Sources */,
+				9F4D57FF21D9142D004DB1C8 /* RJImageVTwoLabelCellInfo.m in Sources */,
+				9F4D580621D9142D004DB1C8 /* RJCycleCellInfo.m in Sources */,
+				9F4D57D121D91411004DB1C8 /* RJImageLabelCell.m in Sources */,
+				9F4D57FC21D9142D004DB1C8 /* RJBaseCellInfo.m in Sources */,
+				9F4D57C921D91411004DB1C8 /* RJCollectionCell.m in Sources */,
+				9F4D580E21D9142D004DB1C8 /* RJHTwoLabelCellInfo.m in Sources */,
+				9F4D582721DA16C6004DB1C8 /* RJTableViewAgentConfig.m in Sources */,
+				9F4D57D421D91411004DB1C8 /* RJImageVTwoLabelButtonCell.m in Sources */,
+				9F4D56C021D91394004DB1C8 /* ViewController.m in Sources */,
+				9F4D580A21D9142D004DB1C8 /* RJImageCellInfo.m in Sources */,
+				9F4D57CC21D91411004DB1C8 /* RJLabelSwitchCell.m in Sources */,
+				9F4D581421D9C9F7004DB1C8 /* UITableView+RJCellInit.m in Sources */,
+				9F4D57D221D91411004DB1C8 /* RJTextViewCell.m in Sources */,
+				9F4D582A21DA3387004DB1C8 /* RJTextLimit.m in Sources */,
+				9F4D57C821D91411004DB1C8 /* RJLabelButtonCell.m in Sources */,
+				9F4D564721D912C8004DB1C8 /* main.m in Sources */,
+				9F4D581121D9C7E0004DB1C8 /* RJImage.m in Sources */,
+				9F4D57CB21D91411004DB1C8 /* RJImageLabelButtonCell.m in Sources */,
+				9F4D57C621D91411004DB1C8 /* RJHTwoLabelCell.m in Sources */,
+				9F4D57CD21D91411004DB1C8 /* RJLabelTextFieldCell.m in Sources */,
+				9F4D57CF21D91411004DB1C8 /* RJChooseCell.m in Sources */,
+				9F4D580321D9142D004DB1C8 /* RJLabelTextFieldCellInfo.m in Sources */,
+				9F4D580B21D9142D004DB1C8 /* RJLabelSwitchCellInfo.m in Sources */,
+				9F4D57D021D91411004DB1C8 /* RJImageCell.m in Sources */,
+				9F4D582421DA084F004DB1C8 /* RJImageCCell.m in Sources */,
+				9F4D580021D9142D004DB1C8 /* RJImageLabelButtonCellInfo.m in Sources */,
+				9F4D582021D9E4D1004DB1C8 /* RJCGUtilities.m in Sources */,
+				9F4D580C21D9142D004DB1C8 /* RJImageLabelCellInfo.m in Sources */,
+				9F4D580821D9142D004DB1C8 /* RJTextViewCellInfo.m in Sources */,
+				9F4D580421D9142D004DB1C8 /* RJChooseCellInfo.m in Sources */,
+				9F4D579221D913F6004DB1C8 /* RJTableViewAgent.m in Sources */,
+				9F4D57D521D91411004DB1C8 /* RJLabelCell.m in Sources */,
+				9F4D580521D9142D004DB1C8 /* RJLabelCellInfo.m in Sources */,
+				9F4D57CE21D91411004DB1C8 /* RJImageVTwoLabelCell.m in Sources */,
+				9F4D56C121D91394004DB1C8 /* AppDelegate.m in Sources */,
+				9F4D57C721D91411004DB1C8 /* RJButtonCell.m in Sources */,
+				9F4D583121DA7DD0004DB1C8 /* UIView+RJMBProgressHUD.m in Sources */,
+				9F4D57CA21D91411004DB1C8 /* RJCycleCell.m in Sources */,
+				9F4D580121D9142D004DB1C8 /* RJLabelButtonCellInfo.m in Sources */,
+				9F4D582D21DA3EF1004DB1C8 /* UITextField+RJInputLimit.m in Sources */,
+				9F4D581A21D9DE29004DB1C8 /* NSObject+RJObject.m in Sources */,
+				9F4D580721D9142D004DB1C8 /* RJImageVTwoLabelButtonCellInfo.m in Sources */,
+				9F4D57FD21D9142D004DB1C8 /* RJCustomCellInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4D564821D912C8004DB1C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4D565121D912C8004DB1C8 /* RJTableViewAgentTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4D565321D912C9004DB1C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4D565C21D912C9004DB1C8 /* RJTableViewAgentUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F4D564E21D912C8004DB1C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F4D563321D912C7004DB1C8 /* RJTableViewAgent */;
+			targetProxy = 9F4D564D21D912C8004DB1C8 /* PBXContainerItemProxy */;
+		};
+		9F4D565921D912C9004DB1C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F4D563321D912C7004DB1C8 /* RJTableViewAgent */;
+			targetProxy = 9F4D565821D912C9004DB1C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9F4D563D21D912C7004DB1C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F4D563E21D912C7004DB1C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9F4D564221D912C8004DB1C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F4D564321D912C8004DB1C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9F4D565E21D912C9004DB1C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9F4D565F21D912C9004DB1C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9F4D566121D912C9004DB1C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C267009E859E7AE4610B13D /* Pods-RJTableViewAgent.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YVL7699HA5;
+				INFOPLIST_FILE = RJTableViewAgent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = shenguanjiejie.RJTableViewAgent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9F4D566221D912C9004DB1C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6643AF9DBE5EDB616450007C /* Pods-RJTableViewAgent.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YVL7699HA5;
+				INFOPLIST_FILE = RJTableViewAgent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = shenguanjiejie.RJTableViewAgent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9F4D566421D912C9004DB1C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YVL7699HA5;
+				INFOPLIST_FILE = RJTableViewAgentTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = shenguanjiejie.RJTableViewAgentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RJTableViewAgent.app/RJTableViewAgent";
+			};
+			name = Debug;
+		};
+		9F4D566521D912C9004DB1C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YVL7699HA5;
+				INFOPLIST_FILE = RJTableViewAgentTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = shenguanjiejie.RJTableViewAgentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RJTableViewAgent.app/RJTableViewAgent";
+			};
+			name = Release;
+		};
+		9F4D566721D912C9004DB1C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YVL7699HA5;
+				INFOPLIST_FILE = RJTableViewAgentUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = shenguanjiejie.RJTableViewAgentUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RJTableViewAgent;
+			};
+			name = Debug;
+		};
+		9F4D566821D912C9004DB1C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YVL7699HA5;
+				INFOPLIST_FILE = RJTableViewAgentUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = shenguanjiejie.RJTableViewAgentUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RJTableViewAgent;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9F4D562F21D912C7004DB1C8 /* Build configuration list for PBXProject "RJTableViewAgent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F4D565E21D912C9004DB1C8 /* Debug */,
+				9F4D565F21D912C9004DB1C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F4D566021D912C9004DB1C8 /* Build configuration list for PBXNativeTarget "RJTableViewAgent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F4D566121D912C9004DB1C8 /* Debug */,
+				9F4D566221D912C9004DB1C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F4D566321D912C9004DB1C8 /* Build configuration list for PBXNativeTarget "RJTableViewAgentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F4D566421D912C9004DB1C8 /* Debug */,
+				9F4D566521D912C9004DB1C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F4D566621D912C9004DB1C8 /* Build configuration list for PBXNativeTarget "RJTableViewAgentUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F4D566721D912C9004DB1C8 /* Debug */,
+				9F4D566821D912C9004DB1C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9F4D562C21D912C7004DB1C8 /* Project object */;
+}

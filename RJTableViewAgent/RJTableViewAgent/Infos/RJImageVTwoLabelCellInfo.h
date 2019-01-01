@@ -1,0 +1,27 @@
+//
+//  RJImageVTwoLabelCellInfo.h
+//  RJTableViewAgent
+//
+//  Created by shenruijie on 2018/12/30.
+//  Copyright © 2018年 shenguanjiejie. All rights reserved.
+//
+
+#import "RJImageLabelCellInfo.h"
+
+@interface RJImageVTwoLabelCellInfo : RJImageLabelCellInfo
+
+@property (nonatomic, copy) NSString *detailText;
+
+@property (nonatomic, strong) UIColor *detailTextColor;
+
+@property (nonatomic, strong) UIFont *detailFont;
+
+@property (nonatomic, strong) NSAttributedString *detailAttributeString;
+
+@property (nonatomic, assign) NSTextAlignment detailTextAligment;
+
+@property (nonatomic, assign) CGFloat twoLabelVInterval;
+
+- (instancetype)initWithIndexPath:(NSIndexPath *)indexPath text:(NSString *)text font:(UIFont *)font detailText:(NSString *)detailText detailFont:(UIFont *)detailFont image:(id)image imageSize:(CGSize)imageSize;
+
+@end
