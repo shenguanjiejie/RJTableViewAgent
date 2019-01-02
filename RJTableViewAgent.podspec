@@ -9,7 +9,7 @@ s.author             = { "shenguanjiejie" => "835166018@qq.com" }
 s.social_media_url   = "https://github.com/shenguanjiejie"
 s.platform     = :ios, "8.0"
 s.source       = { :git => "https://github.com/shenguanjiejie/RJTableViewAgent.git", :tag => s.version }
-spec.source_files  = "RJTableViewAgent/RJTableViewAgent/*.{h,m}"
+s.source_files  = "RJTableViewAgent/RJTableViewAgent/*.{h,m}"
 
 s.dependency 'SDWebImage'
 s.dependency 'RJVFL'
