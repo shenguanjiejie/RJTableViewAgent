@@ -40,7 +40,7 @@ s.dependency "RJVFL"
 s.dependency "YYText"
 s.dependency "TYCyclePagerView"
 s.dependency "DZNEmptyDataSet"
-s.dependency 'UITextView+Placeholder', :podspec =>'https://raw.githubusercontent.com/shenguanjiejie/UITextView-Placeholder/master/UITextView%2BPlaceholder.podspec'
+s.dependency 'UITextView+Placeholder'
 s.dependency "YBImageBrowser"
 s.dependency "IQKeyboardManager"
 s.dependency "MBProgressHUD"
