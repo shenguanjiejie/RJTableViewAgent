@@ -6,8 +6,8 @@
 //  Copyright © 2018 shenguanjiejie. All rights reserved.
 //
 
-#ifndef RJGlobal_h
-#define RJGlobal_h
+#ifndef RJTableViewAgentMacros_h
+#define RJTableViewAgentMacros_h
 
 #define kRJIsiPhone           ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 #define kRJIsSmalliPhone  (kRJIsiPhone && kRJScreenHeight <= 667.0)

@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "RJTableViewAgentConfig.h"
-#import "RJGlobal.h"
+#import "RJTableViewAgentMacros.h"
 @interface AppDelegate ()
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "RJTextViewCell.h"
-#import "UITextView+PlaceHolder.h"
+#import "UITextView+RJPlaceholder.h"
 
 
 @interface RJTextViewCell()

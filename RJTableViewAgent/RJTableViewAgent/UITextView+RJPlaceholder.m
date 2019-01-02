@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 #import <objc/runtime.h>
-#import "UITextView+Placeholder.h"
+#import "UITextView+RJPlaceholder.h"
 
 static const void *kTextViewInputLimitMaxLength = &kTextViewInputLimitMaxLength;
 

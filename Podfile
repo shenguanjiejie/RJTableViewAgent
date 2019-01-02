@@ -8,7 +8,6 @@ target “RJTableViewAgent” do
    pod 'YYText'
    pod 'TYCyclePagerView'
    pod 'DZNEmptyDataSet'
-   pod 'UITextView+Placeholder', :podspec =>'https://raw.githubusercontent.com/shenguanjiejie/UITextView-Placeholder/master/UITextView%2BPlaceholder.podspec'
    pod 'YBImageBrowser'
    pod 'IQKeyboardManager'
    pod 'MBProgressHUD'

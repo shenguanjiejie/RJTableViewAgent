@@ -68,6 +68,7 @@
 		9F4D586421DC7543004DB1C8 /* rj_placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D586121DC7543004DB1C8 /* rj_placeholderImage.png */; };
 		9F4D586521DC7543004DB1C8 /* rj_github.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D586221DC7543004DB1C8 /* rj_github.png */; };
 		9F4D586621DC7543004DB1C8 /* rj_github2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D586321DC7543004DB1C8 /* rj_github2.png */; };
+		9F4D586921DC90BF004DB1C8 /* UITextView+RJPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D586721DC90BF004DB1C8 /* UITextView+RJPlaceholder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,7 +188,7 @@
 		9F4D581921D9DE29004DB1C8 /* NSObject+RJObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RJObject.m"; sourceTree = "<group>"; };
 		9F4D581E21D9E4D1004DB1C8 /* RJCGUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJCGUtilities.h; sourceTree = "<group>"; };
 		9F4D581F21D9E4D1004DB1C8 /* RJCGUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJCGUtilities.m; sourceTree = "<group>"; };
-		9F4D582121DA0559004DB1C8 /* RJGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJGlobal.h; sourceTree = "<group>"; };
+		9F4D582121DA0559004DB1C8 /* RJTableViewAgentMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJTableViewAgentMacros.h; sourceTree = "<group>"; };
 		9F4D582221DA084E004DB1C8 /* RJImageCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJImageCCell.h; sourceTree = "<group>"; };
 		9F4D582321DA084E004DB1C8 /* RJImageCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJImageCCell.m; sourceTree = "<group>"; };
 		9F4D582521DA16C6004DB1C8 /* RJTableViewAgentConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJTableViewAgentConfig.h; sourceTree = "<group>"; };
@@ -205,6 +206,8 @@
 		9F4D586121DC7543004DB1C8 /* rj_placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_placeholderImage.png; sourceTree = "<group>"; };
 		9F4D586221DC7543004DB1C8 /* rj_github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_github.png; sourceTree = "<group>"; };
 		9F4D586321DC7543004DB1C8 /* rj_github2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_github2.png; sourceTree = "<group>"; };
+		9F4D586721DC90BF004DB1C8 /* UITextView+RJPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+RJPlaceholder.m"; sourceTree = "<group>"; };
+		9F4D586821DC90BF004DB1C8 /* UITextView+RJPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+RJPlaceholder.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,7 +316,9 @@
 				9F4D582B21DA3EF0004DB1C8 /* UITextField+RJInputLimit.m */,
 				9F4D582921DA3387004DB1C8 /* RJTextLimit.h */,
 				9F4D582821DA3386004DB1C8 /* RJTextLimit.m */,
-				9F4D582121DA0559004DB1C8 /* RJGlobal.h */,
+				9F4D586821DC90BF004DB1C8 /* UITextView+RJPlaceholder.h */,
+				9F4D586721DC90BF004DB1C8 /* UITextView+RJPlaceholder.m */,
+				9F4D582121DA0559004DB1C8 /* RJTableViewAgentMacros.h */,
 				9F4D582521DA16C6004DB1C8 /* RJTableViewAgentConfig.h */,
 				9F4D582621DA16C6004DB1C8 /* RJTableViewAgentConfig.m */,
 				9F4D581E21D9E4D1004DB1C8 /* RJCGUtilities.h */,
@@ -675,6 +680,7 @@
 				9F4D57C721D91411004DB1C8 /* RJButtonCell.m in Sources */,
 				9F4D583121DA7DD0004DB1C8 /* UIView+RJMBProgressHUD.m in Sources */,
 				9F4D57CA21D91411004DB1C8 /* RJCycleCell.m in Sources */,
+				9F4D586921DC90BF004DB1C8 /* UITextView+RJPlaceholder.m in Sources */,
 				9F4D580121D9142D004DB1C8 /* RJLabelButtonCellInfo.m in Sources */,
 				9F4D582D21DA3EF1004DB1C8 /* UITextField+RJInputLimit.m in Sources */,
 				9F4D581A21D9DE29004DB1C8 /* NSObject+RJObject.m in Sources */,

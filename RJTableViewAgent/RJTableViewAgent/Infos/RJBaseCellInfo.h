@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RJCGUtilities.h"
-#import "RJGlobal.h"
+#import "RJTableViewAgentMacros.h"
 #import "RJTableViewAgentConfig.h"
 
 @class RJBaseCellInfo;

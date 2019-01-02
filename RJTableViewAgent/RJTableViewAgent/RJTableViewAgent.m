@@ -13,7 +13,7 @@
 #import "UIButton+WebCache.h"
 #import "UITableView+RJCellInit.h"
 #import "UITextField+RJInputLimit.h"
-#import "UITextView+PlaceHolder.h"
+#import "UITextView+RJPlaceholder.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "RJImage.h"
 #import "UIImageView+WebCache.h"
