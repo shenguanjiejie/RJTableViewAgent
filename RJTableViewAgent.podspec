@@ -10,6 +10,7 @@ s.social_media_url   = "https://github.com/shenguanjiejie"
 s.platform     = :ios, "8.0"
 s.source       = { :git => "https://github.com/shenguanjiejie/RJTableViewAgent.git", :tag => s.version }
 s.source_files  = "RJTableViewAgent/RJTableViewAgent/*.{h,m}"
+spec.requires_arc = true
 
 s.dependency 'SDWebImage'
 s.dependency 'RJVFL'
@@ -34,7 +35,5 @@ s.subspec 'Infos' do |spec|
 spec.requires_arc = true
 spec.source_files  = "RJTableViewAgent/RJTableViewAgent/Infos/*.{h,m}"
 end
-
-
 
 end
