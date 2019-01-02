@@ -10,7 +10,7 @@
 
 @implementation RJLabelSwitchCellInfo
 
-- (instancetype)initWithIndexPath:(NSIndexPath *)indexPath size:(CGSize)size text:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn{
+- (instancetype)initWithIndexPath:(NSIndexPath *)indexPath text:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn{
     self = [super initWithIndexPath:indexPath text:text font:font];
     if (self) {
         _cellType = CellTypeLabelSwitch;

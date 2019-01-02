@@ -22,7 +22,8 @@ pod 'RJTableViewAgent'//完整版
 
 ```
 
-### 下方两张截图为Demo的实现效果,16个不同样式的cell,200行代码搞定.
+### 下方两张截图为Demo的实现效果,16个不同样式的可控(可控意思是cell中所有控件位置可动态调整)cell,包括输入限制和验证,200行代码搞定.
 Demo主要为了演示使用方法,没有做美化.
-<img src="https://github.com/shenguanjiejie/RJTableViewAgent/blob/master/Images/1.png" width="225" height="400.2" alt="图片加载失败"/>
-<img src="https://github.com/shenguanjiejie/RJTableViewAgent/blob/master/Images/2.png" width="225" height="400.2" alt="图片加载失败"/>
+
+<img src="https://github.com/shenguanjiejie/RJTableViewAgent/blob/master/Images/1.png" width="562.5" height="1218" alt="图片加载失败"/>
+<img src="https://github.com/shenguanjiejie/RJTableViewAgent/blob/master/Images/2.png" width="562.5" height="1218" alt="图片加载失败"/>

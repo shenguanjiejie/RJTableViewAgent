@@ -14,7 +14,6 @@ typedef void (^RJDidSwitchBlock)(UISwitch *switchView,__kindof RJLabelSwitchCell
 
 @interface RJLabelSwitchCellInfo : RJLabelCellInfo
 
-
 @property(nullable, nonatomic, strong) UIColor *onTintColor ;
 @property(nonatomic, strong) UIColor *tintColor ;
 @property(nullable, nonatomic, strong) UIColor *thumbTintColor;
@@ -27,6 +26,6 @@ typedef void (^RJDidSwitchBlock)(UISwitch *switchView,__kindof RJLabelSwitchCell
 @property (nonatomic, copy) RJDidSwitchBlock didSwitchBlock;
 
 
-- (instancetype)initWithIndexPath:(NSIndexPath *)indexPath size:(CGSize)size text:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn;
+- (instancetype)initWithIndexPath:(NSIndexPath *)indexPath text:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn;
 
 @end

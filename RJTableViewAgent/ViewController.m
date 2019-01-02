@@ -69,9 +69,9 @@
     
     [_tableViewAgent addLabelCellWithText:@"这是LabelCell" font:kRJFontSize(14)].lineHidden = NO;
     
-    RJLabelCellInfo *labelInfo = [_tableViewAgent addLabelCellWithText:@"这是LabelCell2,设置了四周margin,并且设置了选中时间,可以点击该cell试一下,会打印消息" font:kRJFontSize(14)];
+    RJLabelCellInfo *labelInfo = [_tableViewAgent addLabelCellWithText:@"这是LabelCell2,设置了四周margin,并且设置了选中事件,可以点击该cell试一下,会打印消息" font:kRJFontSize(14)];
     labelInfo.didSelectRowAtIndexPathBlock = ^(__kindof UITableViewCell *cell, NSIndexPath *indexPath, __kindof RJBaseCellInfo *info) {
-        NSLog(@"点击了第%zd行",indexPath.row + 1);
+        NSLog(@"点击了LabelCell2");
     };
     labelInfo.layoutMargins = UIEdgeInsetsMake(5, 40, 15, 15);
     labelInfo.lineHidden = NO;
@@ -87,7 +87,7 @@
     RJLabelButtonCellInfo *labelButtonInfo = [_tableViewAgent addLabelButtonCellWithText:@"这是LabelButtonCell" font:kRJFontSize(14)];
     labelButtonInfo.buttonTitle = @"button1";
     
-    [_tableViewAgent addSwitchCellWithText:@"这是SwitchCell" size:CGSizeMake(40, 35) font:kRJFontSize(14) isOn:NO];
+    [_tableViewAgent addSwitchCellWithText:@"这是SwitchCell" font:kRJFontSize(14) isOn:NO];
     
     RJImageLabelCellInfo *imageLabelInfo = [_tableViewAgent addImageLabelCellWithText:@"这是ImageLabelCell" font:kRJFontSize(14) image:github2 imageSize:CGSizeMake(35, 35)];
     imageLabelInfo.cellHeight = 60;

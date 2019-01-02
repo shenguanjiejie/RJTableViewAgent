@@ -94,12 +94,12 @@
     return info;
 }
 
-- (RJLabelSwitchCellInfo *)addSwitchCellWithText:(NSString *)text size:(CGSize)size font:(UIFont *)font isOn:(BOOL)isOn{
-    return [self addSwitchCellWithIndexPath:kRJIndexPath(0, _infos.count) size:(CGSize)size text:text font:font isOn:isOn];
+- (RJLabelSwitchCellInfo *)addSwitchCellWithText:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn{
+    return [self addSwitchCellWithIndexPath:kRJIndexPath(0, _infos.count) text:text font:font isOn:isOn];
 }
 
-- (RJLabelSwitchCellInfo *)addSwitchCellWithIndexPath:(NSIndexPath *)indexPath size:(CGSize)size text:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn{
-    RJLabelSwitchCellInfo *info = [[RJLabelSwitchCellInfo alloc] initWithIndexPath:indexPath size:(CGSize)size text:text font:font isOn:isOn];
+- (RJLabelSwitchCellInfo *)addSwitchCellWithIndexPath:(NSIndexPath *)indexPath text:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn{
+    RJLabelSwitchCellInfo *info = [[RJLabelSwitchCellInfo alloc] initWithIndexPath:indexPath text:text font:font isOn:isOn];
     [_infos addObject:info];
     return info;
 }
@@ -367,7 +367,13 @@
                 }];
                 labelCell = switchCell;
                 switchCell.switchView.object = info;
-                [switchCell.switchView setOn:[(RJLabelSwitchCellInfo *)info isOn] animated:NO];
+                RJLabelSwitchCellInfo *switchInfo = info;
+                [switchCell.switchView setOn:switchInfo.isOn animated:NO];
+                switchCell.switchView.tintColor = switchInfo.tintColor;
+                switchCell.switchView.onTintColor = switchInfo.onTintColor;
+                switchCell.switchView.onImage = switchInfo.onImage;
+                switchCell.switchView.offImage = switchInfo.offImage;
+                switchCell.switchView.thumbTintColor = switchInfo.thumbTintColor;
             }else if (info.cellType == CellTypeLabelButton || info.cellType == CellTypeImageLabelButton || info.cellType == CellTypeImageVTwoLabelButton){
                 RJLabelButtonCell *buttonCell;
                 __kindof RJLabelButtonCellInfo *buttonInfo = info;

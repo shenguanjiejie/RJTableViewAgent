@@ -120,8 +120,8 @@
 - (RJLabelButtonCellInfo *)addLabelButtonCellWithText:(NSString *)text font:(UIFont *)font;
 - (RJLabelButtonCellInfo *)addLabelButtonCellWithIndexPath:(NSIndexPath *)indexPath text:(NSString *)text font:(UIFont *)font;
 
-- (RJLabelSwitchCellInfo *)addSwitchCellWithText:(NSString *)text size:(CGSize)size font:(UIFont *)font isOn:(BOOL)isOn;
-- (RJLabelSwitchCellInfo *)addSwitchCellWithIndexPath:(NSIndexPath *)indexPath size:(CGSize)size text:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn;
+- (RJLabelSwitchCellInfo *)addSwitchCellWithText:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn;
+- (RJLabelSwitchCellInfo *)addSwitchCellWithIndexPath:(NSIndexPath *)indexPath text:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn;
 
 - (RJTextViewCellInfo *)addTextViewCellWithPlaceholder:(NSString *)placeholder;
 - (RJTextViewCellInfo *)addTextViewCellWithIndexPath:(NSIndexPath *)indexPath placeholder:(NSString *)placeholder;
