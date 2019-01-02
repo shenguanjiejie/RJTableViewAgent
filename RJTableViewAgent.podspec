@@ -9,16 +9,16 @@ s.author             = { "shenguanjiejie" => "835166018@qq.com" }
 s.social_media_url   = "https://github.com/shenguanjiejie"
 s.platform     = :ios, "8.0"
 s.source       = { :git => "https://github.com/shenguanjiejie/RJTableViewAgent.git", :tag => s.version }
+spec.source_files  = "RJTableViewAgent/RJTableViewAgent/*.{h,m}"
 
-s.default_subspec = 'All'
-
-s.subspec 'All' do |spec|
-s.requires_arc = true
-s.source_files  = "RJTableViewAgent/RJTableViewAgent/*.{h,m}"
-spec.dependency 'RJTableViewAgent/Resource'
-spec.dependency 'RJTableViewAgent/Cells'
-spec.dependency 'RJTableViewAgent/Infos'
-end
+s.dependency 'SDWebImage'
+s.dependency 'RJVFL'
+s.dependency 'YYText'
+s.dependency 'TYCyclePagerView'
+s.dependency 'DZNEmptyDataSet'
+s.dependency 'YBImageBrowser'
+s.dependency 'IQKeyboardManager'
+s.dependency 'MBProgressHUD'
 
 s.subspec 'Resource' do |spec|
 spec.requires_arc = false
@@ -35,13 +35,6 @@ spec.requires_arc = true
 spec.source_files  = "RJTableViewAgent/RJTableViewAgent/Infos/*.{h,m}"
 end
 
-s.dependency "SDWebImage"
-s.dependency "RJVFL"
-s.dependency "YYText"
-s.dependency "TYCyclePagerView"
-s.dependency "DZNEmptyDataSet"
-s.dependency "YBImageBrowser"
-s.dependency "IQKeyboardManager"
-s.dependency "MBProgressHUD"
+
 
 end
