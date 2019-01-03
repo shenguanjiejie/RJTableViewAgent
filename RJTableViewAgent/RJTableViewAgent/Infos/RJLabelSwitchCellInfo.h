@@ -10,7 +10,7 @@
 
 @class RJLabelSwitchCellInfo;
 
-typedef void (^RJDidSwitchBlock)(UISwitch *switchView,__kindof RJLabelSwitchCellInfo *info);
+typedef void (^RJSwitchActionBlock)(UISwitch *switchView,__kindof RJLabelSwitchCellInfo *info);
 
 @interface RJLabelSwitchCellInfo : RJLabelCellInfo
 
@@ -23,7 +23,7 @@ typedef void (^RJDidSwitchBlock)(UISwitch *switchView,__kindof RJLabelSwitchCell
 
 @property(nonatomic,getter=isOn) BOOL on;
 
-@property (nonatomic, copy) RJDidSwitchBlock didSwitchBlock;
+@property (nonatomic, copy) RJSwitchActionBlock switchActionBlock;
 
 
 - (instancetype)initWithIndexPath:(NSIndexPath *)indexPath text:(NSString *)text font:(UIFont *)font isOn:(BOOL)isOn;

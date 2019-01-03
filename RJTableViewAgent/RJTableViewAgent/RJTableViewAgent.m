@@ -21,7 +21,7 @@
 
 @interface RJTableViewAgent ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,UITextViewDelegate,UITextFieldDelegate>
 
-@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -1022,10 +1022,10 @@
     if (!info) {
         return;
     }
-
+    
     info.on = switchView.isOn;
-    if (info.didSwitchBlock) {
-        info.didSwitchBlock(switchView, info);
+    if (info.switchActionBlock) {
+        info.switchActionBlock(switchView, info);
     }
 }
 
