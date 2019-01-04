@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "RJTableViewAgentConfig.h"
 #import "RJTableViewAgentMacros.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
 @interface AppDelegate ()
 
 @end
@@ -33,6 +34,12 @@
     [RJTableViewAgentConfig sharedConfig].placeholderColor = kRJSeparateColor;
     [RJTableViewAgentConfig sharedConfig].placeholderImage = [UIImage imageNamed:@"rj_placeholderImage"];
     [RJTableViewAgentConfig sharedConfig].rightArrow = [UIImage imageNamed:@"rj_rightArrow"];
+    
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = NO;
+    manager.enableAutoToolbar = NO;
     
     return YES;
 }
