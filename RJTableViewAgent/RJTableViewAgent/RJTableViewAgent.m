@@ -60,7 +60,6 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - UITableViewDelegate & tableViewDataSource
 #pragma mark - Public Methods
 
 -(RJBaseCellInfo *)addBaseCellWithBackgroundColor:(UIColor *)color{
@@ -902,6 +901,15 @@
     return nil;
 }
 
+#pragma mark - UISCrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //    if ([self.delegate respondsToSelector:@selector(rj_scrollViewDidScroll:)] && (self.tableView.delegate != self)) {
+    if ([self.delegate respondsToSelector:@selector(rj_scrollViewDidScroll:)]) {
+        [self.delegate rj_scrollViewDidScroll:self.tableView];
+    }
+}
+
+#pragma mark - UITextViewDelegate
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     RJTextViewCellInfo *textViewInfo = textView.object;
     
@@ -918,36 +926,6 @@
     }
     
     return YES;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    RJLabelTextFieldCellInfo *textFieldInfo = textField.object;
-    textFieldInfo.textFieldText = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    //    [textFieldInfo.textFieldBindingString setString:textFieldInfo.textFieldText];
-    /** reload会导致tableView跳动*/
-    //    [self reloadCellWithCellInfo:textFieldInfo];
-    if (textFieldInfo.textFieldDidEndEditingBlock) {
-        textFieldInfo.textFieldDidEndEditingBlock(textField, textFieldInfo);
-    }
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    if ([string isEqualToString:@""]) {
-        return YES;
-    }
-    
-    RJLabelTextFieldCellInfo *textFieldInfo = textField.object;
-    /** 判断小数不能判断输入的内容,需要判断输入完之后的内容*/
-    if (textFieldInfo.textLimit & RJTextLimitFloat || textFieldInfo.textLimit & RJTextLimitFloat2 || textFieldInfo.textLimit & RJTextLimitNumber) {
-        string = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    }
-    BOOL valid = [RJTextLimit validateWithText:string limit:textFieldInfo.textLimit];
-    
-    /** 验证附加的正则*/
-    if (valid && textFieldInfo.subRegex.length) {
-        valid = [RJTextLimit matchesRegex:textFieldInfo.subRegex withString:string options:NSRegularExpressionDotMatchesLineSeparators];
-    }
-    return valid;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
@@ -968,7 +946,9 @@
     return valid;
 }
 
-// 根据输入动态改变cell高度
+/**RJ 2019-01-04 16:29:48
+    根据输入动态改变cell高度
+ */
 - (void)textViewDidChange:(UITextView *)textView{
     
     RJTextViewCellInfo *textViewInfo = textView.object;
@@ -1017,6 +997,38 @@
     }
 }
 
+#pragma mark - UITextFeildDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    RJLabelTextFieldCellInfo *textFieldInfo = textField.object;
+    textFieldInfo.textFieldText = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    //    [textFieldInfo.textFieldBindingString setString:textFieldInfo.textFieldText];
+    /** reload会导致tableView跳动*/
+    //    [self reloadCellWithCellInfo:textFieldInfo];
+    if (textFieldInfo.textFieldDidEndEditingBlock) {
+        textFieldInfo.textFieldDidEndEditingBlock(textField, textFieldInfo);
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if ([string isEqualToString:@""]) {
+        return YES;
+    }
+    
+    RJLabelTextFieldCellInfo *textFieldInfo = textField.object;
+    /** 判断小数不能判断输入的内容,需要判断输入完之后的内容*/
+    if (textFieldInfo.textLimit & RJTextLimitFloat || textFieldInfo.textLimit & RJTextLimitFloat2 || textFieldInfo.textLimit & RJTextLimitNumber) {
+        string = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    }
+    BOOL valid = [RJTextLimit validateWithText:string limit:textFieldInfo.textLimit];
+    
+    /** 验证附加的正则*/
+    if (valid && textFieldInfo.subRegex.length) {
+        valid = [RJTextLimit matchesRegex:textFieldInfo.subRegex withString:string options:NSRegularExpressionDotMatchesLineSeparators];
+    }
+    return valid;
+}
+
+#pragma mark - Actions
 - (void)switchAction:(UISwitch *)switchView{
     RJLabelSwitchCellInfo *info = switchView.object;
     if (!info) {
@@ -1048,6 +1060,7 @@
     }
 }
 
+#pragma mark - Validates
 - (BOOL)validateBindingStringWithAlert:(BOOL)alert{
     for (RJBaseCellInfo *info in _infos) {
         if (![self alertWithInfo:info length:info.bindingString.length alert:alert]) {
@@ -1115,12 +1128,6 @@
     return YES;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    if ([self.delegate respondsToSelector:@selector(rj_scrollViewDidScroll:)] && (self.tableView.delegate != self)) {
-    if ([self.delegate respondsToSelector:@selector(rj_scrollViewDidScroll:)]) {
-        [self.delegate rj_scrollViewDidScroll:self.tableView];
-    }
-}
 
 #pragma mark - DZNEmptyDelegate
 //- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
@@ -1152,7 +1159,7 @@
 //    [self endEditing:YES];
 //    return [super hitTest:point withEvent:event];
 //}
-
+#pragma mark - Tools
 - (CGSize)sizeForString:(NSString *)string font:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
     CGSize result;
     if (!font) font = [UIFont systemFontOfSize:12];
