@@ -50,16 +50,6 @@
     return self;
 }
 
-- (void)reloadData{
-    [self.tableView reloadData];
-}
-
-- (void)sortAndReloadData{
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"indexPath" ascending:YES];
-    [_infos sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    [self.tableView reloadData];
-}
-
 #pragma mark - Public Methods
 
 -(RJBaseCellInfo *)addBaseCellWithBackgroundColor:(UIColor *)color{
@@ -240,6 +230,16 @@
     RJCollectionCellInfo *info = [[RJCollectionCellInfo alloc] initWithIndexPath:indexPath delegateAndDataSource:delegate cellClass:cellClass flowLayout:flowLayout];
     [_infos addObject:info];
     return info;
+}
+
+- (void)reloadData{
+    [self.tableView reloadData];
+}
+
+- (void)sortAndReloadData{
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"indexPath" ascending:YES];
+    [_infos sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [self.tableView reloadData];
 }
 
 - (__kindof RJBaseCellInfo *)cellInfoWithIndexPath:(NSIndexPath *)indexPath{
