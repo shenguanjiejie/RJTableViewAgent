@@ -5,7 +5,6 @@
 安装:
 iOS 8+
 
-## warning:Cocoapods生成失败,目前不可用
 ```
 pod 'RJTableViewAgent'//完整版
 完整版依赖第三方框架
