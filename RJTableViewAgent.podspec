@@ -7,9 +7,9 @@ s.homepage     = "https://github.com/shenguanjiejie/RJTableViewAgent"
 s.license = { :type => 'MIT'}
 s.author             = { "shenguanjiejie" => "835166018@qq.com" }
 s.social_media_url   = "https://github.com/shenguanjiejie"
-s.platform     = :ios, "8.0"
+s.platform     = :ios, "9.0"
 s.source       = { :git => "https://github.com/shenguanjiejie/RJTableViewAgent.git", :tag => s.version }
-s.source_files  = "RJTableViewAgent/RJTableViewAgent/*.{h,m}"
+s.source_files  = ["RJTableViewAgent/RJTableViewAgent/*.{h,m}","RJTableViewAgent/RJTableViewAgent/Resource*.{h,m}","RJTableViewAgent/RJTableViewAgent/Cells*.{h,m}","RJTableViewAgent/RJTableViewAgent/Infos*.{h,m}"]
 s.requires_arc = true
 
 s.dependency 'SDWebImage'
@@ -22,19 +22,19 @@ s.dependency 'IQKeyboardManager'
 s.dependency 'MBProgressHUD'
 #s.dependency 'UITextView+Placeholder'
 
-s.subspec 'Resource' do |spec|
-spec.requires_arc = false
-spec.source_files  = "RJTableViewAgent/RJTableViewAgent/Resource/*.png"
-end
-
-s.subspec 'Cells' do |spec|
-spec.requires_arc = true
-spec.source_files  = "RJTableViewAgent/RJTableViewAgent/Cells/*.{h,m}"
-end
-
-s.subspec 'Infos' do |spec|
-spec.requires_arc = true
-spec.source_files  = "RJTableViewAgent/RJTableViewAgent/Infos/*.{h,m}"
-end
+#s.subspec 'Resource' do |ss|
+#ss.requires_arc = false
+#ss.source_files  = "RJTableViewAgent/RJTableViewAgent/Resource/*.png"
+#end
+#
+#s.subspec 'Cells' do |spec|
+#ss.requires_arc = true
+#ss.source_files  = "RJTableViewAgent/RJTableViewAgent/Cells/*.{h,m}"
+#end
+#
+#s.subspec 'Infos' do |spec|
+#ss.requires_arc = true
+#ss.source_files  = "RJTableViewAgent/RJTableViewAgent/Infos/*.{h,m}"
+#end
 
 end
