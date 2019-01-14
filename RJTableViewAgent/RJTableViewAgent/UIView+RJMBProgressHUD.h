@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MBProgressHUD.h>
-@class RJMBProgressHUD;
+@class MBProgressHUD;
 
 @interface UIView (RJMBProgressHUD)
 

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "RJBaseCell.h"
 
-#ifdef YYLabelExist
-#import <YYText/YYText.h>
-#endif
+//#ifdef kSystemVersion
+#import "YYText.h"
+//#endif
 
 @interface RJLabelCell : RJBaseCell
 

@@ -857,6 +857,7 @@
 			baseConfigurationReference = 7C267009E859E7AE4610B13D /* Pods-RJTableViewAgent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YVL7699HA5;
 				INFOPLIST_FILE = RJTableViewAgent/Info.plist;
@@ -875,6 +876,7 @@
 			baseConfigurationReference = 6643AF9DBE5EDB616450007C /* Pods-RJTableViewAgent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YVL7699HA5;
 				INFOPLIST_FILE = RJTableViewAgent/Info.plist;

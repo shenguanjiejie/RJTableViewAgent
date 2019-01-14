@@ -8,7 +8,7 @@
 
 
 #import "RJLabelCell.h"
-#import <YYText.h>
+
 @interface RJLabelCell()
 {
 //    NSLayoutConstraint *_topConstraint;
