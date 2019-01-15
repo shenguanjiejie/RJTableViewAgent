@@ -133,7 +133,7 @@
 }
 
 - (void)addTextFieldCells{
-    RJLabelTextFieldCellInfo *textFieldInfo = [_tableViewAgent addTextFieldCellWithText:@"姓名: " font:kRJFontSize(14) textFieldText:nil textFieldFont:kRJFontSize(14) placeholder:@"请输入姓名"];
+    RJLabelTextFieldCellInfo *textFieldInfo = [_tableViewAgent addTextFieldCellWithText:@"姓名: " font:kRJFontSize(14) textFieldText:nil textFieldFont:kRJFontSize(14) placeholder:@"请输入姓名(限制输入6字符)"];
     /**RJ 2019-01-01 22:47:06 输入限制6个字符*/
     textFieldInfo.maxLength = 6;
     /**RJ 2019-01-01 16:16:17 校验限制6个字符*/
@@ -142,9 +142,9 @@
     textFieldInfo.lineHidden = NO;
     
     
-    RJLabelTextFieldCellInfo *textFieldInfo2 = [_tableViewAgent addTextFieldCellWithText:@"身高: " font:kRJFontSize(14) textFieldText:nil textFieldFont:kRJFontSize(14) placeholder:@"请输入身高"];
+    RJLabelTextFieldCellInfo *textFieldInfo2 = [_tableViewAgent addTextFieldCellWithText:@"身高: " font:kRJFontSize(14) textFieldText:nil textFieldFont:kRJFontSize(14) placeholder:@"请输入身高(整数或不超过两位小数)"];
     /**RJ 2019-01-01 16:20:53 正则限制输入两位小数*/
-    textFieldInfo2.textLimit = RJTextLimitFloat2;
+    textFieldInfo2.textLimit = RJTextLimitNumber | RJTextLimitDecimal2;
     textFieldInfo2.lineHidden = NO;
 }
 

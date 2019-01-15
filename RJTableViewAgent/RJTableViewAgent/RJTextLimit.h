@@ -22,6 +22,7 @@
  - RJTextLimitNumberLetter: 数字或字母
  - RJTextLimitNumberLetterSymbol: 数字字母或特殊字符
  - RJTextLimitNoEmoji: 除了表情之外的其他字符
+ 
  */
 typedef NS_ENUM(NSUInteger, RJTextLimitType) {
     RJTextLimitNone = 0,
@@ -31,8 +32,8 @@ typedef NS_ENUM(NSUInteger, RJTextLimitType) {
     RJTextLimitChinese = 1 << 3,
     RJTextLimitEmoji = 1 << 4,
     RJTextLimitSymbol = 1 << 5,
-    RJTextLimitFloat = 1 << 6,
-    RJTextLimitFloat2 = 1 << 7,
+    RJTextLimitDecimal = 1 << 6,
+    RJTextLimitDecimal2 = 1 << 7,
     RJTextLimitNumberLetter = RJTextLimitNumberAll | RJTextLimitLetter,
     RJTextLimitNumberLetterSymbol = RJTextLimitNumberAll | RJTextLimitLetter | RJTextLimitSymbol,
     RJTextLimitNoEmoji = RJTextLimitNumberAll | RJTextLimitLetter | RJTextLimitSymbol | RJTextLimitChinese,
@@ -40,11 +41,11 @@ typedef NS_ENUM(NSUInteger, RJTextLimitType) {
 
 static NSString * const RJTextLimitNumberRegex = @"^(0|[1-9][0-9]*)$";
 static NSString * const RJTextLimitNumberAllRegex = @"^[0-9]*$";
-//static NSString * const RJTextLimitFloatRegex = @"^[0-9]+([.]{1}[0-9]+){0,1}$";
+//static NSString * const RJTextLimitDecimalRegex = @"^[0-9]+([.]{1}[0-9]+){0,1}$";
 /**这里修改,使得如"2." 这样的形式也能通过验证,否则用户无法输入了*/
-static NSString * const RJTextLimitFloatRegex = @"^[0-9]+([.]{1}[0-9]*){0,1}$";
+static NSString * const RJTextLimitDecimalRegex = @"^[0-9]+([.]{1}[0-9]*){0,1}$";
 /**默认支持2位小数*/
-static NSString * const RJTextLimitFloat2Regex = @"^[0-9]+([.]{1}([0-9]{0,2})){0,1}$";
+static NSString * const RJTextLimitDecimal2Regex = @"^[0-9]+([.]{1}([0-9]{0,2})){0,1}$";
 static NSString * const RJTextLimitLetterRegex = @"^[A-Za-z]+$";
 static NSString * const RJTextLimitChineseRegex = @"^[\u4e00-\u9fa5]{0,}$";
 static NSString * const RJTextLimitEmojiRegex = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
@@ -52,6 +53,15 @@ static NSString * const RJTextLimitSymbolRegex = @"((?=[\\x21-\\x7e]+)[^A-Za-z0-
 
 @interface RJTextLimit : NSObject
 
+/**
+目前只支持
+ RJTextLimitNumber | RJTextLimitDecimal
+ RJTextLimitNumber | RJTextLimitDecimal2
+ RJTextLimitNumberAll | RJTextLimitDecimal
+ RJTextLimitNumberAll | RJTextLimitDecimal2
+ 四种合并检测
+ TODO:可以使用一个字典进行匹配,则可支持所有合并检测,暂时未实现
+ */
 + (BOOL)validateWithText:(NSString *)text limit:(RJTextLimitType)limit;
 
 + (BOOL)matchesRegex:(NSString *)regex withString:(NSString *)string options:(NSRegularExpressionOptions)options;

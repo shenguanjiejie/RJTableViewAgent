@@ -517,10 +517,10 @@
                 textFieldCell.textField.placeholder = textFieldInfo.placeholder;
                 textFieldCell.textField.rj_maxLength = textFieldInfo.maxLength;
                 textFieldCell.textField.object = textFieldInfo;
-                if (textFieldInfo.textLimit & RJTextLimitNumber || textFieldInfo.textLimit & RJTextLimitNumberAll) {
-                    textFieldInfo.keyboardType = UIKeyboardTypeNumberPad;
-                }else if (textFieldInfo.textLimit == RJTextLimitFloat){
+                if (textFieldInfo.textLimit == RJTextLimitDecimal || textFieldInfo.textLimit == RJTextLimitDecimal2 || textFieldInfo.textLimit == (RJTextLimitNumber | RJTextLimitDecimal) || textFieldInfo.textLimit == (RJTextLimitNumber | RJTextLimitDecimal2)){
                     textFieldInfo.keyboardType = UIKeyboardTypeDecimalPad;
+                }else if (textFieldInfo.textLimit == RJTextLimitNumber || textFieldInfo.textLimit == RJTextLimitNumberAll) {
+                    textFieldInfo.keyboardType = UIKeyboardTypeNumberPad;
                 }
                 textFieldCell.textField.keyboardType = textFieldInfo.keyboardType;
                 
@@ -934,7 +934,7 @@
     }
     
     RJTextViewCellInfo *textViewInfo = textView.object;
-    if (textViewInfo.textLimit & RJTextLimitFloat) {
+    if (textViewInfo.textLimit & RJTextLimitDecimal) {
         text = [textView.text stringByReplacingCharactersInRange:range withString:text];
     }
     BOOL valid = [RJTextLimit validateWithText:text limit:textViewInfo.textLimit];
@@ -1016,7 +1016,7 @@
     
     RJLabelTextFieldCellInfo *textFieldInfo = textField.object;
     /** 判断小数不能判断输入的内容,需要判断输入完之后的内容*/
-    if (textFieldInfo.textLimit & RJTextLimitFloat || textFieldInfo.textLimit & RJTextLimitFloat2 || textFieldInfo.textLimit & RJTextLimitNumber) {
+    if (textFieldInfo.textLimit & RJTextLimitDecimal || textFieldInfo.textLimit & RJTextLimitDecimal2 || textFieldInfo.textLimit & RJTextLimitNumber) {
         string = [textField.text stringByReplacingCharactersInRange:range withString:string];
     }
     BOOL valid = [RJTextLimit validateWithText:string limit:textFieldInfo.textLimit];

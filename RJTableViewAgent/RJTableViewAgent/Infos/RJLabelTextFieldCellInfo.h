@@ -32,6 +32,14 @@ typedef void(^RJTextFieldDidEndEditingBlock)(UITextField *textField,__kindof RJL
 
 @property (nonatomic, assign) CGFloat titleLabTextFieldInterval;
 
+/**
+ 目前只支持
+ RJTextLimitNumber | RJTextLimitDecimal
+ RJTextLimitNumber | RJTextLimitDecimal2
+ RJTextLimitNumberAll | RJTextLimitDecimal
+ RJTextLimitNumberAll | RJTextLimitDecimal2
+ 四种合并Limit
+ */
 @property (nonatomic, assign) RJTextLimitType textLimit;
 
 @property (nonatomic, copy) NSString *subRegex;

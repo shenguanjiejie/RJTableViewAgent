@@ -17,38 +17,53 @@
 
 + (BOOL)validateWithText:(NSString *)text limit:(RJTextLimitType)limit{
     
-    if (limit & RJTextLimitNumber && ![self matchesRegex:RJTextLimitNumberRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
+    if (limit == RJTextLimitNumber && ![self matchesRegex:RJTextLimitNumberRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
         return NO;
     }
     
-    if (limit & RJTextLimitNumberAll && ![self matchesRegex:RJTextLimitNumberAllRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
+    if (limit == RJTextLimitNumberAll && ![self matchesRegex:RJTextLimitNumberAllRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
         return NO;
     }
     
-    if (limit & RJTextLimitLetter && ![self matchesRegex:RJTextLimitLetterRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
+    if (limit == RJTextLimitLetter && ![self matchesRegex:RJTextLimitLetterRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
         return NO;
     }
     
-    if (limit & RJTextLimitChinese && ![self matchesRegex:RJTextLimitChineseRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
+    if (limit == RJTextLimitChinese && ![self matchesRegex:RJTextLimitChineseRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
         return NO;
     }
     
-    if (limit & RJTextLimitSymbol && ![self matchesRegex:RJTextLimitSymbolRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
+    if (limit == RJTextLimitSymbol && ![self matchesRegex:RJTextLimitSymbolRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
         return NO;
     }
     
-    if (limit & RJTextLimitEmoji && ![self matchesRegex:RJTextLimitEmojiRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
+    if (limit == RJTextLimitEmoji && ![self matchesRegex:RJTextLimitEmojiRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
         return NO;
     }
     
-    if (limit & RJTextLimitFloat && ![self matchesRegex:RJTextLimitFloatRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
+    if (limit == RJTextLimitDecimal && ![self matchesRegex:RJTextLimitDecimalRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
         return NO;
     }
     
-    if (limit & RJTextLimitFloat2 && ![self matchesRegex:RJTextLimitFloat2Regex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
+    if (limit == RJTextLimitDecimal2 && ![self matchesRegex:RJTextLimitDecimal2Regex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
         return NO;
     }
     
+    if (limit == (RJTextLimitNumber | RJTextLimitDecimal) && !([self matchesRegex:RJTextLimitNumberRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators] && [self matchesRegex:RJTextLimitDecimalRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators])) {
+        return NO;
+    }
+    
+    if (limit == (RJTextLimitNumber | RJTextLimitDecimal2) && !([self matchesRegex:RJTextLimitNumberRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators] && [self matchesRegex:RJTextLimitDecimal2Regex withString:text options:NSRegularExpressionDotMatchesLineSeparators])) {
+        return NO;
+    }
+    
+    if (limit == (RJTextLimitNumberAll | RJTextLimitDecimal) && !([self matchesRegex:RJTextLimitNumberAllRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators] && [self matchesRegex:RJTextLimitDecimalRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators])) {
+        return NO;
+    }
+    
+    if (limit == (RJTextLimitAllNumber | RJTextLimitDecimal2) && !([self matchesRegex:RJTextLimitNumberAllRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators] && [self matchesRegex:RJTextLimitDecimal2Regex withString:text options:NSRegularExpressionDotMatchesLineSeparators])) {
+        return NO;
+    }
     return YES;
 }
 
