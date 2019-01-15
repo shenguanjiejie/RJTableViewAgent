@@ -52,15 +52,7 @@
 		9F4D580C21D9142D004DB1C8 /* RJImageLabelCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57F921D9142D004DB1C8 /* RJImageLabelCellInfo.m */; };
 		9F4D580D21D9142D004DB1C8 /* RJCollectionCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57FA21D9142D004DB1C8 /* RJCollectionCellInfo.m */; };
 		9F4D580E21D9142D004DB1C8 /* RJHTwoLabelCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D57FB21D9142D004DB1C8 /* RJHTwoLabelCellInfo.m */; };
-		9F4D581121D9C7E0004DB1C8 /* RJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D581021D9C7DF004DB1C8 /* RJImage.m */; };
-		9F4D581421D9C9F7004DB1C8 /* UITableView+RJCellInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D581321D9C9F7004DB1C8 /* UITableView+RJCellInit.m */; };
-		9F4D581A21D9DE29004DB1C8 /* NSObject+RJObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D581921D9DE29004DB1C8 /* NSObject+RJObject.m */; };
-		9F4D582021D9E4D1004DB1C8 /* RJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D581F21D9E4D1004DB1C8 /* RJCGUtilities.m */; };
 		9F4D582421DA084F004DB1C8 /* RJImageCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D582321DA084E004DB1C8 /* RJImageCCell.m */; };
-		9F4D582721DA16C6004DB1C8 /* RJTableViewAgentConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D582621DA16C6004DB1C8 /* RJTableViewAgentConfig.m */; };
-		9F4D582A21DA3387004DB1C8 /* RJTextLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D582821DA3386004DB1C8 /* RJTextLimit.m */; };
-		9F4D582D21DA3EF1004DB1C8 /* UITextField+RJInputLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D582B21DA3EF0004DB1C8 /* UITextField+RJInputLimit.m */; };
-		9F4D583121DA7DD0004DB1C8 /* UIView+RJMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D583021DA7DCF004DB1C8 /* UIView+RJMBProgressHUD.m */; };
 		9F4D585A21DBCA0A004DB1C8 /* rj_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D585321DBCA09004DB1C8 /* rj_warning.png */; };
 		9F4D585C21DBCA0A004DB1C8 /* rj_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D585521DBCA09004DB1C8 /* rj_check.png */; };
 		9F4D585D21DBCA0A004DB1C8 /* rj_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D585621DBCA0A004DB1C8 /* rj_close.png */; };
@@ -68,7 +60,15 @@
 		9F4D586421DC7543004DB1C8 /* rj_placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D586121DC7543004DB1C8 /* rj_placeholderImage.png */; };
 		9F4D586521DC7543004DB1C8 /* rj_github.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D586221DC7543004DB1C8 /* rj_github.png */; };
 		9F4D586621DC7543004DB1C8 /* rj_github2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D586321DC7543004DB1C8 /* rj_github2.png */; };
-		9F4D586921DC90BF004DB1C8 /* UITextView+RJPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D586721DC90BF004DB1C8 /* UITextView+RJPlaceholder.m */; };
+		9FFA6F1121EDDEF0007F8A7A /* UITableView+RJCellInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA6F0021EDDEEE007F8A7A /* UITableView+RJCellInit.m */; };
+		9FFA6F1221EDDEF0007F8A7A /* RJTextLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA6F0221EDDEEF007F8A7A /* RJTextLimit.m */; };
+		9FFA6F1321EDDEF0007F8A7A /* RJTableViewAgentConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA6F0321EDDEEF007F8A7A /* RJTableViewAgentConfig.m */; };
+		9FFA6F1421EDDEF0007F8A7A /* RJCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA6F0621EDDEEF007F8A7A /* RJCGUtilities.m */; };
+		9FFA6F1521EDDEF0007F8A7A /* UITextView+RJPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA6F0721EDDEEF007F8A7A /* UITextView+RJPlaceholder.m */; };
+		9FFA6F1621EDDEF0007F8A7A /* NSObject+RJObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA6F0821EDDEEF007F8A7A /* NSObject+RJObject.m */; };
+		9FFA6F1721EDDEF0007F8A7A /* UITextField+RJInputLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA6F0A21EDDEEF007F8A7A /* UITextField+RJInputLimit.m */; };
+		9FFA6F1821EDDEF0007F8A7A /* UIView+RJMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA6F0D21EDDEF0007F8A7A /* UIView+RJMBProgressHUD.m */; };
+		9FFA6F1921EDDEF0007F8A7A /* RJImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA6F1021EDDEF0007F8A7A /* RJImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,25 +180,8 @@
 		9F4D57F921D9142D004DB1C8 /* RJImageLabelCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImageLabelCellInfo.m; sourceTree = "<group>"; };
 		9F4D57FA21D9142D004DB1C8 /* RJCollectionCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJCollectionCellInfo.m; sourceTree = "<group>"; };
 		9F4D57FB21D9142D004DB1C8 /* RJHTwoLabelCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJHTwoLabelCellInfo.m; sourceTree = "<group>"; };
-		9F4D580F21D9C7DF004DB1C8 /* RJImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJImage.h; sourceTree = "<group>"; };
-		9F4D581021D9C7DF004DB1C8 /* RJImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJImage.m; sourceTree = "<group>"; };
-		9F4D581221D9C9F6004DB1C8 /* UITableView+RJCellInit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+RJCellInit.h"; sourceTree = "<group>"; };
-		9F4D581321D9C9F7004DB1C8 /* UITableView+RJCellInit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RJCellInit.m"; sourceTree = "<group>"; };
-		9F4D581821D9DE29004DB1C8 /* NSObject+RJObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+RJObject.h"; sourceTree = "<group>"; };
-		9F4D581921D9DE29004DB1C8 /* NSObject+RJObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RJObject.m"; sourceTree = "<group>"; };
-		9F4D581E21D9E4D1004DB1C8 /* RJCGUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJCGUtilities.h; sourceTree = "<group>"; };
-		9F4D581F21D9E4D1004DB1C8 /* RJCGUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJCGUtilities.m; sourceTree = "<group>"; };
-		9F4D582121DA0559004DB1C8 /* RJTableViewAgentMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJTableViewAgentMacros.h; sourceTree = "<group>"; };
 		9F4D582221DA084E004DB1C8 /* RJImageCCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJImageCCell.h; sourceTree = "<group>"; };
 		9F4D582321DA084E004DB1C8 /* RJImageCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJImageCCell.m; sourceTree = "<group>"; };
-		9F4D582521DA16C6004DB1C8 /* RJTableViewAgentConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJTableViewAgentConfig.h; sourceTree = "<group>"; };
-		9F4D582621DA16C6004DB1C8 /* RJTableViewAgentConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJTableViewAgentConfig.m; sourceTree = "<group>"; };
-		9F4D582821DA3386004DB1C8 /* RJTextLimit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJTextLimit.m; sourceTree = "<group>"; };
-		9F4D582921DA3387004DB1C8 /* RJTextLimit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJTextLimit.h; sourceTree = "<group>"; };
-		9F4D582B21DA3EF0004DB1C8 /* UITextField+RJInputLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+RJInputLimit.m"; sourceTree = "<group>"; };
-		9F4D582C21DA3EF1004DB1C8 /* UITextField+RJInputLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+RJInputLimit.h"; sourceTree = "<group>"; };
-		9F4D582F21DA7DCF004DB1C8 /* UIView+RJMBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+RJMBProgressHUD.h"; sourceTree = "<group>"; };
-		9F4D583021DA7DCF004DB1C8 /* UIView+RJMBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RJMBProgressHUD.m"; sourceTree = "<group>"; };
 		9F4D585321DBCA09004DB1C8 /* rj_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_warning.png; sourceTree = "<group>"; };
 		9F4D585521DBCA09004DB1C8 /* rj_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_check.png; sourceTree = "<group>"; };
 		9F4D585621DBCA0A004DB1C8 /* rj_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_close.png; sourceTree = "<group>"; };
@@ -206,8 +189,25 @@
 		9F4D586121DC7543004DB1C8 /* rj_placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_placeholderImage.png; sourceTree = "<group>"; };
 		9F4D586221DC7543004DB1C8 /* rj_github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_github.png; sourceTree = "<group>"; };
 		9F4D586321DC7543004DB1C8 /* rj_github2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rj_github2.png; sourceTree = "<group>"; };
-		9F4D586721DC90BF004DB1C8 /* UITextView+RJPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+RJPlaceholder.m"; sourceTree = "<group>"; };
-		9F4D586821DC90BF004DB1C8 /* UITextView+RJPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+RJPlaceholder.h"; sourceTree = "<group>"; };
+		9FFA6EFE21EDDEED007F8A7A /* UITextView+RJPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+RJPlaceholder.h"; sourceTree = "<group>"; };
+		9FFA6EFF21EDDEEE007F8A7A /* RJImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJImage.h; sourceTree = "<group>"; };
+		9FFA6F0021EDDEEE007F8A7A /* UITableView+RJCellInit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RJCellInit.m"; sourceTree = "<group>"; };
+		9FFA6F0121EDDEEE007F8A7A /* RJTableViewAgentConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJTableViewAgentConfig.h; sourceTree = "<group>"; };
+		9FFA6F0221EDDEEF007F8A7A /* RJTextLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJTextLimit.m; sourceTree = "<group>"; };
+		9FFA6F0321EDDEEF007F8A7A /* RJTableViewAgentConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJTableViewAgentConfig.m; sourceTree = "<group>"; };
+		9FFA6F0421EDDEEF007F8A7A /* UIView+RJMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RJMBProgressHUD.h"; sourceTree = "<group>"; };
+		9FFA6F0521EDDEEF007F8A7A /* UITableView+RJCellInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+RJCellInit.h"; sourceTree = "<group>"; };
+		9FFA6F0621EDDEEF007F8A7A /* RJCGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJCGUtilities.m; sourceTree = "<group>"; };
+		9FFA6F0721EDDEEF007F8A7A /* UITextView+RJPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+RJPlaceholder.m"; sourceTree = "<group>"; };
+		9FFA6F0821EDDEEF007F8A7A /* NSObject+RJObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RJObject.m"; sourceTree = "<group>"; };
+		9FFA6F0921EDDEEF007F8A7A /* UITextField+RJInputLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+RJInputLimit.h"; sourceTree = "<group>"; };
+		9FFA6F0A21EDDEEF007F8A7A /* UITextField+RJInputLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+RJInputLimit.m"; sourceTree = "<group>"; };
+		9FFA6F0B21EDDEF0007F8A7A /* RJTableViewAgentMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJTableViewAgentMacros.h; sourceTree = "<group>"; };
+		9FFA6F0C21EDDEF0007F8A7A /* RJTextLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJTextLimit.h; sourceTree = "<group>"; };
+		9FFA6F0D21EDDEF0007F8A7A /* UIView+RJMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RJMBProgressHUD.m"; sourceTree = "<group>"; };
+		9FFA6F0E21EDDEF0007F8A7A /* RJCGUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJCGUtilities.h; sourceTree = "<group>"; };
+		9FFA6F0F21EDDEF0007F8A7A /* NSObject+RJObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RJObject.h"; sourceTree = "<group>"; };
+		9FFA6F1021EDDEF0007F8A7A /* RJImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,30 +305,12 @@
 		9F4D573421D913F6004DB1C8 /* RJTableViewAgent */ = {
 			isa = PBXGroup;
 			children = (
+				9FFA6EE121EDDED2007F8A7A /* Utils */,
 				9F4D584321DBC9C2004DB1C8 /* Resource */,
 				9F4D573621D913F6004DB1C8 /* Cells */,
 				9F4D575921D913F6004DB1C8 /* Infos */,
 				9F4D573521D913F6004DB1C8 /* RJTableViewAgent.h */,
 				9F4D575821D913F6004DB1C8 /* RJTableViewAgent.m */,
-				9F4D582F21DA7DCF004DB1C8 /* UIView+RJMBProgressHUD.h */,
-				9F4D583021DA7DCF004DB1C8 /* UIView+RJMBProgressHUD.m */,
-				9F4D582C21DA3EF1004DB1C8 /* UITextField+RJInputLimit.h */,
-				9F4D582B21DA3EF0004DB1C8 /* UITextField+RJInputLimit.m */,
-				9F4D582921DA3387004DB1C8 /* RJTextLimit.h */,
-				9F4D582821DA3386004DB1C8 /* RJTextLimit.m */,
-				9F4D586821DC90BF004DB1C8 /* UITextView+RJPlaceholder.h */,
-				9F4D586721DC90BF004DB1C8 /* UITextView+RJPlaceholder.m */,
-				9F4D582121DA0559004DB1C8 /* RJTableViewAgentMacros.h */,
-				9F4D582521DA16C6004DB1C8 /* RJTableViewAgentConfig.h */,
-				9F4D582621DA16C6004DB1C8 /* RJTableViewAgentConfig.m */,
-				9F4D581E21D9E4D1004DB1C8 /* RJCGUtilities.h */,
-				9F4D581F21D9E4D1004DB1C8 /* RJCGUtilities.m */,
-				9F4D581821D9DE29004DB1C8 /* NSObject+RJObject.h */,
-				9F4D581921D9DE29004DB1C8 /* NSObject+RJObject.m */,
-				9F4D581221D9C9F6004DB1C8 /* UITableView+RJCellInit.h */,
-				9F4D581321D9C9F7004DB1C8 /* UITableView+RJCellInit.m */,
-				9F4D580F21D9C7DF004DB1C8 /* RJImage.h */,
-				9F4D581021D9C7DF004DB1C8 /* RJImage.m */,
 			);
 			path = RJTableViewAgent;
 			sourceTree = "<group>";
@@ -438,6 +420,32 @@
 				9F4D586321DC7543004DB1C8 /* rj_github2.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		9FFA6EE121EDDED2007F8A7A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9FFA6F0F21EDDEF0007F8A7A /* NSObject+RJObject.h */,
+				9FFA6F0821EDDEEF007F8A7A /* NSObject+RJObject.m */,
+				9FFA6F0E21EDDEF0007F8A7A /* RJCGUtilities.h */,
+				9FFA6F0621EDDEEF007F8A7A /* RJCGUtilities.m */,
+				9FFA6EFF21EDDEEE007F8A7A /* RJImage.h */,
+				9FFA6F1021EDDEF0007F8A7A /* RJImage.m */,
+				9FFA6F0121EDDEEE007F8A7A /* RJTableViewAgentConfig.h */,
+				9FFA6F0321EDDEEF007F8A7A /* RJTableViewAgentConfig.m */,
+				9FFA6F0B21EDDEF0007F8A7A /* RJTableViewAgentMacros.h */,
+				9FFA6F0C21EDDEF0007F8A7A /* RJTextLimit.h */,
+				9FFA6F0221EDDEEF007F8A7A /* RJTextLimit.m */,
+				9FFA6F0521EDDEEF007F8A7A /* UITableView+RJCellInit.h */,
+				9FFA6F0021EDDEEE007F8A7A /* UITableView+RJCellInit.m */,
+				9FFA6F0921EDDEEF007F8A7A /* UITextField+RJInputLimit.h */,
+				9FFA6F0A21EDDEEF007F8A7A /* UITextField+RJInputLimit.m */,
+				9FFA6EFE21EDDEED007F8A7A /* UITextView+RJPlaceholder.h */,
+				9FFA6F0721EDDEEF007F8A7A /* UITextView+RJPlaceholder.m */,
+				9FFA6F0421EDDEEF007F8A7A /* UIView+RJMBProgressHUD.h */,
+				9FFA6F0D21EDDEF0007F8A7A /* UIView+RJMBProgressHUD.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		C035B52B66A54CCC290FAA4E /* Pods */ = {
@@ -641,34 +649,37 @@
 				9F4D580921D9142D004DB1C8 /* RJBaseSectionInfo.m in Sources */,
 				9F4D57D321D91411004DB1C8 /* RJBaseCell.m in Sources */,
 				9F4D580D21D9142D004DB1C8 /* RJCollectionCellInfo.m in Sources */,
+				9FFA6F1621EDDEF0007F8A7A /* NSObject+RJObject.m in Sources */,
 				9F4D57FE21D9142D004DB1C8 /* RJButtonCellInfo.m in Sources */,
 				9F4D57FF21D9142D004DB1C8 /* RJImageVTwoLabelCellInfo.m in Sources */,
+				9FFA6F1321EDDEF0007F8A7A /* RJTableViewAgentConfig.m in Sources */,
 				9F4D580621D9142D004DB1C8 /* RJCycleCellInfo.m in Sources */,
 				9F4D57D121D91411004DB1C8 /* RJImageLabelCell.m in Sources */,
 				9F4D57FC21D9142D004DB1C8 /* RJBaseCellInfo.m in Sources */,
 				9F4D57C921D91411004DB1C8 /* RJCollectionCell.m in Sources */,
 				9F4D580E21D9142D004DB1C8 /* RJHTwoLabelCellInfo.m in Sources */,
-				9F4D582721DA16C6004DB1C8 /* RJTableViewAgentConfig.m in Sources */,
 				9F4D57D421D91411004DB1C8 /* RJImageVTwoLabelButtonCell.m in Sources */,
 				9F4D56C021D91394004DB1C8 /* ViewController.m in Sources */,
 				9F4D580A21D9142D004DB1C8 /* RJImageCellInfo.m in Sources */,
+				9FFA6F1221EDDEF0007F8A7A /* RJTextLimit.m in Sources */,
+				9FFA6F1521EDDEF0007F8A7A /* UITextView+RJPlaceholder.m in Sources */,
+				9FFA6F1121EDDEF0007F8A7A /* UITableView+RJCellInit.m in Sources */,
 				9F4D57CC21D91411004DB1C8 /* RJLabelSwitchCell.m in Sources */,
-				9F4D581421D9C9F7004DB1C8 /* UITableView+RJCellInit.m in Sources */,
 				9F4D57D221D91411004DB1C8 /* RJTextViewCell.m in Sources */,
-				9F4D582A21DA3387004DB1C8 /* RJTextLimit.m in Sources */,
 				9F4D57C821D91411004DB1C8 /* RJLabelButtonCell.m in Sources */,
 				9F4D564721D912C8004DB1C8 /* main.m in Sources */,
-				9F4D581121D9C7E0004DB1C8 /* RJImage.m in Sources */,
 				9F4D57CB21D91411004DB1C8 /* RJImageLabelButtonCell.m in Sources */,
+				9FFA6F1821EDDEF0007F8A7A /* UIView+RJMBProgressHUD.m in Sources */,
 				9F4D57C621D91411004DB1C8 /* RJHTwoLabelCell.m in Sources */,
 				9F4D57CD21D91411004DB1C8 /* RJLabelTextFieldCell.m in Sources */,
 				9F4D57CF21D91411004DB1C8 /* RJChooseCell.m in Sources */,
 				9F4D580321D9142D004DB1C8 /* RJLabelTextFieldCellInfo.m in Sources */,
 				9F4D580B21D9142D004DB1C8 /* RJLabelSwitchCellInfo.m in Sources */,
 				9F4D57D021D91411004DB1C8 /* RJImageCell.m in Sources */,
+				9FFA6F1421EDDEF0007F8A7A /* RJCGUtilities.m in Sources */,
 				9F4D582421DA084F004DB1C8 /* RJImageCCell.m in Sources */,
+				9FFA6F1921EDDEF0007F8A7A /* RJImage.m in Sources */,
 				9F4D580021D9142D004DB1C8 /* RJImageLabelButtonCellInfo.m in Sources */,
-				9F4D582021D9E4D1004DB1C8 /* RJCGUtilities.m in Sources */,
 				9F4D580C21D9142D004DB1C8 /* RJImageLabelCellInfo.m in Sources */,
 				9F4D580821D9142D004DB1C8 /* RJTextViewCellInfo.m in Sources */,
 				9F4D580421D9142D004DB1C8 /* RJChooseCellInfo.m in Sources */,
@@ -678,12 +689,9 @@
 				9F4D57CE21D91411004DB1C8 /* RJImageVTwoLabelCell.m in Sources */,
 				9F4D56C121D91394004DB1C8 /* AppDelegate.m in Sources */,
 				9F4D57C721D91411004DB1C8 /* RJButtonCell.m in Sources */,
-				9F4D583121DA7DD0004DB1C8 /* UIView+RJMBProgressHUD.m in Sources */,
 				9F4D57CA21D91411004DB1C8 /* RJCycleCell.m in Sources */,
-				9F4D586921DC90BF004DB1C8 /* UITextView+RJPlaceholder.m in Sources */,
 				9F4D580121D9142D004DB1C8 /* RJLabelButtonCellInfo.m in Sources */,
-				9F4D582D21DA3EF1004DB1C8 /* UITextField+RJInputLimit.m in Sources */,
-				9F4D581A21D9DE29004DB1C8 /* NSObject+RJObject.m in Sources */,
+				9FFA6F1721EDDEF0007F8A7A /* UITextField+RJInputLimit.m in Sources */,
 				9F4D580721D9142D004DB1C8 /* RJImageVTwoLabelButtonCellInfo.m in Sources */,
 				9F4D57FD21D9142D004DB1C8 /* RJCustomCellInfo.m in Sources */,
 			);
