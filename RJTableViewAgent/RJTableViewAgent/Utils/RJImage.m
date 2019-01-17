@@ -46,7 +46,7 @@
     return nil;
 }
 
-+ (NSMutableArray *)rj_imagesWithImageUrls:(NSArray<NSString *> *)imageUrls{
++ (NSMutableArray<RJImage *> *)rj_imagesWithImageUrls:(NSArray<NSString *> *)imageUrls{
     NSMutableArray *arr = [NSMutableArray array];
     for (NSInteger i = 0;i < imageUrls.count; i++) {
         NSString *url = imageUrls[i];
@@ -59,8 +59,21 @@
     return arr;
 }
 
-+ (NSArray<UIImage *> *)imagesWithRJImages:(NSArray<RJImage *> *)rj_images{
-    return [rj_images valueForKey:@"image"];
+/**
+ 使用图片key数组初始化一个RJImage数组
+ */
++ (NSMutableArray<RJImage *> *)rj_imagesWithImageKeys:(NSArray<NSString *> *)imageKeys{
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSInteger i = 0;i < imageKeys.count; i++) {
+        NSString *key = imageKeys[i];
+        RJImage *image = [[RJImage alloc] init];
+        image.key = key;
+        image.ID = i;
+        
+        [arr addObject:image];
+    }
+    return arr;
 }
 
 + (NSArray<RJImage *> *)rj_imagesWithImages:(NSArray<UIImage *> *)images{
@@ -72,6 +85,21 @@
     return rj_images;
 }
 
++ (NSArray<UIImage *> *)imagesWithRJImages:(NSArray<RJImage *> *)rj_images{
+    return [rj_images valueForKey:@"image"];
+}
+
++(NSArray<NSString *> *)urlsWithRJImages:(NSArray<RJImage *> *)rj_images{
+    return [rj_images valueForKey:@"url"];
+}
+
++(NSArray<NSString *> *)keysWithRJImages:(NSArray<RJImage *> *)rj_images{
+    return [rj_images valueForKey:@"key"];
+}
+
++(NSArray<NSString *> *)thumbUrlsWithRJImages:(NSArray<RJImage *> *)rj_images{
+    return [rj_images valueForKey:@"thumbUrl"];
+}
 
 
 @end

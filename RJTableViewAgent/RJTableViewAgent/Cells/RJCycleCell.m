@@ -34,8 +34,6 @@
     return self;
 }
 
-
-
 - (void)setCycleImages:(NSArray<RJImage *> *)cycleImages{
     _cycleImages = cycleImages;
     [_cyclePagerView reloadData];
@@ -84,7 +82,7 @@
 }
 
 
-#pragma mark - MWPhotoBrowserDelegate
+#pragma mark - YBImageBrowserDataSource
 
 - (NSUInteger)yb_numberOfCellForImageBrowserView:(YBImageBrowserView *)imageBrowserView{
     return self.cycleImages.count;

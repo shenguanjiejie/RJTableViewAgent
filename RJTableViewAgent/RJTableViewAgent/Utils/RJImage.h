@@ -13,6 +13,8 @@
 
 @property (nonatomic, assign) NSInteger ID;
 
+@property (nonatomic, assign) NSInteger tag;
+
 @property (nonatomic, copy) NSString *key;
 
 @property (nonatomic, strong) UIImage *image;
@@ -28,11 +30,39 @@
 
 - (instancetype)initWithImage:(UIImage *)image;
 
-+ (NSMutableArray *)rj_imagesWithImageUrls:(NSArray<NSString *> *)imageUrls;
+/**
+ 使用图片url数组初始化一个RJImage数组
+ */
++ (NSMutableArray<RJImage *> *)rj_imagesWithImageUrls:(NSArray<NSString *> *)imageUrls;
 
+/**
+ 使用图片key数组初始化一个RJImage数组
+ */
++ (NSMutableArray<RJImage *> *)rj_imagesWithImageKeys:(NSArray<NSString *> *)imageKeys;
+
+/**
+ 获得RJImage数组中的images数组
+ */
 + (NSArray<UIImage *> *)imagesWithRJImages:(NSArray<RJImage *> *)rj_images;
 
+/**
+ 给定一个images数组,获得一个RJImage数组
+ */
 + (NSArray<RJImage *> *)rj_imagesWithImages:(NSArray<UIImage *> *)images;
 
+/**
+ 获得RJImage数组中的url数组
+ */
++ (NSArray<NSString *> *)urlsWithRJImages:(NSArray<RJImage *> *)rj_images;
+
+/**
+ 获得RJImage数组中的thumbUrl数组
+ */
++ (NSArray<NSString *> *)thumbUrlsWithRJImages:(NSArray<RJImage *> *)rj_images;
+
+/**
+ 获得RJImage数组中的key数组
+ */
++ (NSArray<NSString *> *)keysWithRJImages:(NSArray<RJImage *> *)rj_images;
 
 @end

@@ -929,11 +929,16 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    RJTextViewCellInfo *textViewInfo = textView.object;
+    
+    if (textViewInfo.textViewShouldChangeTextBlock && !textViewInfo.textViewShouldChangeTextBlock(textView,textViewInfo,range,text)) {
+        return NO;
+    }
+    
     if ([text isEqualToString:@""]) {
         return YES;
     }
     
-    RJTextViewCellInfo *textViewInfo = textView.object;
     if (textViewInfo.textLimit & RJTextLimitDecimal) {
         text = [textView.text stringByReplacingCharactersInRange:range withString:text];
     }
@@ -1010,11 +1015,17 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    RJLabelTextFieldCellInfo *textFieldInfo = textField.object;
+    
+    if (textFieldInfo.textFieldShouldChangeCharactersBlock && !textFieldInfo.textFieldShouldChangeCharactersBlock(textField,textFieldInfo,range,string)) {
+            return NO;
+    }
+    
     if ([string isEqualToString:@""]) {
         return YES;
     }
     
-    RJLabelTextFieldCellInfo *textFieldInfo = textField.object;
     /** 判断小数不能判断输入的内容,需要判断输入完之后的内容*/
     if (textFieldInfo.textLimit & RJTextLimitDecimal || textFieldInfo.textLimit & RJTextLimitDecimal2 || textFieldInfo.textLimit & RJTextLimitNumber) {
         string = [textField.text stringByReplacingCharactersInRange:range withString:string];
@@ -1025,6 +1036,7 @@
     if (valid && textFieldInfo.subRegex.length) {
         valid = [RJTextLimit matchesRegex:textFieldInfo.subRegex withString:string options:NSRegularExpressionDotMatchesLineSeparators];
     }
+    
     return valid;
 }
 
