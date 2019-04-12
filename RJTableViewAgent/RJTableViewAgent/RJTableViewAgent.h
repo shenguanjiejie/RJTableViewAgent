@@ -46,38 +46,12 @@
 
 @class RJTableViewAgent;
 
-@protocol RJTableViewAgentDataSource <NSObject>
+@protocol RJTableViewAgentDataSource <UITableViewDataSource>
 
-@optional
-
-- (NSInteger)rj_tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
-
+/**RJ 2019-03-25 14:58:03
+    使用该方法替代tableView:cellForRowAtIndexPath:
+ */
 - (__kindof RJBaseCellInfo *)rj_tableView:(UITableView *)tableView infoForRowAtIndexPath:(NSIndexPath *)indexPath;
-
-- (NSInteger)rj_numberOfSectionsInRJTableView:(UITableView *)tableView;
-
-- (NSString *)rj_tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;    // fixed font style. use custom view (UILabel) if you want something different
-- (NSString *)rj_tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section;
-
-@end
-
-@protocol RJTableViewAgentDelegate <NSObject>
-
-@optional
-- (CGFloat)rj_tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
-- (CGFloat)rj_tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;
-- (CGFloat)rj_tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
-
-- (nullable UIView *)rj_tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;   // custom view for header. will be adjusted to default or specified header height
-- (nullable UIView *)rj_tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;   // custom view for footer. will be adjusted to default or specified footer height
-
-- (void)rj_didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-
-- (BOOL)rj_tableView:(UITableView *)tableView canEditRowForInfo:(RJBaseCellInfo *)info;
-
-- (NSArray<UITableViewRowAction *> *)rj_tableView:(UITableView *)tableView editActionsForInfo:(RJBaseCellInfo *)info;
-
-- (void)rj_scrollViewDidScroll:(UIScrollView *)scrollView;
 
 @end
 
@@ -99,17 +73,17 @@
  */
 @property (nonatomic, copy, readonly) NSMutableArray<__kindof RJBaseCellInfo *> *infos;
 
-/**RJ 2019-01-01 13:53:14 目前只加入了常用的一些代理方法*/
-@property (nonatomic,weak) id<RJTableViewAgentDelegate> delegate;
-/**RJ 2019-01-01 13:53:14 目前只加入了常用的一些代理方法*/
+/**数据源,和infos二选一即可,优先级大于infos*/
 @property (nonatomic,weak) id<RJTableViewAgentDataSource> dataSource;
 
 /**RJ 2019-01-01 12:44:23
-    RJTableViewAgent将成为tableView的代理
+    默认RJTableViewAgent将成为tableView的代理
+    如果需要将代理赋值为其他对象,并且享受RJTableViewAgent的附加功能,只需在对应的代理方法中调用一下RJTableViewAgent中同样的方法即可
+    对应的方法在最下方可以查看到
  */
 - (RJTableViewAgent *)initWithTableView:(UITableView *)tableView;
 
-/**以下这些方法作用类似,调用后会将对应info加入到self.infos数组当中*/
+#pragma mark - 以下这些方法作用类似,调用后会将对应的cellInfo加入到self.infos数组当中
 - (RJBaseCellInfo *)addBaseCellWithBackgroundColor:(UIColor *)color;
 
 - (RJBaseCellInfo *)addBaceCellWithIndexPath:(NSIndexPath *)indexPath backgroundColor:(UIColor *)color;
@@ -164,7 +138,7 @@
 
 - (RJCollectionCellInfo *)addCollectionCellWithDelegateAndDataSource:(id<UICollectionViewDelegate,UICollectionViewDataSource>)delegate cellClass:(Class)cellClass flowLayout:(UICollectionViewFlowLayout *)flowLayout;
 - (RJCollectionCellInfo *)addCollectionWithIndexpath:(NSIndexPath *)indexPath delegateAndDataSource:(id<UICollectionViewDelegate,UICollectionViewDataSource>)delegate cellClass:(Class)cellClass flowLayout:(UICollectionViewFlowLayout *)flowLayout;
-/**以上这些方法作用类似,调用后会将对应info加入到self.infos数组当中*/
+/**以上这些方法作用类似,调用后会将对应的cellInfo加入到self.infos数组当中*/
 
 /**取到对应indexPath的info */
 - (__kindof RJBaseCellInfo *)cellInfoWithIndexPath:(NSIndexPath *)indexPath;
@@ -182,6 +156,26 @@
 
 /**这个方法的使用场景是,在可编辑保存的页面,点击保存时调用,检查数据的有效性,BindingString的逻辑可以在RJBaseCellInfo中查看*/
 - (BOOL)validateBindingStringWithAlert:(BOOL)alert;
+
+
+#pragma mark - 默认情况下,talbeView以及内置的RJCell中的textView、textField、switch等,对应的delegate/dataSource为RJTableViewAgent，如果需要获取这些delegate的所有权,并且保留RJTableViewAgent的一些功能,可以在对应的代理方法中调用下方这些对应方法
+
+#pragma mark UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+#pragma mark  UITextViewDelegate
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView;
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
+
+- (void)textViewDidChange:(UITextView *)textView;
+
+#pragma mark UITextFieldDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField;
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 
 @end
 

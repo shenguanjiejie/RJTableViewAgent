@@ -19,7 +19,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIView+RJMBProgressHUD.h"
 
-@interface RJTableViewAgent ()<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,UITextViewDelegate,UITextFieldDelegate>
+@interface RJTableViewAgent ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,UITextViewDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -247,7 +247,9 @@
     if ([self.dataSource respondsToSelector:@selector(rj_tableView:infoForRowAtIndexPath:)]) {
         info = [self.dataSource rj_tableView:self.tableView infoForRowAtIndexPath:indexPath];
     }else{
-        info = _infos[indexPath.row];
+        if (_infos.count > indexPath.row) {
+            info = _infos[indexPath.row];
+        }
     }
     return info;
 }
@@ -261,16 +263,10 @@
 }
 
 #pragma mark - UITableViewDelegate & tableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    if ([self.dataSource respondsToSelector:@selector(rj_numberOfSectionsInRJTableView:)]) {
-        return [self.dataSource rj_numberOfSectionsInRJTableView:self.tableView];
-    }
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if ([self.dataSource respondsToSelector:@selector(rj_tableView:numberOfRowsInSection:)]) {
-        return [self.dataSource rj_tableView:self.tableView numberOfRowsInSection:section];
+    if ([self.dataSource respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
+        return [self.dataSource tableView:tableView numberOfRowsInSection:section];
     }
     return _infos.count;
 }
@@ -286,10 +282,6 @@
         return info.cellHeight;
     }
     
-    if ([self.delegate respondsToSelector:@selector(rj_tableView:heightForRowAtIndexPath:)]) {
-        return [self.delegate rj_tableView:self.tableView heightForRowAtIndexPath:indexPath];
-    }
-    
     if ([info isKindOfClass:[RJTextViewCellInfo class]]) {
         RJTextViewCellInfo *textViewInfo = info;
         if (textViewInfo.textViewCellCurrentHeight != NSNotFound) {
@@ -300,9 +292,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([self.delegate respondsToSelector:@selector(rj_didSelectRowAtIndexPath:)]) {
-        [self.delegate rj_didSelectRowAtIndexPath:indexPath];
-    }
     RJBaseCellInfo *info = [self cellInfoWithIndexPath:indexPath];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     if (info.didSelectRowAtIndexPathBlock) {
@@ -411,7 +400,7 @@
                         imageLabelButtonCell.rj_imageView.image = imageLabelButtonInfo.image;
                     }else{
                         UIImage *placeholderImage = imageLabelButtonInfo.placeholderImage?:[RJTableViewAgentConfig sharedConfig].placeholderImage;
-                        [imageLabelButtonCell.rj_imageView sd_setImageWithURL:[NSURL URLWithString:imageLabelButtonInfo.imageUrl] placeholderImage:placeholderImage completed:nil];
+                        [imageLabelButtonCell.rj_imageView sd_setImageWithURL:imageLabelButtonInfo.imageUrl placeholderImage:placeholderImage completed:nil];
                     }
                     
                     imageLabelButtonCell.rj_imageView.contentMode = imageLabelButtonInfo.imageContentMode;
@@ -491,7 +480,7 @@
                     imageLabelCell.rj_imageView.image = imageLabelInfo.image;
                 }else{
                     UIImage *placeholderImage = imageLabelInfo.placeholderImage?:[RJTableViewAgentConfig sharedConfig].placeholderImage;
-                    [imageLabelCell.rj_imageView sd_setImageWithURL:[NSURL URLWithString:imageLabelInfo.imageUrl] placeholderImage:placeholderImage completed:nil];
+                    [imageLabelCell.rj_imageView sd_setImageWithURL:imageLabelInfo.imageUrl placeholderImage:placeholderImage completed:nil];
                 }
                 
                 imageLabelCell.rj_imageView.contentMode = imageLabelInfo.imageContentMode;
@@ -554,6 +543,10 @@
                     if (!chooseInfo.detailText.length && !chooseInfo.detailAttributeString.length) {
                         chooseCell.detailLab.textColor = chooseInfo.detailPlaceholderTextColor;
                         chooseCell.detailLab.text = chooseInfo.detailPlaceholderText;
+                        chooseCell.detailLab.textAlignment = NSTextAlignmentRight;
+                    }else{
+                        chooseCell.detailLab.textColor = chooseInfo.detailTextColor;
+//                        chooseCell.detailLab.text = chooseInfo.detailPlaceholderText;
                     }
                     if ([chooseInfo.image isKindOfClass:[UIImage class]]) {
                         chooseCell.rightImageView.image = chooseInfo.image;
@@ -569,6 +562,7 @@
                 // do something
                 labelCell = twoLabelHCell;
                 if (twoLabelHCellInfo.detailAttributeString.length) {
+                    twoLabelHCell.detailLab.textAlignment = twoLabelHCellInfo.detailTextAligment;
                     twoLabelHCell.detailLab.attributedText = twoLabelHCellInfo.detailAttributeString;
                 }else if (twoLabelHCellInfo.detailText.length) {
                     twoLabelHCell.detailLab.text = twoLabelHCellInfo.detailText;
@@ -680,11 +674,11 @@
             textViewCell.textView.userInteractionEnabled = textViewInfo.textViewUserInteractionEnabled;
             textViewCell.numLab.textColor = textViewInfo.numLabTextColor;
             textViewCell.textViewMaxHeight = textViewInfo.textViewMaxHeight;
-            if (textViewInfo.textViewCellType == RJTextViewCellType_Border) {
+            if (textViewInfo.textViewCellType == RJTextViewCellTypeBorder) {
                 textViewCell.textView.layer.borderColor = [RJTableViewAgentConfig sharedConfig].separateColor.CGColor;
                 textViewCell.textView.layer.borderWidth = 0.5;
                 textViewCell.textView.layer.cornerRadius = 8;
-            }else if (textViewInfo.textViewCellType == RJTextViewCellType_UnderLine){
+            }else if (textViewInfo.textViewCellType == RJTextViewCellTypeUnderLine){
                 textViewCell.textView.layer.cornerRadius = 0;
                 textViewCell.textView.layer.borderColor = [UIColor clearColor].CGColor;
             }
@@ -707,7 +701,7 @@
                 imageCell.rj_imageView.image = imageCellInfo.image;
             }else{
                 UIImage *placeholderImage = imageCellInfo.placeholderImage?:[RJTableViewAgentConfig sharedConfig].placeholderImage;
-                [imageCell.rj_imageView sd_setImageWithURL:[NSURL URLWithString:imageCellInfo.imageUrl] placeholderImage:placeholderImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                [imageCell.rj_imageView sd_setImageWithURL:imageCellInfo.imageUrl placeholderImage:placeholderImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                     if (imageCellInfo.shouldRoundImage && image) {
                         imageCell.rj_imageView.image = [self roundIconWithImage:image diameter:MIN(imageCellInfo.imageSize.width, imageCellInfo.imageSize.height)];
                     }
@@ -748,11 +742,12 @@
             [buttonCell.button setTitle:buttonCellInfo.buttonText forState:UIControlStateNormal];
             [buttonCell.button setImage:buttonCellInfo.buttonImage forState:UIControlStateNormal];
             [buttonCell.button setImage:buttonCellInfo.buttonSelectedImage forState:UIControlStateSelected];
+            buttonCell.button.userInteractionEnabled = buttonCellInfo.buttonUserinterfaceEnable;
             
             if (buttonCellInfo.buttonImage) {
                 [buttonCell.button setImage:buttonCellInfo.buttonImage forState:UIControlStateNormal];
-            }else if(buttonCellInfo.buttonImageUrl.length){
-                [buttonCell.button sd_setImageWithURL:[NSURL URLWithString:buttonCellInfo.buttonImageUrl] forState:UIControlStateNormal completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            }else if(buttonCellInfo.buttonImageUrl){
+                [buttonCell.button sd_setImageWithURL:buttonCellInfo.buttonImageUrl forState:UIControlStateNormal completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                     if (buttonCellInfo.shouldRoundImage && image) {
                         [buttonCell.button setImage:[self roundIconWithImage:image diameter:MIN(buttonCellInfo.imageSize.width, buttonCellInfo.imageSize.height)] forState:UIControlStateNormal];
                     }
@@ -857,57 +852,6 @@
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([self.delegate respondsToSelector:@selector(rj_tableView:canEditRowForInfo:)]) {
-        RJBaseCellInfo *info = [self cellInfoWithIndexPath:indexPath];
-        return [self.delegate rj_tableView:tableView canEditRowForInfo:info];
-    }
-    return NO;
-}
-
-- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([self.delegate respondsToSelector:@selector(rj_tableView:editActionsForInfo:)]) {
-        RJBaseCellInfo *info = [self cellInfoWithIndexPath:indexPath];
-        return [self.delegate rj_tableView:tableView editActionsForInfo:info];
-    }
-    return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if ([self.delegate respondsToSelector:@selector(rj_tableView:heightForHeaderInSection:)]) {
-        return [self.delegate rj_tableView:tableView heightForHeaderInSection:section];
-    }
-    return 0;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if ([self.delegate respondsToSelector:@selector(rj_tableView:viewForHeaderInSection:)]) {
-        return [self.delegate rj_tableView:tableView viewForHeaderInSection:section];
-    }
-    return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if ([self.delegate respondsToSelector:@selector(rj_tableView:heightForFooterInSection:)]) {
-        return [self.delegate rj_tableView:tableView heightForFooterInSection:section];
-    }
-    return 0;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    if ([self.delegate respondsToSelector:@selector(rj_tableView:viewForFooterInSection:)]) {
-        return [self.delegate rj_tableView:tableView viewForFooterInSection:section];
-    }
-    return nil;
-}
-
-#pragma mark - UISCrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    //    if ([self.delegate respondsToSelector:@selector(rj_scrollViewDidScroll:)] && (self.tableView.delegate != self)) {
-    if ([self.delegate respondsToSelector:@selector(rj_scrollViewDidScroll:)]) {
-        [self.delegate rj_scrollViewDidScroll:self.tableView];
-    }
-}
 
 #pragma mark - UITextViewDelegate
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
@@ -956,50 +900,52 @@
  */
 - (void)textViewDidChange:(UITextView *)textView{
     
-    RJTextViewCellInfo *textViewInfo = textView.object;
-    
-    if (textViewInfo.maxLength == 0) {
-        textViewInfo.text = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    }else{
-        RJTextViewCell *cell = (RJTextViewCell *)[self.tableView cellForRowAtIndexPath:textViewInfo.indexPath];
-        textViewInfo.text = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        cell.numLab.text = [NSString stringWithFormat:@"%ld",textViewInfo.maxLength - textView.text.length];
-    }
-    //    [textViewInfo.textViewBindingString setString:textViewInfo.text];
-    
-    CGFloat height = [self sizeForString:textView.text font:textViewInfo.font size:CGSizeMake(textView.bounds.size.width, CGFLOAT_MAX) mode:NSLineBreakByCharWrapping].height;
-    if (textViewInfo.cellHeight == NSNotFound && textViewInfo.textViewMaxHeight > height) {
-        if (textViewInfo.textViewCellCurrentHeight != NSNotFound) {
-            /**
-             解决删的比maxHeight还要低的时候出现的UI错乱问题
-             这种情况不reload不行..
-             */
-            textViewInfo.textViewCellCurrentHeight = NSNotFound;
-            [self reloadCellWithCellInfos:@[textViewInfo] animation:UITableViewRowAnimationTop];
-        } else {
-            textViewInfo.textViewCellCurrentHeight = NSNotFound;
-#ifdef IQKeyboardManagerConstantsInternal_h
-            [IQKeyboardManager sharedManager].enable = NO;
-#endif
-            if (@available(iOS 11.0, *)) {
-                [self.tableView performBatchUpdates:nil completion:nil];
-            } else {
-                [self.tableView beginUpdates];
-                [self.tableView endUpdates];
-            }
-#ifdef IQKeyboardManagerConstantsInternal_h
-            [IQKeyboardManager sharedManager].enable = YES;
-#endif
+    dispatch_async(dispatch_get_main_queue(), ^{
+        RJTextViewCellInfo *textViewInfo = textView.object;
+        
+        if (textViewInfo.maxLength == 0) {
+            textViewInfo.text = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }else{
+            RJTextViewCell *cell = (RJTextViewCell *)[self.tableView cellForRowAtIndexPath:textViewInfo.indexPath];
+            textViewInfo.text = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            cell.numLab.text = [NSString stringWithFormat:@"%ld",textViewInfo.maxLength - textView.text.length];
         }
-        textView.scrollEnabled = NO;
-    }else{
-        textViewInfo.textViewCellCurrentHeight = textViewInfo.textViewMaxHeight + textViewInfo.topMargin + textViewInfo.bottomMargin;
-        textView.scrollEnabled = YES;
-    }
-    
-    if (textViewInfo.textViewDidChangeBlock) {
-        textViewInfo.textViewDidChangeBlock(textView, textViewInfo);
-    }
+        //    [textViewInfo.textViewBindingString setString:textViewInfo.text];
+        
+        CGFloat height = [self sizeForString:textView.text font:textViewInfo.font size:CGSizeMake(textView.bounds.size.width, CGFLOAT_MAX) mode:NSLineBreakByCharWrapping].height;
+        if (textViewInfo.cellHeight == NSNotFound && textViewInfo.textViewMaxHeight > height) {
+            if (textViewInfo.textViewCellCurrentHeight != NSNotFound) {
+                /**
+                 解决删的比maxHeight还要低的时候出现的UI错乱问题
+                 这种情况不reload不行..
+                 */
+                textViewInfo.textViewCellCurrentHeight = NSNotFound;
+                [self reloadCellWithCellInfos:@[textViewInfo] animation:UITableViewRowAnimationTop];
+            } else {
+                textViewInfo.textViewCellCurrentHeight = NSNotFound;
+#ifdef IQKeyboardManagerConstantsInternal_h
+                [IQKeyboardManager sharedManager].enable = NO;
+#endif
+                if (@available(iOS 11.0, *)) {
+                    [self.tableView performBatchUpdates:nil completion:nil];
+                } else {
+                    [self.tableView beginUpdates];
+                    [self.tableView endUpdates];
+                }
+#ifdef IQKeyboardManagerConstantsInternal_h
+                [IQKeyboardManager sharedManager].enable = YES;
+#endif
+            }
+            textView.scrollEnabled = NO;
+        }else{
+            textViewInfo.textViewCellCurrentHeight = textViewInfo.textViewMaxHeight + textViewInfo.topMargin + textViewInfo.bottomMargin;
+            textView.scrollEnabled = YES;
+        }
+        
+        if (textViewInfo.textViewDidChangeBlock) {
+            textViewInfo.textViewDidChangeBlock(textView, textViewInfo);
+        }
+    });
 }
 
 #pragma mark - UITextFeildDelegate

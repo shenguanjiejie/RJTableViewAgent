@@ -18,6 +18,7 @@
         self.buttonFont = kRJFontSize(14);
         self.imageSize = CGSizeMake(40, 40);
         self.buttonPlaceholderImage = [RJTableViewAgentConfig sharedConfig].placeholderImage;
+        self.buttonUserinterfaceEnable = YES;
     }
     return self;
 }

@@ -26,7 +26,7 @@ typedef void (^RJDidTapButtonBlock)(UIButton *button,__kindof RJButtonCellInfo *
 
 @property (nonatomic, strong) UIImage *buttonImage;
 
-@property (nonatomic, strong) NSString *buttonImageUrl;
+@property (nonatomic, strong) NSURL *buttonImageUrl;
 
 @property (nonatomic, strong) UIImage *buttonSelectedImage;
 
@@ -39,6 +39,8 @@ typedef void (^RJDidTapButtonBlock)(UIButton *button,__kindof RJButtonCellInfo *
 @property (nonatomic, assign) CGSize imageSize;
 
 @property (nonatomic, strong) UIImage *buttonPlaceholderImage;
+
+@property (nonatomic, assign) BOOL buttonUserinterfaceEnable;
 
 @property (nonatomic, copy) RJDidTapButtonBlock didTapButtonBlock;
 

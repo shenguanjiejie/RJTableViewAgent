@@ -10,7 +10,7 @@
 
 @interface RJImageCellInfo : RJBaseCellInfo
 
-@property (nonatomic, copy) NSString *imageUrl;
+@property (nonatomic, copy) NSURL *imageUrl;
 
 @property (nonatomic, strong) UIImage *image;
 

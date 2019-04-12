@@ -15,8 +15,8 @@ typedef void(^RJTextViewDidChangeBlock)(UITextView *textView,__kindof RJTextView
 typedef BOOL(^RJTextViewShouldChangeTextBlock)(UITextView *textView,__kindof RJTextViewCellInfo *info,NSRange range,NSString *replacementText);
 
 typedef NS_ENUM(NSUInteger, RJTextViewCellType) {
-    RJTextViewCellType_UnderLine,
-    RJTextViewCellType_Border
+    RJTextViewCellTypeUnderLine,
+    RJTextViewCellTypeBorder
 };
 
 @interface RJTextViewCellInfo : RJBaseCellInfo
@@ -62,7 +62,6 @@ typedef NS_ENUM(NSUInteger, RJTextViewCellType) {
 
 /**RJ 2019-01-17 15:00:43
  只添加了常用代理方法的监听,如果需要监听其他代理方法,可以在infoCellInitBlock中将该textView的代理改为自定义对象.
- 不过届时textLimit和subRegex属性将失效,另外RJTextViewCellInfo也不能够再根据文本自适应高度,一切由你来自行处理.
  */
 @property (nonatomic, copy) RJTextViewDidChangeBlock textViewDidChangeBlock;
 @property (nonatomic, copy) RJTextViewShouldChangeTextBlock textViewShouldChangeTextBlock;

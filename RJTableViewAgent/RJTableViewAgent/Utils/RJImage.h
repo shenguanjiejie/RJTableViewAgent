@@ -8,23 +8,29 @@
 
 
 #import <Foundation/Foundation.h>
+#import <Photos/Photos.h>
 
-@interface RJImage : NSObject
+@interface RJImage : NSObject<NSCoding>
 
 @property (nonatomic, assign) NSInteger ID;
 
 @property (nonatomic, assign) NSInteger tag;
 
+@property (nonatomic, assign) NSInteger index;
+
 @property (nonatomic, copy) NSString *key;
 
 @property (nonatomic, strong) UIImage *image;
 
+@property (nonatomic, strong) PHAsset *asset;
+
+@property (nonatomic, assign) CGFloat width;
+@property (nonatomic, assign) CGFloat height;
+@property (nonatomic, assign) NSInteger size;
+
 @property (nonatomic, copy) NSString *url;
-
 @property (nonatomic, copy) NSString *thumbUrl;
-
 @property (nonatomic, copy) NSString *avatarUrl;
-
 
 + (instancetype)rj_imageWithImage:(UIImage *)image;
 

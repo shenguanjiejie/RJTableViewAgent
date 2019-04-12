@@ -51,7 +51,6 @@ typedef BOOL(^RJTextFieldShouldChangeCharactersBlock)(UITextField *textField,__k
 
 /**RJ 2019-01-17 14:56:56
  只添加了常用代理方法的监听,如果需要监听其他代理方法,可以在infoCellInitBlock中将该textField的代理改为自定义对象.
- 不过届时textLimit和subRegex属性将失效
  */
 @property (nonatomic, copy) RJTextFieldDidEndEditingBlock textFieldDidEndEditingBlock;
 @property (nonatomic, copy) RJTextFieldShouldChangeCharactersBlock textFieldShouldChangeCharactersBlock;

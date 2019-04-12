@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "RJImage.h"
-
 @implementation RJImage
 
 + (instancetype)rj_imageWithImage:(UIImage *)image{

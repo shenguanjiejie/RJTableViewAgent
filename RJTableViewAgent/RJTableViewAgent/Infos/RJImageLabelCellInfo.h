@@ -11,9 +11,9 @@
 @interface RJImageLabelCellInfo : RJLabelCellInfo
 
 
-@property (nonatomic, copy) NSString *imageUrl;
+@property (nonatomic, copy) NSURL *imageUrl;
 
-@property (nonatomic, strong) id image;
+@property (nonatomic, strong) UIImage *image;
 
 @property (nonatomic, assign) UIViewContentMode imageContentMode;
 

@@ -31,6 +31,7 @@
         self.textViewCellCurrentHeight = NSNotFound;
         self.textViewScrollEnable = NO;
         self.textViewMaxHeight = NSNotFound;
+        self.textViewCellType = RJTextViewCellTypeUnderLine;
     }
     
     return self;
@@ -46,9 +47,9 @@
         return;
     }
     _textViewCellType = textViewCellType;
-    if (textViewCellType == RJTextViewCellType_Border) {
+    if (textViewCellType == RJTextViewCellTypeBorder) {
         self.lineHidden = YES;
-    }else if (textViewCellType == RJTextViewCellType_UnderLine){
+    }else if (textViewCellType == RJTextViewCellTypeUnderLine){
         self.lineHidden = NO;
         self.textViewMaxHeight = 120;
     }

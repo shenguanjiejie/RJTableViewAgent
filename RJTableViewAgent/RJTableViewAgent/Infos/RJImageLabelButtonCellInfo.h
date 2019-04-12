@@ -11,7 +11,7 @@
 
 @interface RJImageLabelButtonCellInfo : RJLabelButtonCellInfo
 
-@property (nonatomic, copy) NSString *imageUrl;
+@property (nonatomic, copy) NSURL *imageUrl;
 
 @property (nonatomic, strong) UIImage *image;
 

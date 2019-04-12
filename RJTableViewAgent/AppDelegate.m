@@ -33,7 +33,7 @@
     [RJTableViewAgentConfig sharedConfig].separateColor = kRJSeparateColor;
     [RJTableViewAgentConfig sharedConfig].placeholderColor = kRJSeparateColor;
     [RJTableViewAgentConfig sharedConfig].placeholderImage = [UIImage imageNamed:@"rj_placeholderImage"];
-    [RJTableViewAgentConfig sharedConfig].rightArrow = [UIImage imageNamed:@"rj_rightArrow"];
+    [RJTableViewAgentConfig sharedConfig].rightArrow = [UIImage imageNamed:@"rj_right_arrow"];
     
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
     manager.enable = YES;

@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "RJTableViewAgent.h"
 #import "NSObject+RJObject.h"
+#import "UIView+RJMBProgressHUD.h"
+
 @interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -71,7 +73,7 @@
     
     RJLabelCellInfo *labelInfo = [_tableViewAgent addLabelCellWithText:@"这是LabelCell2,设置了四周margin,并且设置了选中事件,可以点击该cell试一下,会打印消息" font:kRJFontSize(14)];
     labelInfo.didSelectRowAtIndexPathBlock = ^(__kindof UITableViewCell *cell, NSIndexPath *indexPath, __kindof RJBaseCellInfo *info) {
-        NSLog(@"点击了LabelCell2");
+        [self.view showSuccess:@"点击了LabelCell2"];
     };
     labelInfo.layoutMargins = UIEdgeInsetsMake(5, 40, 15, 15);
     labelInfo.lineHidden = NO;
@@ -153,7 +155,7 @@
     RJTextViewCellInfo *textViewInfo = [_tableViewAgent addTextViewCellWithPlaceholder:@"这是textViewCell,随便输入点什么吧"];
     textViewInfo.topMargin = 10;
     textViewInfo.keyboardType = UIKeyboardTypeDefault;
-    textViewInfo.textViewCellType = RJTextViewCellType_Border;
+    textViewInfo.textViewCellType = RJTextViewCellTypeBorder;
     /**RJ 2019-01-01 16:28:08 用来设置固定cell高度*/
     textViewInfo.cellHeight = 150;
 }

@@ -32,7 +32,7 @@
         _rightMargin = 15;
         _lineHeight = 0.5;
         _lineColor = [RJTableViewAgentConfig sharedConfig].separateColor;
-        _backgroundColor = [UIColor clearColor];
+        _backgroundColor = [UIColor whiteColor];
         _bindingStringMinLength = 0;
         _bindingStringMaxLength = NSNotFound;
         _cellVariety = RJCellVarietyAll;
