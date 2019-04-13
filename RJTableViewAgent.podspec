@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "RJTableViewAgent"
-s.version      = "1.0.8"
+s.version      = "1.0.8.1"
 s.summary      = "将常用的一些Cell封装了到了RJTableViewAgent中,使得使用UITableView的时候可以快速开发,尤其是表单页面,可节省大量时间."
 s.homepage     = "https://github.com/shenguanjiejie/RJTableViewAgent"
 s.license = { :type => 'MIT'}
@@ -26,7 +26,7 @@ s.dependency 'MBProgressHUD'
 s.subspec 'Resource' do |ss|
 ss.requires_arc = false
 #ss.source_files  = "RJTableViewAgent/RJTableViewAgent/Resource/*.png"
-ss.resource = "RJTableViewAgent/RJTableViewAgent/Resource/RJTableViewAgent.bundle"
+ss.resources = "RJTableViewAgent/RJTableViewAgent/Resource/RJTableViewAgent.bundle"
 end
 
 s.subspec 'Utils' do |ss|
@@ -44,7 +44,7 @@ s.subspec 'Cells' do |ss|
 ss.requires_arc = true
 ss.source_files  = "RJTableViewAgent/RJTableViewAgent/Cells/*.{h,m}"
 ss.dependency 'RJTableViewAgent/Infos'
-ss.dependency 'RJTableViewAgent/Utils'
+#ss.dependency 'RJTableViewAgent/Utils'
 end
 
 end

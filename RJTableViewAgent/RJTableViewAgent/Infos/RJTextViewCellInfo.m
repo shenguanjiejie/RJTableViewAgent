@@ -18,7 +18,7 @@
         self.textColor = [RJTableViewAgentConfig sharedConfig].textColor;
         self.font = kRJFontSize(15);
         self.keyboardType = UIKeyboardTypeDefault;
-        self.maxLength = 0;
+        self.maxTextLength = 0;
         self.lineColor = [RJTableViewAgentConfig sharedConfig].separateColor;
         self.lineHeight = 1;
         self.topMargin = 0;
@@ -54,7 +54,5 @@
         self.textViewMaxHeight = 120;
     }
 }
-
-
 
 @end

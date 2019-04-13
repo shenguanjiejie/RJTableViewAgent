@@ -1,4 +1,11 @@
-# YBImageBrowser ( Latest version : 2.1.0 )
+# YBImageBrowser 
+
+[![CocoaPods](https://img.shields.io/cocoapods/v/YBImageBrowser.svg)](https://cocoapods.org/pods/YBImageBrowser)&nbsp;
+[![CocoaPods](https://img.shields.io/cocoapods/p/YBImageBrowser.svg)](https://github.com/indulgeIn/YBImageBrowser)&nbsp;
+[![License](https://img.shields.io/github/license/indulgeIn/YBImageBrowser.svg)](https://github.com/indulgeIn/YBImageBrowser)&nbsp;
+
+
+# Preview
 
 <center>
     <img src="https://github.com/indulgeIn/YBImageBrowser/blob/master/OtherDocuments/ybib_st_use.gif">
@@ -12,7 +19,7 @@
 # Link
 
 
-* Blog : [打造开源第一 iOS 图片浏览器 (支持视频)](https://www.jianshu.com/p/bffdb9f0036c)
+* Blog : [打造高性能 iOS 图片浏览器 (支持视频)](https://www.jianshu.com/p/bffdb9f0036c)
 
 * [中文介绍](#中文介绍)
 * [English Introduction](#english-introduction)

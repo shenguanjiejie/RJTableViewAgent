@@ -22,7 +22,7 @@ typedef BOOL(^RJTextFieldShouldChangeCharactersBlock)(UITextField *textField,__k
 
 @property (nonatomic, copy) NSString *placeholder;
 
-@property (nonatomic, assign) CGFloat maxLength;
+@property (nonatomic, assign) CGFloat maxTextLength;
 
 @property (nonatomic, assign) UIKeyboardType keyboardType;
 

@@ -50,6 +50,7 @@ static NSString * const RJTextLimitLetterRegex = @"^[A-Za-z]+$";
 static NSString * const RJTextLimitChineseRegex = @"^[\u4e00-\u9fa5]{0,}$";
 static NSString * const RJTextLimitEmojiRegex = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
 static NSString * const RJTextLimitSymbolRegex = @"((?=[\\x21-\\x7e]+)[^A-Za-z0-9])";
+static NSString * const RJTextLimitUsernameRegex = @"^[a-zA-Z0-9_-]{4,16}$";
 
 @interface RJTextLimit : NSObject
 

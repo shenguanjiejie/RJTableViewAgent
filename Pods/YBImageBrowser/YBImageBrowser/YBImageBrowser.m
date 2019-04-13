@@ -35,7 +35,6 @@
 
 - (void)dealloc {
     // If the current instance is released (possibly uncontrollable release), we need to restore the changes to external business.
-    [YBIBWebImageManager restoreOutsideConfiguration];
     self.hiddenSourceObject = nil;
     [self setStatusBarHide:NO];
     [self removeObserverForSystem];
@@ -49,7 +48,6 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
         
         [self initVars];
-        [YBIBWebImageManager storeOutsideConfiguration];
         [self.layoutDirectionManager startObserve];
     }
     return self;
@@ -295,6 +293,10 @@
     ((YBImageBrowserViewLayout *)self.browserView.collectionViewLayout).distanceBetweenPages = distanceBetweenPages;
 }
 
+- (BOOL)transitioning {
+    return self.transitionManager.transitioning;
+}
+
 - (void)setGiProfile:(YBIBGestureInteractionProfile *)giProfile {
     _giProfile = giProfile;
     self.browserView.giProfile = giProfile;
@@ -412,7 +414,7 @@
         __weak typeof(self) wSelf = self;
         [_layoutDirectionManager setLayoutDirectionChangedBlock:^(YBImageBrowserLayoutDirection layoutDirection) {
             __strong typeof(self) sSelf = wSelf;
-            if (layoutDirection == YBImageBrowserLayoutDirectionUnknown || sSelf.transitionManager.isTransitioning || sSelf->_isRestoringDeviceOrientation) return;
+            if (layoutDirection == YBImageBrowserLayoutDirectionUnknown || sSelf.transitionManager.transitioning || sSelf->_isRestoringDeviceOrientation) return;
             
             [sSelf updateLayoutOfSubViewsWithLayoutDirection:layoutDirection];
         }];

@@ -20,10 +20,9 @@
         self.textFieldFont = textFieldFont;
         self.textFieldTextColor = [RJTableViewAgentConfig sharedConfig].textColor;
         self.keyboardType = UIKeyboardTypeDefault;
-        self.maxLength = NSNotFound;
+        self.maxTextLength = 0;
         self.textFieldUserInteractionEnabled = YES;
         self.titleLabTextFieldInterval = 5;
-        self.maxLength = 0;
         self.textLimit = RJTextLimitNone;
         self.textFieldHuggingPriority = UILayoutPriorityDefaultLow - 1;
         self.textFieldCompressionPriority = UILayoutPriorityDefaultHigh - 1;

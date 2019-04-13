@@ -23,7 +23,8 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
 
 @implementation UIView (RJVFL)
 
-#pragma mark - property
+#pragma mark - property 如果对应约束只有一条,则为该条约束;如果对应约束有多条,为一个数组,则属性为该数组中最后一条约束
+
 -(void)setWidthConstraint:(NSLayoutConstraint *)widthConstraint{
     objc_setAssociatedObject(self, kWidthConstraintKey, widthConstraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -112,6 +113,8 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
     for (id item in views) {
         if ([item isKindOfClass:[UIView class]]) {
             [item addWidthConstraintWithConstant:constant];
+        }else if ([item isKindOfClass:[NSArray class]]){
+            [UIView  setWidthConstraintToViews:item constant:constant];
         }
     }
     [UIView setConstraintToViews:views options:options];
@@ -128,9 +131,18 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
     }
     
     for (NSInteger i = 0; i < min; i++) {
-        UIView *view = views[i];
-        if ([constants[i] isKindOfClass:[NSNumber class]]) {
-            [view addWidthConstraintWithConstant:[constants[i] floatValue]];
+        id item = views[i];
+        id constant = constants[i];
+        if ([item isKindOfClass:[UIView class]]) {
+            if ([constant isKindOfClass:[NSNumber class]]) {
+                [item addWidthConstraintWithConstant:[constant floatValue]];
+            }
+        }else if ([item isKindOfClass:[NSArray class]]){
+            if ([constant isKindOfClass:[NSNumber class]]) {
+                [UIView setWidthConstraintToViews:item constant:[constant floatValue]];
+            }else if ([constant isKindOfClass:[NSArray class]]){
+                [UIView setWidthConstraintToViews:item constants:constant];
+            }
         }
     }
 
@@ -157,10 +169,10 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
         if ([item isKindOfClass:[UIView class]] && item != self) {
             [self addWidthConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addConstraintToViews:item options:options];
         }
     }
-    [UIView setConstraintToWithoutArrayViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 - (NSLayoutConstraint *)addHeightConstraintWithConstant:(CGFloat)constant{
@@ -185,6 +197,8 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
     for (id item in views) {
         if ([item isKindOfClass:[UIView class]]) {
             [item addHeightConstraintWithConstant:constant];
+        }else if ([item isKindOfClass:[NSArray class]]){
+            [UIView  setHeightConstraintToViews:item constant:constant];
         }
     }
     [UIView setConstraintToViews:views options:options];
@@ -201,9 +215,18 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
     }
     
     for (NSInteger i = 0; i < min; i++) {
-        UIView *view = views[i];
-        if ([constants[i] isKindOfClass:[NSNumber class]]) {
-            [view addHeightConstraintWithConstant:[constants[i] floatValue]];
+        id item = views[i];
+        id constant = constants[i];
+        if ([item isKindOfClass:[UIView class]]) {
+            if ([constant isKindOfClass:[NSNumber class]]) {
+                [item addHeightConstraintWithConstant:[constant floatValue]];
+            }
+        }else if ([item isKindOfClass:[NSArray class]]){
+            if ([constant isKindOfClass:[NSNumber class]]) {
+                [UIView setHeightConstraintToViews:item constant:[constant floatValue]];
+            }else if ([constant isKindOfClass:[NSArray class]]){
+                [UIView setHeightConstraintToViews:item constants:constant];
+            }
         }
     }
     
@@ -230,7 +253,7 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
         if ([item isKindOfClass:[UIView class]] && item != self) {
             [self addHeightConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addConstraintToViews:item options:options];
         }
     }
 }
@@ -249,7 +272,7 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
     return constraint;
 }
 
-#pragma mark - NSLayoutAttribute***Margin 类型约束,并不常用,可酌情使用
+#pragma mark - NSLayoutAttribute***Margin 类形约束,并不常用,默认与superView进行约束,可酌情使用
 
 - (NSLayoutConstraint *)addTopMarginConstraintWithConstant:(CGFloat)constant{
     self.translatesAutoresizingMaskIntoConstraints = NO;
@@ -358,12 +381,12 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
 - (void)addTopConstraintToViews:(NSArray *)views constant:(CGFloat)constant options:(RJVFLOptions)options{
     for (id item in views) {
         if ([item isKindOfClass:[UIView class]] && item != self) {
-            [self addBottomConstraintToView:item constant:constant];
+            [self addTopConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addTopConstraintToViews:item constant:constant];
         }
     }
-    [UIView setConstraintToWithoutArrayViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 - (void)addBottomConstraintToViews:(NSArray *)views constant:(CGFloat)constant{
@@ -373,12 +396,12 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
 - (void)addBottomConstraintToViews:(NSArray *)views constant:(CGFloat)constant options:(RJVFLOptions)options{
     for (id item in views) {
         if ([item isKindOfClass:[UIView class]] && item != self) {
-            [self addTopConstraintToView:item constant:constant];
+            [self addBottomConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addBottomConstraintToViews:item constant:constant];
         }
     }
-    [UIView setConstraintToWithoutArrayViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 - (void)addLeftConstraintToViews:(NSArray *)views constant:(CGFloat)constant{
@@ -388,12 +411,12 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
 - (void)addLeftConstraintToViews:(NSArray *)views constant:(CGFloat)constant options:(RJVFLOptions)options{
     for (id item in views) {
         if ([item isKindOfClass:[UIView class]] && item != self) {
-            [self addRightConstraintToView:item constant:constant];
+            [self addLeftConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addLeftConstraintToViews:item constant:constant];
         }
     }
-    [UIView setConstraintToWithoutArrayViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 - (void)addRightConstraintToViews:(NSArray *)views constant:(CGFloat)constant{
@@ -403,12 +426,12 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
 - (void)addRightConstraintToViews:(NSArray *)views constant:(CGFloat)constant options:(RJVFLOptions)options{
     for (id item in views) {
         if ([item isKindOfClass:[UIView class]] && item != self) {
-            [self addLeftConstraintToView:item constant:constant];
+            [self addRightConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addRightConstraintToViews:item constant:constant];
         }
     }
-    [UIView setConstraintToWithoutArrayViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 #pragma mark - 四周对齐约束,其他View相对于self进行对齐时的约束
@@ -469,10 +492,10 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
         if ([item isKindOfClass:[UIView class]] && item != self) {
             [self addTopAlignConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addTopAlignConstraintToViews:item constant:constant];
         }
     }
-    [UIView setConstraintToWithoutArrayViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 - (void)addBottomAlignConstraintToViews:(NSArray *)views constant:(CGFloat)constant{
@@ -484,10 +507,10 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
         if ([item isKindOfClass:[UIView class]] && item != self) {
             [self addBottomAlignConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addBottomAlignConstraintToViews:item constant:constant];
         }
     }
-    [UIView setConstraintToWithoutArrayViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 - (void)addLeftAlignConstraintToViews:(NSArray *)views constant:(CGFloat)constant{
@@ -499,11 +522,10 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
         if ([item isKindOfClass:[UIView class]] && item != self) {
             [self addLeftAlignConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            /**RJ 2018-12-29 16:20:40 此处没有问题,虽然会递归调用到这里,但是那时候调用使用的options是0,打破了死循环*/
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addLeftAlignConstraintToViews:item constant:constant];
         }
     }
-    [UIView setConstraintToWithoutArrayViews:views options:options];
+    [UIView setConstraintToViews:views options:options];
 }
 
 - (void)addRightAlignConstraintToViews:(NSArray *)views constant:(CGFloat)constant{
@@ -515,10 +537,10 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
         if ([item isKindOfClass:[UIView class]] && item != self) {
             [self addRightAlignConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addRightAlignConstraintToViews:item constant:constant];
         }
     }
-    [UIView setConstraintToWithoutArrayViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 - (void)addHAlignConstraintToView:(UIView *)view constant:(CGFloat)constant{
@@ -544,22 +566,22 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
     [self addRightAlignConstraintToView:view constant:edgeInset.right];
 }
 
-- (void)addHAlignConstraintToViews:(NSArray<UIView *> *)views constant:(CGFloat)constant{
+- (void)addHAlignConstraintToViews:(NSArray *)views constant:(CGFloat)constant{
     [self addHAlignConstraintToViews:views constant:constant options:0];
 }
-- (void)addHAlignConstraintToViews:(NSArray<UIView *> *)views constant:(CGFloat)constant options:(RJVFLOptions)options{
+- (void)addHAlignConstraintToViews:(NSArray *)views constant:(CGFloat)constant options:(RJVFLOptions)options{
     [self addLeftAlignConstraintToViews:views constant:constant];
     [self addRightAlignConstraintToViews:views constant:constant];
-    [self setConstraintToViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
-- (void)addVAlignConstraintToViews:(NSArray<UIView *> *)views constant:(CGFloat)constant{
+- (void)addVAlignConstraintToViews:(NSArray *)views constant:(CGFloat)constant{
     [self addVAlignConstraintToViews:views constant:constant options:0];
 }
--(void)addVAlignConstraintToViews:(NSArray<UIView *> *)views constant:(CGFloat)constant options:(RJVFLOptions)options{
+-(void)addVAlignConstraintToViews:(NSArray *)views constant:(CGFloat)constant options:(RJVFLOptions)options{
     [self addTopAlignConstraintToViews:views constant:constant];
     [self addBottomAlignConstraintToViews:views constant:constant];
-    [self setConstraintToViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 - (void)addAllAlignConstraintToViews:(NSArray *)views constant:(CGFloat)constant{
@@ -587,10 +609,10 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
         if ([item isKindOfClass:[UIView class]] && item != self) {
             [self addCenterXConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addCenterXConstraintToViews:item constant:constant];
         }
     }
-    [self setConstraintToWithoutArrayViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 - (NSLayoutConstraint *)addCenterYConstraintToView:(UIView *)view constant:(CGFloat)constant{
@@ -612,10 +634,15 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
         if ([item isKindOfClass:[UIView class]] && item != self) {
             [self addCenterYConstraintToView:item constant:constant];
         }else if ([item isKindOfClass:[NSArray class]]){
-            [UIView setConstraintToWithoutArrayViews:item options:options];
+            [self addCenterYConstraintToViews:item constant:constant];
         }
     }
-    [self setConstraintToWithoutArrayViews:views options:options];
+    [self addConstraintToViews:views options:options];
+}
+
+/**x=0,y=0*/
+- (void)addCenterConstraintToView:(UIView *)view{
+    [self addCenterXYConstraintToView:view constantX:0 constantY:0];
 }
 
 - (void)addCenterXYConstraintToView:(UIView *)view constantX:(CGFloat)constantX constantY:(CGFloat)constantY{
@@ -623,43 +650,121 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
     [self addCenterYConstraintToView:view constant:constantY];
 }
 
-- (void)addCenterXYConstraintToViews:(NSArray<UIView *> *)views constantX:(CGFloat)constantX constantY:(CGFloat)constantY{
+- (void)addCenterXYConstraintToViews:(NSArray *)views constantX:(CGFloat)constantX constantY:(CGFloat)constantY{
     [self addCenterXYConstraintToViews:views constantX:constantX constantY:constantY options:0];
 }
-- (void)addCenterXYConstraintToViews:(NSArray<UIView *> *)views constantX:(CGFloat)constantX constantY:(CGFloat)constantY options:(RJVFLOptions)options{
+- (void)addCenterXYConstraintToViews:(NSArray *)views constantX:(CGFloat)constantX constantY:(CGFloat)constantY options:(RJVFLOptions)options{
     [self addCenterXConstraintToViews:views constant:constantX];
     [self addCenterYConstraintToViews:views constant:constantY];
-    [self setConstraintToViews:views options:options];
+    [self addConstraintToViews:views options:options];
 }
 
 #pragma mark - 对齐约束
+
+
++ (UIView *)findViewInViews:(NSArray *)views{
+    for (id item in views) {
+        if ([item isKindOfClass:[UIView class]]) {
+            return item;
+        }else if ([item isKindOfClass:[NSArray class]]){
+            [UIView findViewInViews:item];
+        }
+    }
+    
+    return nil;
+}
+
 + (void)setConstraintToViews:(NSArray *)views options:(RJVFLOptions)options{
     if (!views.count || !options) {
         return;
     }
     
-    /**对所有数组进行options*/
-    for (id item in views) {
-        if ([item isKindOfClass:[NSArray class]]) {
-            [UIView setConstraintToWithoutArrayViews:item options:options];
-        }
+    /**先找到一个view,以它为标准进行约束*/
+    UIView *view = [UIView findViewInViews:views];
+    
+    if (!view) {
+        return;
     }
     
-    /**对其他views进行options*/
-    [UIView setConstraintToWithoutArrayViews:views options:options];
+    if (options & RJVFLAlignAllLeft || options & RJVFLAlignAllLeading) {
+        [view addLeftAlignConstraintToViews:views constant:0];
+    }
+    if (options & RJVFLAlignAllRight || options & RJVFLAlignAllTrailing) {
+        [view addRightAlignConstraintToViews:views constant:0];
+    }
+    if (options & RJVFLAlignAllTop) {
+        [view addTopAlignConstraintToViews:views constant:0];
+    }
+    if (options & RJVFLAlignAllBottom) {
+        [view addBottomAlignConstraintToViews:views constant:0];
+    }
+    if (options & RJVFLAlignAllCenterX) {
+        [view addCenterXConstraintToViews:views constant:0];
+    }
+    if (options & RJVFLAlignAllCenterY) {
+        [view addCenterYConstraintToViews:views constant:0];
+    }
+    if (options & RJVFLAlignAllWidth) {
+        [view addWidthConstraintToViews:views constant:0];
+    }
+    if (options & RJVFLAlignAllHeight) {
+        [view addHeightConstraintToViews:views constant:0];
+    }
+    if (options & RJVFLBunchAllLeft) {
+        [UIView setBunchConstraintsToViews:views constant:0 direction:RJDirectionLeft];
+    }
+    if (options & RJVFLBunchAllRight) {
+        [UIView setBunchConstraintsToViews:views constant:0 direction:RJDirectionRight];
+    }
+    if (options & RJVFLBunchAllTop) {
+        [UIView setBunchConstraintsToViews:views constant:0 direction:RJDirectionTop];
+    }
+    if (options & RJVFLBunchAllBottom) {
+        [UIView setBunchConstraintsToViews:views constant:0 direction:RJDirectionBottom];
+    }
 }
 
-#pragma mark - 串型约束
-
-+ (void)setBunchConstraintToViews:(NSArray *)views constant:(CGFloat)constant direction:(RJDirection)direction{
-    [UIView setBunchConstraintToViews:views constant:constant direction:direction options:0];
+- (void)addConstraintToViews:(NSArray *)views options:(RJVFLOptions)options{
+    /**RJ 2019-02-24 12:17:00 如果想让self也参与其他options的对齐约束,把self加入到数组中*/
+    if (options & RJVFLSelf) {
+        NSMutableArray *viewsWithSelf = [NSMutableArray arrayWithObject:self];
+        [viewsWithSelf addObjectsFromArray:views];
+        [UIView setConstraintToViews:viewsWithSelf options:options];
+        return;
+    }
+    
+    [UIView setConstraintToViews:views options:options];
 }
 
-+ (void)setBunchConstraintToViews:(NSArray *)views constants:(NSArray *)constants direction:(RJDirection)direction{
-    [UIView setBunchConstraintToViews:views constants:constants direction:direction options:0];
+
+/***/
+//+ (void)setConstraintToViews:(NSArray *)views constraint:(NSLayoutConstraint *)constraint Option:(RJVFLOptions)option{
+//    int i = 0;
+//    while (option > 1) {
+//        option >>=option;
+//        i++;
+//    }
+//
+//    if ([views containsObject:constraint.firstItem]) {
+//        if (constraint.firstAttribute == i) {
+//            [constraint.firstItem addConstraintWithViews:views attribute:constraint.firstAttribute];
+//        }
+//    }
+//    if ([views containsObject:constraint.secondItem]) {
+//        if (constraint.secondAttribute == i) {
+//            [constraint.secondItem addConstraintWithViews:views attribute:constraint.secondAttribute];
+//        }
+//    }
+//}
+
+
+#pragma mark - 串形约束
+
++ (void)setBunchConstraintsToViews:(NSArray *)views constant:(CGFloat)constant direction:(RJDirection)direction{
+    [UIView setBunchConstraintsToViews:views constant:constant direction:direction options:0];
 }
 
-+ (void)setBunchConstraintToViews:(NSArray *)views constant:(CGFloat)constant direction:(RJDirection)direction options:(RJVFLOptions)options{
++ (void)setBunchConstraintsToViews:(NSArray *)views constant:(CGFloat)constant direction:(RJDirection)direction options:(RJVFLOptions)options{
     if (views.count <= 1) {
         return;
     }
@@ -673,47 +778,34 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
                 [item addConstraintToView:nextItem constant:constant direction:direction];
             }else if ([nextItem isKindOfClass:[NSArray class]]){
                 for (id childItem in nextItem) {
-                    [UIView setBunchConstraintToViews:@[item,childItem] constant:constant direction:direction];
+                    [UIView setBunchConstraintsToViews:@[item,childItem] constant:constant direction:direction];
                 }
             }
         }else if ([item isKindOfClass:[NSArray class]]){
             if ([nextItem isKindOfClass:[UIView class]]) {
                 for (id childItem in item) {
-                    [UIView setBunchConstraintToViews:@[childItem,nextItem] constant:constant direction:direction];
+                    [UIView setBunchConstraintsToViews:@[childItem,nextItem] constant:constant direction:direction];
                 }
             }else if ([nextItem isKindOfClass:[NSArray class]]){
                 NSInteger min = MIN([item count], [nextItem count]);
                 for (NSInteger j = 0; j < min; j++) {
-                    [UIView setBunchConstraintToViews:@[item[j],nextItem[j]] constant:constant direction:direction];
+                    [UIView setBunchConstraintsToViews:@[item[j],nextItem[j]] constant:constant direction:direction];
                 }
             }
         }
     }
 }
 
-+ (void)setBunchConstraintToViews:(NSArray *)views constants:(NSArray *)constants direction:(RJDirection)direction options:(RJVFLOptions)options{
++ (void)setBunchConstraintsToViews:(NSArray *)views constants:(NSArray *)constants direction:(RJDirection)direction{
+    [UIView setBunchConstraintsToViews:views constants:constants direction:direction options:0];
+}
+
++ (void)setBunchConstraintsToViews:(NSArray *)views constants:(NSArray *)constants direction:(RJDirection)direction options:(RJVFLOptions)options{
     if (views.count <= 1 || !constants.count) {
         return;
     }
     
     NSInteger sessionCount = MIN(views.count, constants.count + 1);
-    
-    /**找到真正的最大并排数*/
-    NSInteger lineCount = NSNotFound;
-    for (NSInteger i =0; i < sessionCount; i++) {
-        if ([views[i] isKindOfClass:[NSArray class]]) {
-            lineCount = MIN([views[i] count], lineCount);
-        }
-        if (constants.count > sessionCount) {
-            if ([constants[i] isKindOfClass:[NSArray class]]) {
-                lineCount = MIN([constants[i] count], lineCount);
-            }
-        }
-    }
-    
-    if (lineCount == NSNotFound) {
-        lineCount = 1;
-    }
     
     /**如果是 "☐☐☐|" 或者 "旦" 这两种形状,需要将两个数组反转,以获得正确的队列 */
     NSMutableArray *reverseViews = [views mutableCopy];
@@ -731,7 +823,7 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
         /**如果是嵌套数组 比如这样 ⿳⿱⿳⿱*/
         if ([item isKindOfClass:[NSArray class]] || [nextItem isKindOfClass:[NSArray class]]) {
             if ([constantItem isKindOfClass:[NSNumber class]]) {
-                [UIView setBunchConstraintToViews:@[item,nextItem] constant:[constantItem floatValue] direction:direction];
+                [UIView setBunchConstraintsToViews:@[item,nextItem] constant:[constantItem floatValue] direction:direction];
             }else if ([constantItem isKindOfClass:[NSArray class]]){
                 NSInteger min = [constantItem count];
                 
@@ -752,9 +844,9 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
                         subNextItem = nextItem[j];
                     }
                     if ([subConstantItem isKindOfClass:[NSNumber class]]) {
-                        [UIView setBunchConstraintToViews:@[subItem,subNextItem] constant:[subConstantItem floatValue] direction:direction];
+                        [UIView setBunchConstraintsToViews:@[subItem,subNextItem] constant:[subConstantItem floatValue] direction:direction];
                     }else if ([subConstantItem isKindOfClass:[NSArray class]]){
-                        [UIView setBunchConstraintToViews:@[subItem,subNextItem] constants:@[subConstantItem] direction:direction];
+                        [UIView setBunchConstraintsToViews:@[subItem,subNextItem] constants:@[subConstantItem] direction:direction];
                     }
                 }
             }
@@ -767,7 +859,7 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
                 if ([[constantItem firstObject] isKindOfClass:[NSNumber class]]) {
                     [view addConstraintToView:nextView constant:[[constantItem firstObject] floatValue] direction:direction];
                 }else if ([[constantItem firstObject] isKindOfClass:[NSArray class]]){
-                    [UIView setBunchConstraintToViews:@[view,nextView] constants:[constantItem firstObject] direction:direction];
+                    [UIView setBunchConstraintsToViews:@[view,nextView] constants:[constantItem firstObject] direction:direction];
                 }
             }
         }
@@ -825,36 +917,13 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
         if ([firstConstantItem isKindOfClass:[NSNumber class]]) {
             [self addAlignConstraintToView:firstItem constant:[firstConstantItem floatValue] direction:direction];
         }else if ([firstConstantItem isKindOfClass:[NSArray class]]){
-            if ([[firstConstantItem firstObject] isKindOfClass:[NSNumber class]]) {
-                [self addAlignConstraintToView:firstItem constant:[[firstConstantItem firstObject] floatValue] direction:direction];
-            }else if ([[firstConstantItem firstObject] isKindOfClass:[NSArray class]]){
-                [self addBunchConstraintsToViews:@[firstItem] constants:[firstConstantItem firstObject] direction:direction];
-            }
+            [self addAlignConstraintToViews:@[firstItem] constants:firstConstantItem direction:direction];
         }
     }else if ([firstItem isKindOfClass:[NSArray class]]){
         if ([firstConstantItem isKindOfClass:[NSNumber class]]) {
-            for (NSInteger i = 0; i < [firstItem count]; i++) {
-                if ([firstItem[i] isKindOfClass:[UIView class]]) {
-                    [self addAlignConstraintToView:firstItem[i] constant:[firstConstantItem floatValue] direction:direction];
-                }else if([firstItem[i] isKindOfClass:[NSArray class]]){
-                    [self addBunchConstraintsToViews:firstItem[i] constants:@[firstConstantItem] direction:direction];
-                }
-            }
+            [self addAlignConstraintToViews:firstItem constant:[firstConstantItem floatValue] direction:direction];
         }else if ([firstConstantItem isKindOfClass:[NSArray class]]){
-            NSInteger min = MIN([firstItem count], [firstConstantItem count]);
-            for (NSInteger i = 0; i < min; i++) {
-                id childItem = firstItem[i];
-                id childConstantItem = firstConstantItem[i];
-                if ([childConstantItem isKindOfClass:[NSNumber class]]) {
-                    if ([childItem isKindOfClass:[UIView class]]) {
-                        [self addAlignConstraintToView:childItem constant:[childConstantItem floatValue] direction:direction];
-                    }else if ([childItem isKindOfClass:[NSArray class]]){
-                        [self addBunchConstraintsToViews:childItem constants:@[childConstantItem] direction:direction];
-                    }
-                }else if ([childConstantItem isKindOfClass:[NSArray class]]){
-                    [self addBunchConstraintsToViews:childItem constants:childConstantItem direction:direction];
-                }
-            }
+            [self addAlignConstraintToViews:firstItem constants:firstConstantItem direction:direction];
         }
     }
     
@@ -870,37 +939,13 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
             if ([lastConstantItem isKindOfClass:[NSNumber class]]) {
                 [self addAlignConstraintToView:lastItem constant:[lastConstantItem floatValue] direction:reverseDirection(direction)];
             }else if ([lastConstantItem isKindOfClass:[NSArray class]]){
-                if ([[lastConstantItem firstObject] isKindOfClass:[NSNumber class]]) {
-                    [self addAlignConstraintToView:lastItem constant:[[lastConstantItem lastObject] floatValue] direction:reverseDirection(direction)];
-                }else if ([firstConstantItem isKindOfClass:[NSArray class]]){
-                    [self addBunchConstraintsToViews:@[lastItem] constants:[lastConstantItem lastObject] direction:reverseDirection(direction)];
-                }
+                [self addAlignConstraintToViews:@[lastItem] constants:lastConstantItem direction:reverseDirection(direction)];
             }
-            
         }else if ([lastItem isKindOfClass:[NSArray class]]){
             if ([lastConstantItem isKindOfClass:[NSNumber class]]) {
-                for (NSInteger i = 0; i < [lastItem count]; i++) {
-                    if ([lastItem[i] isKindOfClass:[UIView class]]) {
-                        [self addAlignConstraintToView:lastItem[i] constant:[lastConstantItem floatValue] direction:reverseDirection(direction)];
-                    }else if([lastItem[i] isKindOfClass:[NSArray class]]){
-                        [self addBunchConstraintsToViews:lastItem[i] constants:@[lastConstantItem] direction:reverseDirection(direction)];
-                    }
-                }
+                [self addAlignConstraintToViews:lastItem constant:[lastConstantItem floatValue] direction:reverseDirection(direction)];
             }else if ([lastConstantItem isKindOfClass:[NSArray class]]){
-                NSInteger min = MIN([lastItem count], [lastConstantItem count]);
-                for (NSInteger i = 0; i < min; i++) {
-                    id childItem = lastItem[i];
-                    id childConstantItem = lastConstantItem[i];
-                    if ([childConstantItem isKindOfClass:[NSNumber class]]) {
-                        if ([childItem isKindOfClass:[UIView class]]) {
-                            [self addAlignConstraintToView:childItem constant:[childConstantItem floatValue] direction:reverseDirection(direction)];
-                        }else if ([childItem isKindOfClass:[NSArray class]]){
-                            [self addBunchConstraintsToViews:childItem constants:@[childConstantItem] direction:reverseDirection(direction)];
-                        }
-                    }else if ([childConstantItem isKindOfClass:[NSArray class]]){
-                        [self addBunchConstraintsToViews:childItem constants:childConstantItem direction:reverseDirection(direction)];
-                    }
-                }
+                [self addAlignConstraintToViews:lastItem constants:lastConstantItem direction:reverseDirection(direction)];
             }
         }
         [reverseConstants removeLastObject];
@@ -914,12 +959,12 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
     //    }
     /**设置除了self之外的那些view之间的距离constraint,因为views在这个方法中会判断是否需要反转队列,所以不需要传reverse后的队列*/
     //    [reverseConstants reverse];
-    /** 因为删掉了reverseConstants两边的两个item,所以要用这个才行,而且这两个要配对使用*/
+    /** 因为constants仍然保留着两边的两个item,所以要用reverseConstants才行,不过要重新reverse回来*/
     if (direction == RJDirectionRight || direction == RJDirectionBottom) {
         [UIView reverseWithArray:reverseConstants];
     }
-    [UIView setBunchConstraintToViews:views constants:reverseConstants direction:direction];
-    [self setConstraintToViews:views options:options];
+    [UIView setBunchConstraintsToViews:views constants:reverseConstants direction:direction];
+    [self addConstraintToViews:views options:options];
 }
 
 /** 可以使用一个矩阵完成所有的操作
@@ -1097,107 +1142,6 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
 #endif
 
 #pragma mark - private method
-- (void)setConstraintToWithoutArrayViews:(NSArray *)views options:(RJVFLOptions)options{
-    if (options & RJVFLSelf) {
-        NSMutableArray *viewsWithSelf = [NSMutableArray arrayWithObject:self];
-        [viewsWithSelf addObjectsFromArray:views];
-        [UIView setConstraintToWithoutArrayViews:viewsWithSelf options:options];
-        return;
-    }
-    
-    [UIView setConstraintToWithoutArrayViews:views options:options];
-}
-
-- (void)setConstraintToViews:(NSArray *)views options:(RJVFLOptions)options{
-    if (options & RJVFLSelf) {
-        NSMutableArray *viewsWithSelf = [NSMutableArray arrayWithObject:self];
-        [viewsWithSelf addObjectsFromArray:views];
-        [UIView setConstraintToViews:viewsWithSelf options:options];
-        return;
-    }
-    
-    [UIView setConstraintToViews:views options:options];
-}
-
-
-/**
- 不包含数组的options设置
- */
-+ (void)setConstraintToWithoutArrayViews:(NSArray *)views options:(RJVFLOptions)options{
-    if (!views.count || !options) {
-        return;
-    }
-    
-    /**先找到一个view,以它为标准进行约束*/
-    UIView *view;
-    for (id item in views) {
-        if ([item isKindOfClass:[UIView class]]) {
-            view = item;
-            break;
-        }
-    }
-    
-    if (!view) {
-        return;
-    }
-    
-    if (options & RJVFLAlignAllLeft || options & RJVFLAlignAllLeading) {
-        [view addLeftAlignConstraintToViews:views constant:0];
-    }
-    if (options & RJVFLAlignAllRight || options & RJVFLAlignAllTrailing) {
-        [view addRightAlignConstraintToViews:views constant:0];
-    }
-    if (options & RJVFLAlignAllTop) {
-        [view addTopAlignConstraintToViews:views constant:0];
-    }
-    if (options & RJVFLAlignAllBottom) {
-        [view addBottomAlignConstraintToViews:views constant:0];
-    }
-    if (options & RJVFLAlignAllCenterX) {
-        [view addCenterXConstraintToViews:views constant:0];
-    }
-    if (options & RJVFLAlignAllCenterY) {
-        [view addCenterYConstraintToViews:views constant:0];
-    }
-    if (options & RJVFLAlignAllWidth) {
-        [view addWidthConstraintToViews:views constant:0];
-    }
-    if (options & RJVFLAlignAllHeight) {
-        [view addHeightConstraintToViews:views constant:0];
-    }
-    if (options & RJVFLBunchAllLeft) {
-        [UIView setBunchConstraintToViews:views constant:0 direction:RJDirectionLeft];
-    }
-    if (options & RJVFLBunchAllRight) {
-        [UIView setBunchConstraintToViews:views constant:0 direction:RJDirectionRight];
-    }
-    if (options & RJVFLBunchAllTop) {
-        [UIView setBunchConstraintToViews:views constant:0 direction:RJDirectionTop];
-    }
-    if (options & RJVFLBunchAllBottom) {
-        [UIView setBunchConstraintToViews:views constant:0 direction:RJDirectionBottom];
-    }
-}
-
-/***/
-+ (void)setConstraintToViews:(NSArray *)views constraint:(NSLayoutConstraint *)constraint Option:(RJVFLOptions)option{
-    int i = 0;
-    while (option > 1) {
-        option >>=option;
-        i++;
-    }
-    
-    if ([views containsObject:constraint.firstItem]) {
-        if (constraint.firstAttribute == i) {
-            [constraint.firstItem addConstraintWithViews:views attribute:constraint.firstAttribute];
-        }
-    }
-    if ([views containsObject:constraint.secondItem]) {
-        if (constraint.secondAttribute == i) {
-            [constraint.secondItem addConstraintWithViews:views attribute:constraint.secondAttribute];
-        }
-    }
-}
 
 /***/
 - (void)addConstraintWithViews:(NSArray *)views attribute:(NSLayoutAttribute)attribute{
@@ -1263,8 +1207,6 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
     }
     [UIView setConstraintToViews:views options:options];
 }
-
-
 
 /**寻找下个view*/
 + (UIView *)findNextViewWithReverseViews:(NSArray *)reverseViews session:(NSInteger)session line:(NSInteger)line sessionCount:(NSInteger)sessionCount{
@@ -1347,6 +1289,50 @@ static void const *kCenterYConstraintKey = @"CenterYConstraintKey";
     }
 }
 
+- (void)addAlignConstraintToViews:(NSArray *)views constant:(CGFloat)constant direction:(RJDirection)direction{
+    if (!views.count) {
+        return;
+    }
+    
+    for (id item in views) {
+        if ([item isKindOfClass:[UIView class]]) {
+            [self addAlignConstraintToView:item constant:constant direction:direction];
+        }else if ([item isKindOfClass:[NSArray class]]){
+            [self addAlignConstraintToViews:item constant:constant direction:direction];
+        }
+    }
+}
+
+- (void)addAlignConstraintToViews:(NSArray *)views constants:(NSArray *)constants direction:(RJDirection)direction{
+    if (!views.count || !constants.count) {
+        return;
+    }
+    
+    NSInteger min = MIN(views.count,constants.count);
+    
+    for (NSInteger i = 0; i < min; i++) {
+        id item = views[i];
+        id constant = constants[i];
+        if ([item isKindOfClass:[UIView class]]) {
+            if ([constant isKindOfClass:[NSNumber class]]) {
+                [self addAlignConstraintToView:item constant:[constant floatValue] direction:direction];
+            }else if ([constant isKindOfClass:[NSArray class]]){
+                if ([[constant firstObject] isKindOfClass:[NSNumber class]]) {
+                    [self addAlignConstraintToView:item constant:[constant floatValue] direction:direction];
+                }else if ([[constant firstObject] isKindOfClass:[NSArray class]]){
+                    /**RJ 2019-02-24 23:26:15 这里对constants多余的情况进行处理,默认选取第一个constant进行约束*/
+                    [self addAlignConstraintToViews:@[item] constants:[constant firstObject] direction:direction];
+                }
+            }
+        }else if ([item isKindOfClass:[NSArray class]]){
+            if ([constant isKindOfClass:[NSNumber class]]) {
+                [self addAlignConstraintToViews:item constant:[constant floatValue] direction:direction];
+            }else if ([constant isKindOfClass:[NSArray class]]){
+                [self addAlignConstraintToViews:item constants:constant direction:direction];
+            }
+        }
+    }
+}
 
 - (BOOL)validateAndConfigWithView:(UIView *)view{
     if (self == view) {

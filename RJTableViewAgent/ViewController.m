@@ -137,7 +137,7 @@
 - (void)addTextFieldCells{
     RJLabelTextFieldCellInfo *textFieldInfo = [_tableViewAgent addTextFieldCellWithText:@"姓名: " font:kRJFontSize(14) textFieldText:nil textFieldFont:kRJFontSize(14) placeholder:@"请输入姓名(限制输入6字符)"];
     /**RJ 2019-01-01 22:47:06 输入限制6个字符*/
-    textFieldInfo.maxLength = 6;
+    textFieldInfo.maxTextLength = 6;
     /**RJ 2019-01-01 16:16:17 校验限制6个字符*/
     textFieldInfo.bindingStringMaxLength = 6;
     self.name = textFieldInfo.bindingString;

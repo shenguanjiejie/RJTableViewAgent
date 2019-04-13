@@ -16,6 +16,9 @@
 
 
 + (BOOL)validateWithText:(NSString *)text limit:(RJTextLimitType)limit{
+    if (limit == RJTextLimitNone) {
+        return YES;
+    }
     
     if (limit == RJTextLimitNumber && ![self matchesRegex:RJTextLimitNumberRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators]) {
         return NO;
@@ -64,6 +67,7 @@
     if (limit == (RJTextLimitNumberAll | RJTextLimitDecimal2) && !([self matchesRegex:RJTextLimitNumberAllRegex withString:text options:NSRegularExpressionDotMatchesLineSeparators] || [self matchesRegex:RJTextLimitDecimal2Regex withString:text options:NSRegularExpressionDotMatchesLineSeparators])) {
         return NO;
     }
+    
     return YES;
 }
 

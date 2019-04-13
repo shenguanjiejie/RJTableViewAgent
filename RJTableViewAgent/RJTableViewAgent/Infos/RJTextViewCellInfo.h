@@ -42,7 +42,7 @@ typedef NS_ENUM(NSUInteger, RJTextViewCellType) {
 
 @property (nonatomic, assign) CGFloat textViewMaxHeight;
 
-@property (nonatomic, assign) NSInteger maxLength;
+@property (nonatomic, assign) NSInteger maxTextLength;
 
 @property (nonatomic, assign) UIKeyboardType keyboardType;
 

@@ -324,6 +324,9 @@
         case CellTypeBase:
         {
             cell = [tableView cellWithIdentifier:info.identifier cellClass:[RJBaseCell class] initBlock:cellInitBlock];
+            if (info.cellForRowAtIndexPathBlock) {
+                info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+            }
         }
             break;
         case CellTypeLabel:
@@ -345,6 +348,9 @@
                     labelCell = [[RJLabelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:info.identifier yyLabelNeed:labelInfo.yyLabelNeed];
                     cellInitBlock(labelCell);
                 }
+                if (info.cellForRowAtIndexPathBlock) {
+                    info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+                }
             }else if (info.cellType == CellTypeLabelSwitch){
                 RJLabelSwitchCell *switchCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJLabelSwitchCell class] initBlock:^(__kindof UITableViewCell *initCell) {
                     RJLabelSwitchCell *newCell = initCell;
@@ -353,6 +359,9 @@
                         info.infoCellInitBlock(initCell,info);
                     }
                 }];
+                if (info.cellForRowAtIndexPathBlock) {
+                    info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+                }
                 labelCell = switchCell;
                 switchCell.switchView.object = info;
                 RJLabelSwitchCellInfo *switchInfo = info;
@@ -373,14 +382,23 @@
                 };
                 if (info.cellType == CellTypeLabelButton) {
                     buttonCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJLabelButtonCell class] initBlock:buttonCellInitBlock];
+                    if (info.cellForRowAtIndexPathBlock) {
+                        info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+                    }
                 }else if (info.cellType == CellTypeImageLabelButton || info.cellType == CellTypeImageVTwoLabelButton){
                     RJImageLabelButtonCell *imageLabelButtonCell;
                     RJImageLabelButtonCellInfo *imageLabelButtonInfo = buttonInfo;
                     if (info.cellType == CellTypeImageLabelButton) {
                         imageLabelButtonCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJImageLabelButtonCell class] initBlock:buttonCellInitBlock];
+                        if (info.cellForRowAtIndexPathBlock) {
+                            info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+                        }
                     }else{
                         RJImageVTwoLabelButtonCellInfo *imageVTwoLabelButtonInfo = buttonInfo;
                         RJImageVTwoLabelButtonCell *imageVTwoLabelButtonCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJImageVTwoLabelButtonCell class] initBlock:cellInitBlock];
+                        if (info.cellForRowAtIndexPathBlock) {
+                            info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+                        }
                         imageLabelButtonCell = imageVTwoLabelButtonCell;
                         if (imageVTwoLabelButtonInfo.detailAttributeString.length) {
                             imageVTwoLabelButtonCell.detailLab.attributedText = imageVTwoLabelButtonInfo.detailAttributeString;
@@ -463,8 +481,14 @@
                 __kindof RJImageLabelCellInfo *imageLabelInfo = info;
                 if (info.cellType == CellTypeImageLabel) {
                     imageLabelCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJImageLabelCell class] initBlock:cellInitBlock];
+                    if (info.cellForRowAtIndexPathBlock) {
+                        info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+                    }
                 }else{
                     RJImageVTwoLabelCell *imageVTwoLabelCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJImageVTwoLabelCell class] initBlock:cellInitBlock];
+                    if (info.cellForRowAtIndexPathBlock) {
+                        info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+                    }
                     RJImageVTwoLabelCellInfo *imageVTwoLabelInfo = info;
                     imageLabelCell = imageVTwoLabelCell;
                     imageVTwoLabelCell.detailLab.attributedText = imageVTwoLabelInfo.detailAttributeString;
@@ -500,11 +524,14 @@
                         info.infoCellInitBlock(initCell,info);
                     }
                 }];
+                if (info.cellForRowAtIndexPathBlock) {
+                    info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+                }
                 labelCell = textFieldCell;
                 
                 textFieldCell.textField.text = textFieldInfo.textFieldText;
                 textFieldCell.textField.placeholder = textFieldInfo.placeholder;
-                textFieldCell.textField.rj_maxLength = textFieldInfo.maxLength;
+                textFieldCell.textField.rj_maxLength = textFieldInfo.maxTextLength;
                 textFieldCell.textField.object = textFieldInfo;
                 if (textFieldInfo.textLimit == RJTextLimitDecimal || textFieldInfo.textLimit == RJTextLimitDecimal2 || textFieldInfo.textLimit == (RJTextLimitNumber | RJTextLimitDecimal) || textFieldInfo.textLimit == (RJTextLimitNumber | RJTextLimitDecimal2)){
                     textFieldInfo.keyboardType = UIKeyboardTypeDecimalPad;
@@ -530,6 +557,9 @@
                 RJHTwoLabelCell *twoLabelHCell;
                 if (info.cellType == CellTypeHTwoLabel) {
                     twoLabelHCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJHTwoLabelCell class] initBlock:cellInitBlock];
+                    if (info.cellForRowAtIndexPathBlock) {
+                        info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+                    }
                 }else{
                     RJChooseCellInfo *chooseInfo = info;
                     RJChooseCell *chooseCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJChooseCell class] initBlock:^(__kindof UITableViewCell *initCell) {
@@ -539,14 +569,14 @@
                             cellInitBlock(initCell);
                         }
                     }];
+                    if (info.cellForRowAtIndexPathBlock) {
+                        info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+                    }
                     twoLabelHCell = chooseCell;
                     if (!chooseInfo.detailText.length && !chooseInfo.detailAttributeString.length) {
                         chooseCell.detailLab.textColor = chooseInfo.detailPlaceholderTextColor;
                         chooseCell.detailLab.text = chooseInfo.detailPlaceholderText;
-                        chooseCell.detailLab.textAlignment = NSTextAlignmentRight;
-                    }else{
-                        chooseCell.detailLab.textColor = chooseInfo.detailTextColor;
-//                        chooseCell.detailLab.text = chooseInfo.detailPlaceholderText;
+                        chooseCell.detailLab.textAlignment = chooseInfo.detailPlaceholderTextAligment;
                     }
                     if ([chooseInfo.image isKindOfClass:[UIImage class]]) {
                         chooseCell.rightImageView.image = chooseInfo.image;
@@ -557,7 +587,6 @@
                     
                     chooseCell.rightImageView.hidden = chooseInfo.rightArrowHidden;
                     chooseCell.rightImageView.userInteractionEnabled = chooseInfo.rightImageViewUserInterfaceEnable;
-                    chooseCell.detailLab.textAlignment = chooseInfo.detailPlaceholderTextAligment;
                 }
                 // do something
                 labelCell = twoLabelHCell;
@@ -577,18 +606,6 @@
                     }
                     [twoLabelHCell.detailLab setContentHuggingPriority:twoLabelHCellInfo.detailLabelHuggingPriority forAxis:UILayoutConstraintAxisHorizontal];
                     [twoLabelHCell.detailLab setContentCompressionResistancePriority:twoLabelHCellInfo.detailLabelCompressionPriority forAxis:UILayoutConstraintAxisHorizontal];
-                }
-            }
-            
-            if (labelInfo.yyLabelNeed) {
-                YYLabel *label = (YYLabel *)labelCell.titleLab;
-                if (!labelInfo.attributeString.length) {
-                    label.text = labelInfo.text;
-                }
-            }else{
-                UILabel *label = (UILabel *)labelCell.titleLab;
-                if (!labelInfo.attributeString.length) {
-                    label.text = labelInfo.text;
                 }
             }
             
@@ -649,8 +666,12 @@
                     info.infoCellInitBlock(initCell,info);
                 }
             }];
+            if (info.cellForRowAtIndexPathBlock) {
+                info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+            }
+            
             textViewCell.textView.object = textViewInfo;
-            if (textViewInfo.maxLength == 0){
+            if (textViewInfo.maxTextLength == 0){
                 textViewCell.numLab.text = @"";
                 textViewCell.numLab.hidden = YES;
             }else{
@@ -659,7 +680,7 @@
                 }else{
                     textViewCell.numLab.hidden = NO;
                 }
-                textViewCell.numLab.text = [NSString stringWithFormat:@"%ld",textViewInfo.maxLength - textViewInfo.text.length];
+                textViewCell.numLab.text = [NSString stringWithFormat:@"%ld",textViewInfo.maxTextLength - textViewInfo.text.length];
             }
             textViewCell.textView.text = textViewInfo.text;
             textViewCell.textView.keyboardType = textViewInfo.keyboardType;
@@ -669,7 +690,7 @@
             textViewCell.topMargin = textViewInfo.topMargin;
             textViewCell.minHeight = textViewInfo.minHeight;
             textViewCell.bottomMargin = textViewInfo.bottomMargin;
-            textViewCell.textView.textViewMaxLength = textViewInfo.maxLength;
+            textViewCell.textView.textViewMaxLength = textViewInfo.maxTextLength;
             textViewCell.textView.font = textViewInfo.font;
             textViewCell.textView.userInteractionEnabled = textViewInfo.textViewUserInteractionEnabled;
             textViewCell.numLab.textColor = textViewInfo.numLabTextColor;
@@ -696,6 +717,9 @@
         {
             RJImageCellInfo *imageCellInfo = info;
             RJImageCell *imageCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJImageCell class] initBlock:cellInitBlock];
+            if (info.cellForRowAtIndexPathBlock) {
+                info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+            }
             
             if (imageCellInfo.image) {
                 imageCell.rj_imageView.image = imageCellInfo.image;
@@ -717,6 +741,10 @@
         {
             RJCycleCellInfo *cycleCellInfo = info;
             RJCycleCell *cycleCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJCycleCell class] initBlock:cellInitBlock];
+            if (info.cellForRowAtIndexPathBlock) {
+                info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+            }
+            
             cycleCell.cycleImages = cycleCellInfo.cycleImages;
             cycleCell.placeholderImage = cycleCellInfo.placeholderImage;
             
@@ -737,6 +765,9 @@
                     info.infoCellInitBlock(initCell,info);
                 }
             }];
+            if (info.cellForRowAtIndexPathBlock) {
+                info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+            }
             
             buttonCell.button.object = info;
             [buttonCell.button setTitle:buttonCellInfo.buttonText forState:UIControlStateNormal];
@@ -776,6 +807,10 @@
                 }
             }
             
+            if (info.cellForRowAtIndexPathBlock) {
+                info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+            }
+            
             collectionCellInfo.collectionView = collectionCell.collectionView;
             
             [collectionCell.collectionView registerClass:collectionCellInfo.collectionCellClass forCellWithReuseIdentifier:collectionCellInfo.collectionCellIdentifier];
@@ -791,7 +826,7 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 /** self-sizing*/
-//                NSLog(@"%f,%f",collectionCell.collectionView.collectionViewLayout.collectionViewContentSize.height,collectionCell.collectionView.heightConstraint.constant);
+                //                NSLog(@"%f,%f",collectionCell.collectionView.collectionViewLayout.collectionViewContentSize.height,collectionCell.collectionView.heightConstraint.constant);
                 [collectionCell.collectionView reloadData];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (info.cellHeight == NSNotFound && collectionCell.collectionView.collectionViewLayout.collectionViewContentSize.height != collectionCell.collectionView.heightConstraint.constant) {
@@ -813,11 +848,12 @@
                 tableCell = [tableView cellWithIdentifier:info.identifier cellClass:customInfo.cellClass initBlock:cellInitBlock];
             }
             
+            if (info.cellForRowAtIndexPathBlock) {
+                info.cellForRowAtIndexPathBlock(tableCell, indexPath,info);
+            }
+            
             /** 如果没有继承自RJBaseCell,直接返回该cell*/
             if (![tableCell isKindOfClass:[RJBaseCell class]]) {
-                if (info.cellForRowAtIndexPathBlock) {
-                    info.cellForRowAtIndexPathBlock(tableCell, indexPath,info);
-                }
                 return tableCell;
             }
             
@@ -825,7 +861,11 @@
         }
             break;
         default:
-            return [tableView cellWithIdentifier:@"RJCell" cellClass:[UITableViewCell class] initBlock:nil];
+            cell = [tableView cellWithIdentifier:@"RJCell" cellClass:[UITableViewCell class] initBlock:nil];
+            if (info.cellForRowAtIndexPathBlock) {
+                info.cellForRowAtIndexPathBlock(cell, indexPath,info);
+            }
+            return cell;
     }
     
     if (cell.minHeightCons) {
@@ -845,10 +885,6 @@
     
     cell.contentView.layoutMargins = info.layoutMargins;
     
-    if (info.cellForRowAtIndexPathBlock) {
-        info.cellForRowAtIndexPathBlock(cell, indexPath,info);
-    }
-    
     return cell;
 }
 
@@ -862,7 +898,7 @@
     if (textViewInfo.autoNumLabHidden == YES) {
         cell.numLab.hidden = textView.isFirstResponder;
     }else{
-        if (textViewInfo.maxLength == 0) {
+        if (textViewInfo.maxTextLength == 0) {
             cell.numLab.hidden = YES;
         }else{
             cell.numLab.hidden = NO;
@@ -883,9 +919,9 @@
         return YES;
     }
     
-    if (textViewInfo.textLimit & RJTextLimitDecimal) {
+//    if (textViewInfo.textLimit & RJTextLimitDecimal) {
         text = [textView.text stringByReplacingCharactersInRange:range withString:text];
-    }
+//    }
     BOOL valid = [RJTextLimit validateWithText:text limit:textViewInfo.textLimit];
     
     /** 验证附加的正则*/
@@ -903,12 +939,12 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         RJTextViewCellInfo *textViewInfo = textView.object;
         
-        if (textViewInfo.maxLength == 0) {
+        if (textViewInfo.maxTextLength == 0) {
             textViewInfo.text = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         }else{
             RJTextViewCell *cell = (RJTextViewCell *)[self.tableView cellForRowAtIndexPath:textViewInfo.indexPath];
             textViewInfo.text = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            cell.numLab.text = [NSString stringWithFormat:@"%ld",textViewInfo.maxLength - textView.text.length];
+            cell.numLab.text = [NSString stringWithFormat:@"%ld",textViewInfo.maxTextLength - textView.text.length];
         }
         //    [textViewInfo.textViewBindingString setString:textViewInfo.text];
         
@@ -973,9 +1009,10 @@
     }
     
     /** 判断小数不能判断输入的内容,需要判断输入完之后的内容*/
-    if (textFieldInfo.textLimit & RJTextLimitDecimal || textFieldInfo.textLimit & RJTextLimitDecimal2 || textFieldInfo.textLimit & RJTextLimitNumber) {
+    /**RJ 2019-04-13 10:07:07 都应该判断整体内容*/
+//    if (textFieldInfo.textLimit & RJTextLimitDecimal || textFieldInfo.textLimit & RJTextLimitDecimal2 || textFieldInfo.textLimit & RJTextLimitNumber) {
         string = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    }
+//    }
     BOOL valid = [RJTextLimit validateWithText:string limit:textFieldInfo.textLimit];
     
     /** 验证附加的正则*/
