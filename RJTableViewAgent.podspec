@@ -44,7 +44,7 @@ s.subspec 'Cells' do |ss|
 ss.requires_arc = true
 ss.source_files  = "RJTableViewAgent/RJTableViewAgent/Cells/*.{h,m}"
 ss.dependency 'RJTableViewAgent/Infos'
-#ss.dependency 'RJTableViewAgent/Utils'
+ss.dependency 'RJTableViewAgent/Utils'
 end
 
 end

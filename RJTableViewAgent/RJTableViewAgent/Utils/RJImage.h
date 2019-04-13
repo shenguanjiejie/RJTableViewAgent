@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
 
-@interface RJImage : NSObject<NSCoding>
+@interface RJImage : NSObject
 
 @property (nonatomic, assign) NSInteger ID;
 

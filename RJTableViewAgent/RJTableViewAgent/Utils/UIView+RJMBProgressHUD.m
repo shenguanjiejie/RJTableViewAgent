@@ -9,7 +9,6 @@
 #import "UIView+RJMBProgressHUD.h"
 #import "MBProgressHUD.h"
 #import <objc/message.h>
-#import "RJTableViewAgent.h"
 
 static void const *hudKey = @"hudKey";
 
@@ -19,7 +18,7 @@ static void const *hudKey = @"hudKey";
     static NSBundle *bundle = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[RJTableViewAgent class]]  pathForResource:@"RJTableViewAgent" ofType:@"bundle"]];
+        bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[MBProgressHUD class]]  pathForResource:@"RJTableViewAgent" ofType:@"bundle"]];
     });
     return bundle;
 }
