@@ -71,7 +71,10 @@ typedef void (^RJCellForRowAtIndexPathBlock)(__kindof UITableViewCell *cell,NSIn
 
 @property (nonatomic, assign) NSInteger cellTag;
 
-@property (nonatomic, assign) NSIndexPath *indexPath;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+
+/**default:YES 如果改为NO,则该info不再生效*/
+//@property (nonatomic, assign) BOOL enable;
 
 @property (nonatomic, strong) UIColor *backgroundColor;
 
@@ -110,6 +113,9 @@ typedef void (^RJCellForRowAtIndexPathBlock)(__kindof UITableViewCell *cell,NSIn
 
 @property (nonatomic, copy) RJDidSelectRowAtIndexPathBlock didSelectRowAtIndexPathBlock;
 
+/**RJ 2019-04-23 18:01:13
+    该block会在设置info中参数之前调用,所以可以在这里更改info中的参数,以达到更改cell的效果
+ */
 @property (nonatomic, copy) RJCellForRowAtIndexPathBlock cellForRowAtIndexPathBlock;
 
 /**

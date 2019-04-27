@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RJTableViewAgentConfig : NSObject
 
-/**RJ 2019-01-01 14:36:44 默认占位图,当placeholderImage参数为nil的时候,会使用该占位图*/
+/**RJ 2019-01-01 14:36:44 默认占位图,当info的placeholderImage参数为nil的时候,会使用该占位图*/
 @property (nonatomic, strong) UIImage *placeholderImage;
 
 @property (nonatomic, strong) UIImage *rightArrow;

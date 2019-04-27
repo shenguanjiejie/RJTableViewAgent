@@ -10,6 +10,11 @@
 
 @interface RJImageLabelCellInfo : RJLabelCellInfo
 
+/**RJ 2019-04-23 18:36:23
+ default:YES
+ 是否允许自动管理imageView的图片加载
+ */
+@property (nonatomic, assign) BOOL imageManageable;
 
 @property (nonatomic, copy) NSURL *imageUrl;
 

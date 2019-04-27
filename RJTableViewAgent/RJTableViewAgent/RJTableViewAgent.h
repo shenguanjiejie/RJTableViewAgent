@@ -67,6 +67,9 @@
 /**数据为空时要提示的文字*/
 @property (nonatomic, copy) NSString *emptyShowText;
 
+/**RJ 2019-04-14 21:44:05 开启自动适配分割线的长度,默认NO,开启后会将每个group的最后一个Cell的分割线与Cell两端对齐*/
+@property (nonatomic, assign) BOOL autoFullLengthLine;
+
 /**
  可以直接使用该数组作为数据源,cell个数为数组count,如果逻辑不复杂,使用这个数组更简洁,
  如果实现了数据源代理方法rj_tableView: infoForRowAtIndexPath:,将忽略该数组

@@ -47,12 +47,7 @@ static void const *hudKey = @"hudKey";
     
     self.rj_hud.detailsLabel.text = text;
     
-//    NSBundle *bundle = [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"RJTableViewAgent.bundle"]];
-//    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"RJTableViewAgent" withExtension:@"bundle"];
-//    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
-//    UIImage *image = [UIImage imageNamed:icon inBundle:[UIView bundle] compatibleWithTraitCollection:nil];
     UIImage *image = [UIImage imageWithContentsOfFile:[[UIView bundle] pathForResource:icon ofType:@"png"]];
-//    UIImage *image = [[UIImage imageWithContentsOfFile:[[UIView bundle] pathForResource:icon ofType:@"pdf"]] imageWithRenderingMode:UIImageRenderingModeAutomatic];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     
     imageView.contentMode = UIViewContentModeCenter;

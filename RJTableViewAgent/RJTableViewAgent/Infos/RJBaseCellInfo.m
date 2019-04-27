@@ -19,6 +19,7 @@
 {
     self = [super init];
     if (self) {
+//        _enable = YES;
         _identifier = [self className];
         _hidden = NO;
         _lineHidden = YES;

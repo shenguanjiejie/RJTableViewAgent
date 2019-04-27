@@ -22,7 +22,7 @@
 
 @property (nonatomic, strong) UIImage *image;
 
-@property (nonatomic, strong) PHAsset *asset;
+//@property (nonatomic, strong) PHAsset *asset;
 
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;

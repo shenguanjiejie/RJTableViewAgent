@@ -16,10 +16,10 @@
         _cellType = CellTypeImageLabel;
         if ([image isKindOfClass:[UIImage class]]) {
             self.image = image;
-        }else if ([image isKindOfClass:[NSString class]]){
+        }else if ([image isKindOfClass:[NSURL class]]){
             self.imageUrl = image;
         }
-        
+        _imageManageable = YES;
         self.imageSize = imageSize;
         self.imageContentMode = UIViewContentModeScaleAspectFit;
         self.imageLabelInterval = 5;

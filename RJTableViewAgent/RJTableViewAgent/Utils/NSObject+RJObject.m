@@ -13,7 +13,7 @@ static void const *objectKey = @"objectKey";
 
 @implementation NSObject (RJObject)
 
-- (void)setObject:( __kindof __unused NSObject *)object{
+- (void)setObject:( __kindof NSObject *)object{
     objc_setAssociatedObject(self, objectKey, object, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
