@@ -4,7 +4,7 @@
 
 
 安装:
-iOS 8+
+iOS 9+
 
 ```
 pod 'RJTableViewAgent'//完整版
