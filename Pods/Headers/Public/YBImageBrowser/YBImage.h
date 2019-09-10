@@ -1,1 +1,1 @@
-../../../YBImageBrowser/YBImageBrowser/ImageBrowse/YBImage.h
+../../../YBImageBrowser/YBImageBrowser/Image/YBImage.h

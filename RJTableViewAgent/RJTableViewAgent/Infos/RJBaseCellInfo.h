@@ -158,7 +158,7 @@ typedef void (^RJCellForRowAtIndexPathBlock)(__kindof UITableViewCell *cell,NSIn
 
 /**
  用来自动alert
- 默认为NSNotFound,即不限制
+ 默认为0,即不限制
  绑定的字符串的长度限制,如果多于这个长度,会有hud提示
  */
 @property (nonatomic, assign) NSInteger bindingStringMaxLength;

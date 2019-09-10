@@ -374,12 +374,15 @@
             }else if (info.cellType == CellTypeLabelButton || info.cellType == CellTypeImageLabelButton || info.cellType == CellTypeImageVTwoLabelButton){
                 RJLabelButtonCell *buttonCell;
                 __kindof RJLabelButtonCellInfo *buttonInfo = info;
-                [buttonCell.button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+                
                 RJCellInitBlock buttonCellInitBlock =  ^(RJLabelButtonCell *cell){
+                    [cell.button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+                    
                     if (info.infoCellInitBlock) {
                         info.infoCellInitBlock(cell, info);
                     }
                 };
+                
                 if (info.cellType == CellTypeLabelButton) {
                     buttonCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJLabelButtonCell class] initBlock:buttonCellInitBlock];
                     if (info.cellForRowAtIndexPathBlock) {
@@ -395,7 +398,7 @@
                         }
                     }else{
                         RJImageVTwoLabelButtonCellInfo *imageVTwoLabelButtonInfo = buttonInfo;
-                        RJImageVTwoLabelButtonCell *imageVTwoLabelButtonCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJImageVTwoLabelButtonCell class] initBlock:cellInitBlock];
+                        RJImageVTwoLabelButtonCell *imageVTwoLabelButtonCell = [tableView cellWithIdentifier:info.identifier cellClass:[RJImageVTwoLabelButtonCell class] initBlock:buttonCellInitBlock];
                         if (info.cellForRowAtIndexPathBlock) {
                             info.cellForRowAtIndexPathBlock(imageVTwoLabelButtonCell, indexPath,info);
                         }
@@ -925,9 +928,9 @@
         return YES;
     }
     
-//    if (textViewInfo.textLimit & RJTextLimitDecimal) {
-        text = [textView.text stringByReplacingCharactersInRange:range withString:text];
-//    }
+
+    text = [textView.text stringByReplacingCharactersInRange:range withString:text];
+
     BOOL valid = [RJTextLimit validateWithText:text limit:textViewInfo.textLimit];
     
     /** 验证附加的正则*/
@@ -1016,9 +1019,7 @@
     
     /** 判断小数不能判断输入的内容,需要判断输入完之后的内容*/
     /**RJ 2019-04-13 10:07:07 都应该判断整体内容*/
-//    if (textFieldInfo.textLimit & RJTextLimitDecimal || textFieldInfo.textLimit & RJTextLimitDecimal2 || textFieldInfo.textLimit & RJTextLimitNumber) {
-        string = [textField.text stringByReplacingCharactersInRange:range withString:string];
-//    }
+    string = [textField.text stringByReplacingCharactersInRange:range withString:string];
     BOOL valid = [RJTextLimit validateWithText:string limit:textFieldInfo.textLimit];
     
     /** 验证附加的正则*/
@@ -1115,7 +1116,7 @@
 - (BOOL)validateInfo:(RJBaseCellInfo *)info length:(NSInteger)length bindingStringValidatePrefix:(NSString *)bindingStringValidatePrefix alert:(BOOL)alert{
     bindingStringValidatePrefix = [bindingStringValidatePrefix stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     bindingStringValidatePrefix = [bindingStringValidatePrefix stringByTrimmingCharactersInSet:[NSCharacterSet punctuationCharacterSet]];
-    if (length > info.bindingStringMaxLength) {
+    if (info.bindingStringMaxLength && length > info.bindingStringMaxLength) {
         [self.tableView showWarning:[NSString stringWithFormat:@"%@限制输入%zd个字",bindingStringValidatePrefix,info.bindingStringMaxLength]];
         return NO;
     }else if (length < info.bindingStringMinLength){

@@ -161,7 +161,7 @@
 - (BOOL)validateBindingStringWithAlert:(BOOL)alert;
 
 
-#pragma mark - 默认情况下,talbeView以及内置的RJCell中的textView、textField、switch等,对应的delegate/dataSource为RJTableViewAgent.如果对应的block能满足需求的话,推荐使用block.如果必须要获取这些delegate的所有权,而且想保留RJTableViewAgent的一些功能,可以在对应的代理方法中调用下方这些对应方法,
+#pragma mark - 默认情况下,talbeView以及内置的RJCell中的textView、textField、switch等,对应的delegate/dataSource为RJTableViewAgent.如果cellInfo中对应的block能满足需求的话,推荐使用block.如果必须要获取这些delegate的所有权,而且想保留RJTableViewAgent的一些功能,可以在对应的代理方法中调用下方这些对应方法,
 
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;

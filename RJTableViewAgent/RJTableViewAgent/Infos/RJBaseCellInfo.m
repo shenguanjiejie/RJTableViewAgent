@@ -35,7 +35,7 @@
         _lineColor = [RJTableViewAgentConfig sharedConfig].separateColor;
         _backgroundColor = [UIColor whiteColor];
         _bindingStringMinLength = 0;
-        _bindingStringMaxLength = NSNotFound;
+        _bindingStringMaxLength = 0;
         _cellVariety = RJCellVarietyAll;
         [self addBindingStringObserver];
         self.mutableBindingString = [NSMutableString string];

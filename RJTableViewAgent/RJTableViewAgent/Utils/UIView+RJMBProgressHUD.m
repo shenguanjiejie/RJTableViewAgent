@@ -36,6 +36,7 @@ static void const *hudKey = @"hudKey";
     [self hideHud];
     
     self.rj_hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    self.rj_hud.detailsLabel.font = [UIFont systemFontOfSize:16];
     // 再设置模式
     if (!icon) {
         self.rj_hud.mode = MBProgressHUDModeText;
@@ -92,6 +93,7 @@ static void const *hudKey = @"hudKey";
 
     self.rj_hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
 //    self.hud.dimBackground = YES;
+    self.rj_hud.detailsLabel.font = [UIFont systemFontOfSize:16];
     self.rj_hud.removeFromSuperViewOnHide = YES;
     self.rj_hud.mode = MBProgressHUDModeIndeterminate;
     self.rj_hud.detailsLabel.text = message;

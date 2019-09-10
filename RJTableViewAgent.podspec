@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
 
 s.name         = "RJTableViewAgent"
-s.version      = "1.0.9.0"
-s.summary      = "将常用的一些Cell封装了到了RJTableViewAgent中,使得使用UITableView的时候可以快速开发,尤其是表单页面,可节省大量时间.不太适合类似带有分页的或频繁变动的数据列表页面"
+s.version      = "1.1.0.0"
+s.summary      = "你是追求效率的人呀~"
 s.homepage     = "https://github.com/shenguanjiejie/RJTableViewAgent"
 s.license = { :type => 'MIT'}
 s.author             = { "shenguanjiejie" => "835166018@qq.com" }

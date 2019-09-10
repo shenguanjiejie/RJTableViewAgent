@@ -83,18 +83,19 @@
 
 
 #pragma mark - YBImageBrowserDataSource
-
-- (NSUInteger)yb_numberOfCellForImageBrowserView:(YBImageBrowserView *)imageBrowserView{
+- (NSInteger)yb_numberOfCellsInImageBrowser:(YBImageBrowser *)imageBrowser{
     return self.cycleImages.count;
 }
 
-- (id<YBImageBrowserCellDataProtocol>)yb_imageBrowserView:(YBImageBrowserView *)imageBrowserView dataForCellAtIndex:(NSUInteger)index{
-    YBVideoBrowseCellData *data = [YBVideoBrowseCellData new];
+- (id<YBIBDataProtocol>)yb_imageBrowser:(YBImageBrowser *)imageBrowser dataForCellAtIndex:(NSInteger)index{
+    YBIBImageData *data = [YBIBImageData new];
     RJImage *image = self.cycleImages[index];
     if (image.image) {
-        data.firstFrame = image.image;
+        data.image = ^UIImage * _Nullable{
+            return image.image;
+        };
     }else if (image.url){
-        data.url = [NSURL URLWithString:image.url];
+        data.imageURL = [NSURL URLWithString:image.url];
     }
     return data;
 }

@@ -1,14 +1,16 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
-  - IQKeyboardManager (6.2.1)
+  - IQKeyboardManager (6.4.0)
   - MBProgressHUD (1.1.0)
   - RJVFL (1.0.4)
-  - SDWebImage (5.0.1):
-    - SDWebImage/Core (= 5.0.1)
-  - SDWebImage/Core (5.0.1)
+  - SDWebImage (5.1.0):
+    - SDWebImage/Core (= 5.1.0)
+  - SDWebImage/Core (5.1.0)
   - TYCyclePagerView (1.2.0)
-  - YBImageBrowser (2.1.7):
-    - SDWebImage (~> 5.0.0)
+  - YBImageBrowser (3.0.4):
+    - YBImageBrowser/Core (= 3.0.4)
+  - YBImageBrowser/Core (3.0.4):
+    - SDWebImage (>= 5.0.0)
     - YYImage
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
@@ -39,15 +41,15 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  IQKeyboardManager: 964638372b4a61892cc74fdfa6fd26de8c9464a2
+  IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   RJVFL: 0c8137086b266b6127933237ab1627e842dcf101
-  SDWebImage: 27dd2c9ea07a2252f94557c9fbb6105ee94b74c9
+  SDWebImage: fb387001955223213dde14bc08c8b73f371f8d8f
   TYCyclePagerView: 2b051dade0615c70784aa34f40c646feeddb7344
-  YBImageBrowser: 26bb62ae7ba7fef423085d431637d16fb58a6cbd
+  YBImageBrowser: c02f42bbc89955f5a88ddb57e0b94ff9fdbee461
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
 PODFILE CHECKSUM: 79af3b5163b8ec111508af0c2bb6438f079514a9
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.2

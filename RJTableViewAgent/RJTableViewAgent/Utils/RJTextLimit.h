@@ -54,15 +54,6 @@ static NSString * const RJTextLimitUsernameRegex = @"^[a-zA-Z0-9_-]{4,16}$";
 
 @interface RJTextLimit : NSObject
 
-/**
-目前只支持
- RJTextLimitNumber | RJTextLimitDecimal
- RJTextLimitNumber | RJTextLimitDecimal2
- RJTextLimitNumberAll | RJTextLimitDecimal
- RJTextLimitNumberAll | RJTextLimitDecimal2
- 四种合并检测
- TODO:可以使用一个字典进行匹配,则可支持所有合并检测,暂时未实现
- */
 + (BOOL)validateWithText:(NSString *)text limit:(RJTextLimitType)limit;
 
 + (BOOL)matchesRegex:(NSString *)regex withString:(NSString *)string options:(NSRegularExpressionOptions)options;

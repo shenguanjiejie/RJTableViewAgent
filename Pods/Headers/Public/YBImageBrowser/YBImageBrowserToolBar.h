@@ -1,1 +1,0 @@
-../../../YBImageBrowser/YBImageBrowser/AuxiliaryView/YBImageBrowserToolBar.h

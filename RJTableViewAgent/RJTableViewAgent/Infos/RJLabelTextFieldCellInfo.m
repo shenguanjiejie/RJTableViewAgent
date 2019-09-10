@@ -38,4 +38,9 @@
     self.textFieldText = self.bindingString;
 }
 
+- (void)setMaxTextLength:(CGFloat)maxTextLength{
+    _maxTextLength = maxTextLength;
+    self.bindingStringMaxLength = maxTextLength;
+}
+
 @end

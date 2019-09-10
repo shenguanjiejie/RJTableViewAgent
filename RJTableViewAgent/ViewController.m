@@ -89,7 +89,7 @@
     RJLabelButtonCellInfo *labelButtonInfo = [_tableViewAgent addLabelButtonCellWithText:@"这是LabelButtonCell" font:kRJFontSize(14)];
     labelButtonInfo.buttonTitle = @"button1";
     
-    [_tableViewAgent addSwitchCellWithText:@"这是SwitchCell" font:kRJFontSize(14) isOn:NO];
+    [_tableViewAgent addSwitchCellWithText:@"这是SwitchCell" font:kRJFontSize(14) isOn:NO].cellHeight = 50;
     
     RJImageLabelCellInfo *imageLabelInfo = [_tableViewAgent addImageLabelCellWithText:@"这是ImageLabelCell" font:kRJFontSize(14) image:github2 imageSize:CGSizeMake(35, 35)];
     imageLabelInfo.cellHeight = 60;
@@ -132,19 +132,23 @@
     twoLabelButtonInfo.buttonTitle = @"button3";
     twoLabelButtonInfo.buttonWidth = 55;
     twoLabelButtonInfo.detailLabelRightMarginConstant = 60;
+    twoLabelButtonInfo.didTapButtonBlock = ^(UIButton *button, __kindof RJImageVTwoLabelButtonCellInfo *info) {
+        NSLog(@"点击了button3");
+    };
 }
 
 - (void)addTextFieldCells{
-    RJLabelTextFieldCellInfo *textFieldInfo = [_tableViewAgent addTextFieldCellWithText:@"姓名: " font:kRJFontSize(14) textFieldText:nil textFieldFont:kRJFontSize(14) placeholder:@"请输入姓名(限制输入6字符)"];
-    /**RJ 2019-01-01 22:47:06 输入限制6个字符*/
+    RJLabelTextFieldCellInfo *textFieldInfo = [_tableViewAgent addTextFieldCellWithText:@"姓名: " font:kRJFontSize(14) textFieldText:nil textFieldFont:kRJFontSize(14) placeholder:@"请输入姓名(限制输入2-6字符)"];
+    /**RJ 2019-09-10 21:03:24 输入最少两个字符*/
+    textFieldInfo.bindingStringMinLength = 2;
+    /**RJ 2019-01-01 22:47:06 输入最多6个字符*/
     textFieldInfo.maxTextLength = 6;
-    /**RJ 2019-01-01 16:16:17 校验限制6个字符*/
-    textFieldInfo.bindingStringMaxLength = 6;
+    /**RJ 2019-09-10 21:18:56 动态绑定*/
     self.name = textFieldInfo.bindingString;
     textFieldInfo.lineHidden = NO;
     
     
-    RJLabelTextFieldCellInfo *textFieldInfo2 = [_tableViewAgent addTextFieldCellWithText:@"身高: " font:kRJFontSize(14) textFieldText:nil textFieldFont:kRJFontSize(14) placeholder:@"请输入身高(整数或不超过两位小数)"];
+    RJLabelTextFieldCellInfo *textFieldInfo2 = [_tableViewAgent addTextFieldCellWithText:@"身高: " font:kRJFontSize(14) textFieldText:nil textFieldFont:kRJFontSize(14) placeholder:@"请输入身高(整数或者不超过两位小数)"];
     /**RJ 2019-01-01 16:20:53 正则限制输入两位小数*/
     textFieldInfo2.textLimit = RJTextLimitNumber | RJTextLimitDecimal2;
     textFieldInfo2.lineHidden = NO;
@@ -156,6 +160,8 @@
     textViewInfo.topMargin = 10;
     textViewInfo.keyboardType = UIKeyboardTypeDefault;
     textViewInfo.textViewCellType = RJTextViewCellTypeBorder;
+    /**RJ 2019-09-10 21:14:18 配置提示前缀*/
+    textViewInfo.bindingStringValidatePrefix = @"椭圆框框内";
     /**RJ 2019-01-01 16:28:08 用来设置固定cell高度*/
     textViewInfo.cellHeight = 150;
 }
@@ -195,7 +201,6 @@
     };
 }
 
-
 - (void)addButtonCell{
     RJButtonCellInfo *buttonCellInfo = [_tableViewAgent addButtonCellWithBackgroundColor:kRJRGBAColor(32, 149, 242, 1)];
     buttonCellInfo.cellHeight = 60;
@@ -207,10 +212,11 @@
     __weak __typeof(self) weakSelf = self;
     buttonCellInfo.didTapButtonBlock = ^(UIButton *button, __kindof RJButtonCellInfo *info) {
         __strong __typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf.view endEditing:YES];
         /**RJ 2019-01-01 22:40:45 由于self.name和bindingString绑定,能够动态取到对应的文本*/
         NSLog(@"你的姓名是:%@",self.name);
         if ([strongSelf.tableViewAgent validateBindingStringWithAlert:YES]) {
-            NSLog(@"所有数据合法,可以保存了...");
+            [strongSelf.view showAutohideMessage:@"所有数据合法,可以保存了..."];
         }else{
             NSLog(@"输入有误...");
         }

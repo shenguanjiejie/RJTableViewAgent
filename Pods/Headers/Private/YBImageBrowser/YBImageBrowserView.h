@@ -1,1 +1,0 @@
-../../../YBImageBrowser/YBImageBrowser/Base/YBImageBrowserView.h

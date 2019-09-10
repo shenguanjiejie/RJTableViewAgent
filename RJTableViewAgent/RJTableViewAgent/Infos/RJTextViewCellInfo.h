@@ -53,8 +53,10 @@ typedef NS_ENUM(NSUInteger, RJTextViewCellType) {
 /** 没有用上*/
 @property (nonatomic, assign) BOOL textViewScrollEnable;
 
+/**RJ 2019-09-10 15:58:49 输入限制,正则校验*/
 @property (nonatomic, assign) RJTextLimitType textLimit;
 
+/**RJ 2019-09-10 15:57:35 自定义附加正则校验*/
 @property (nonatomic, copy) NSString *subRegex;
 
 /**样式*/

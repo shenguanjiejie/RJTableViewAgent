@@ -22,6 +22,7 @@ typedef BOOL(^RJTextFieldShouldChangeCharactersBlock)(UITextField *textField,__k
 
 @property (nonatomic, copy) NSString *placeholder;
 
+/**RJ 2019-09-10 20:59:15 会同步设置bindingStringMaxLength属性*/
 @property (nonatomic, assign) CGFloat maxTextLength;
 
 @property (nonatomic, assign) UIKeyboardType keyboardType;
@@ -32,16 +33,10 @@ typedef BOOL(^RJTextFieldShouldChangeCharactersBlock)(UITextField *textField,__k
 
 @property (nonatomic, assign) CGFloat titleLabTextFieldInterval;
 
-/**
- 目前只支持
- RJTextLimitNumber | RJTextLimitDecimal
- RJTextLimitNumber | RJTextLimitDecimal2
- RJTextLimitNumberAll | RJTextLimitDecimal
- RJTextLimitNumberAll | RJTextLimitDecimal2
- 四种合并Limit
- */
+/**RJ 2019-09-10 15:19:11 正则校验*/
 @property (nonatomic, assign) RJTextLimitType textLimit;
 
+/**RJ 2019-09-10 15:57:35 自定义附加正则校验*/
 @property (nonatomic, copy) NSString *subRegex;
 
 /** default:249*/
