@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "RJTableViewAgent"
-s.version      = "1.1.0.0"
+s.version      = "v1.1.0"
 s.summary      = "你是追求效率的人呀~"
 s.homepage     = "https://github.com/shenguanjiejie/RJTableViewAgent"
 s.license = { :type => 'MIT'}
