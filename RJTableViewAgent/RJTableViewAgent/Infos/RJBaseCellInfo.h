@@ -92,6 +92,9 @@ typedef void (^RJCellForRowAtIndexPathBlock)(__kindof UITableViewCell *cell,NSIn
 /**default:NO*/
 @property (nonatomic, assign, getter=isHidden) BOOL hidden;
 
+/**RJ 2019-09-12 00:45:12
+    用该方法设置四周margin,会覆盖topMargin,leftMargin,bottomMargin,rightMargin四个属性的设置
+ */
 @property (nonatomic, assign) UIEdgeInsets layoutMargins;
 
 @property (nonatomic, assign) CGFloat topMargin;
@@ -109,6 +112,7 @@ typedef void (^RJCellForRowAtIndexPathBlock)(__kindof UITableViewCell *cell,NSIn
 @property (nonatomic, assign) CGFloat lineLeftMargin;
 @property (nonatomic, assign) CGFloat lineRightMargin;
 
+/**RJ 2019-09-12 00:47:09 cell的最低高度*/
 @property (nonatomic, assign) CGFloat minHeight;
 
 @property (nonatomic, copy) RJDidSelectRowAtIndexPathBlock didSelectRowAtIndexPathBlock;
