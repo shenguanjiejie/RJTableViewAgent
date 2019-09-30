@@ -22,6 +22,9 @@
         self.lineColor = [RJTableViewAgentConfig sharedConfig].separateColor;
         self.lineHeight = 1;
         self.topMargin = 0;
+        self.lineViewBottomMargin = 15;
+        self.bottomMargin = 0;
+        self.numLabBottomMargin = 0;
         self.autoNumLabHidden = YES;
         self.textViewUserInteractionEnabled = YES;
         self.placeholderColor = [RJTableViewAgentConfig sharedConfig].placeholderColor;

@@ -34,9 +34,17 @@ typedef NS_ENUM(NSUInteger, RJTextViewCellType) {
 //@property (nonatomic, assign) CGFloat minHeight;
 @property (nonatomic, strong) UIColor *numLabTextColor;
 
+/**RJ 2019-09-30 15:35:46 _lineView到contentView底部的距离 default: 15*/
+@property (nonatomic, assign) CGFloat lineViewBottomMargin;
+
+/**RJ 2019-09-30 15:28:28 default: 0*/
 @property (nonatomic, assign) CGFloat textViewTopMargin;
 
+/**RJ 2019-09-30 15:28:28 为到_lineView的距离 default: 0*/
 @property (nonatomic, assign) CGFloat textViewBottomMargin;
+
+/**RJ 2019-09-30 15:30:25 default: 0*/
+@property (nonatomic, assign) CGFloat numLabBottomMargin;
 
 @property (nonatomic, assign) CGFloat textViewCellCurrentHeight;
 

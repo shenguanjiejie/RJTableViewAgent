@@ -33,7 +33,7 @@ static void const *hudKey = @"hudKey";
 
 -(void)show:(NSString *)text icon:(NSString *)icon autohide:(BOOL)autohide
 {
-    [self hideHud];
+    [self removeHud];
     
     self.rj_hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
     self.rj_hud.detailsLabel.font = [UIFont systemFontOfSize:16];
@@ -56,7 +56,7 @@ static void const *hudKey = @"hudKey";
     self.rj_hud.customView = imageView;
     
     if (autohide) {
-        [self.rj_hud hideAnimated:YES afterDelay:1 + text.length * 0.05];
+        [self.rj_hud hideAnimated:YES afterDelay:1 + text.length * 0.1];
     }
 }
 
@@ -85,9 +85,8 @@ static void const *hudKey = @"hudKey";
         if (self.rj_hud.mode == MBProgressHUDModeIndeterminate) {
             self.rj_hud.detailsLabel.text = message;
             return;
-        }else if (self.rj_hud.mode == MBProgressHUDModeCustomView || self.rj_hud.mode == MBProgressHUDModeText){
-            [self.rj_hud removeFromSuperview];
-            self.rj_hud = nil;
+        }else{
+            [self removeHud];
         }
     }
 
@@ -99,7 +98,7 @@ static void const *hudKey = @"hudKey";
     self.rj_hud.detailsLabel.text = message;
 }
 
-- (void)hideHud{
+- (void)removeHud{
     if (self.rj_hud) {
         [self.rj_hud hideAnimated:YES];
         [self.rj_hud removeFromSuperview];

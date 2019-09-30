@@ -23,7 +23,7 @@
 
 - (void)showAutohideMessage:(NSString *)message;
 
-- (void)hideHud;
+- (void)removeHud;
 
 -(void)showHudWithMessage:(NSString *)message;
 

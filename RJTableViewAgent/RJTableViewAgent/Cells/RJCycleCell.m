@@ -90,6 +90,7 @@
 - (id<YBIBDataProtocol>)yb_imageBrowser:(YBImageBrowser *)imageBrowser dataForCellAtIndex:(NSInteger)index{
     YBIBImageData *data = [YBIBImageData new];
     RJImage *image = self.cycleImages[index];
+    data.projectiveView = self.imageView;
     if (image.image) {
         data.image = ^UIImage * _Nullable{
             return image.image;

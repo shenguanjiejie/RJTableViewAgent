@@ -50,11 +50,15 @@
         _numLab.textAlignment = NSTextAlignmentRight;
         [self.contentView addSubview:_numLab];
         
-        NSDictionary *views = @{@"_textView":_textView,@"_lineView":self.lineView,@"_numLab":_numLab};
-        NSDictionary *metrics = @{@"margin":@15,@"labelH":@20};
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_textView]-margin-|" options:0 metrics:metrics views:views]];
-//        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_lineView]-margin-|" options:0 metrics:metrics views:views]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_lineView]-5-[_numLab(10)]|" options:NSLayoutFormatAlignAllLeft | NSLayoutFormatAlignAllRight metrics:metrics views:views]];
+//        NSDictionary *views = @{@"_textView":_textView,@"_lineView":self.lineView,@"_numLab":_numLab};
+//        NSDictionary *metrics = @{@"margin":@15,@"labelH":@20};
+//        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-margin-[_textView]-margin-|" options:0 metrics:metrics views:views]];
+//        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_lineView]-5-[_numLab(10)]|" options:NSLayoutFormatAlignAllLeft | NSLayoutFormatAlignAllRight metrics:metrics views:views]];
+        [_textView addLeftMarginConstraintWithConstant:0];
+        [_textView addRightMarginConstraintWithConstant:0];
+        [self.contentView addBottomAlignConstraintToView:_numLab constant:0];
+        [_numLab addRightMarginConstraintWithConstant:0];
+        [_numLab addHeightConstraintWithConstant:10];
         
         _topConstraint = [NSLayoutConstraint constraintWithItem:_textView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:_topMargin];
         _minHeightConstraint = [NSLayoutConstraint constraintWithItem:_textView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0];
@@ -70,7 +74,7 @@
 }
 
 - (void)setLineViewBottomLayout{
-    
+    [self.contentView addBottomAlignConstraintToView:self.lineView constant:15];
 }
 
 - (void)setTopMargin:(CGFloat)topMargin{

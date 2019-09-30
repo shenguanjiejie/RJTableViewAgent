@@ -164,6 +164,7 @@
     textViewInfo.bindingStringValidatePrefix = @"椭圆框框内";
     /**RJ 2019-01-01 16:28:08 用来设置固定cell高度*/
     textViewInfo.cellHeight = 150;
+    textViewInfo.maxTextLength = 150;
 }
 
 - (void)addCollectionViewCell{

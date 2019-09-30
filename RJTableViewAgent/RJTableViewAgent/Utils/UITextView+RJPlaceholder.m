@@ -60,7 +60,7 @@ static const void *kTextViewInputLimitMaxLength = &kTextViewInputLimitMaxLength;
     dispatch_once(&onceToken, ^{
         UITextField *textField = [[UITextField alloc] init];
         textField.placeholder = @" ";
-        color = [textField valueForKeyPath:@"_placeholderLabel.textColor"];
+        color =  [UIColor colorWithRed:199/255.0 green:199/255.0 blue:205/255.0 alpha:1.0];
     });
     return color;
 }

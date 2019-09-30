@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-/**RJ 2019-01-02 14:25:22 参考 https://github.com/shenguanjiejie/UITextView-Placeholder*/
+/**RJ 2019-01-02 14:25:22 参考 https://github.com/shenguanjiejie/UITextView-Placeholder */
 
 @import UIKit;
 

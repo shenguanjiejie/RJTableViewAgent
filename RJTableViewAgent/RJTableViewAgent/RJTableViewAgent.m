@@ -692,9 +692,11 @@
             textViewCell.textView.placeholder = textViewInfo.placeholder;
             textViewCell.textView.placeholderColor = textViewInfo.placeholderColor;
             
+            textViewCell.lineView.bottomConstraint.constant = -textViewInfo.lineViewBottomMargin;
             textViewCell.topMargin = textViewInfo.topMargin;
             textViewCell.minHeight = textViewInfo.minHeight;
             textViewCell.bottomMargin = textViewInfo.bottomMargin;
+            textViewCell.numLab.bottomConstraint.constant = -textViewInfo.numLabBottomMargin;
             textViewCell.textView.textViewMaxLength = textViewInfo.maxTextLength;
             textViewCell.textView.font = textViewInfo.font;
             textViewCell.textView.userInteractionEnabled = textViewInfo.textViewUserInteractionEnabled;
